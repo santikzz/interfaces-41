@@ -131,7 +131,7 @@ main {
 }
 
 .hero-carousel .hero-container {
-    z-index: 20;
+    z-index: 30;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -144,7 +144,7 @@ main {
 }
 
 .hero-carousel .hero-carousel-actions {
-    z-index: 30;
+    z-index: 20;
     position: absolute;
     top: 0;
     bottom: 0;
