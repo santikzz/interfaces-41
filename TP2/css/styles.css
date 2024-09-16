@@ -100,27 +100,36 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
 }
 
-.hero-carousel {
+.hero-carousel-wrapper {
     display: flex;
-    width: 100%;
     height: 420px;
     background-color: gray;
     position: relative;
 }
 
-.hero-carousel .hero-carousel-item {
-    width: 100%;
+.hero-carousel-wrapper .hero-carousel {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* overflow: hidden; */
+    width: 100vw;
+    transition: transform 1s ease-in-out;
+}
+
+.hero-carousel .hero-slide {
+    width: 100vw;
+    flex-shrink: 0;
     object-fit: cover;
 }
 
-.hero-carousel .hero-gradient-overlay::before {
+.hero-carousel-wrapper .hero-gradient-overlay::before {
     content: "";
 }
 
-.hero-carousel .hero-gradient-overlay {
+.hero-carousel-wrapper .hero-gradient-overlay {
     z-index: 10;
     position: absolute;
     top: 0;
@@ -130,7 +139,7 @@ main {
     background: linear-gradient(0deg, var(--background-300) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-.hero-carousel .hero-container {
+.hero-carousel-wrapper .hero-container {
     z-index: 30;
     position: absolute;
     top: 0;
@@ -143,7 +152,7 @@ main {
     align-items: center;
 }
 
-.hero-carousel .hero-carousel-actions {
+.hero-carousel-wrapper .hero-carousel-actions {
     z-index: 20;
     position: absolute;
     top: 0;
@@ -154,7 +163,7 @@ main {
     justify-content: space-between;
 }
 
-.hero-carousel .hero-carousel-actions .hero-carousel-action {
+.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action {
     padding: 0 2rem;
     font-size: 80px;
     background: none;
@@ -163,12 +172,13 @@ main {
     cursor: pointer;
 }
 
-.hero-carousel .hero-game-title {
+.hero-carousel-wrapper .hero-game-title {
     color: var(--text-white);
     text-align: center;
     font-size: 64px;
     font-family: Poppins-Bold;
     text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
+    transform: all 1s;
 }
 
 .btn {
@@ -218,18 +228,69 @@ main {
 
 }
 
-.cards-carousel {
+.cards-carousel-wrapper {
+    position: relative;
+}
+
+/* .cards-carousel-wrapper .cards-carousel-actions {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
+    justify-content: space-between;
+} */
+
+.cards-carousel-wrapper .card-carousel-action {
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    padding: 0 1rem;
+    font-size: 48px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    text-shadow: var(--text-shadow);
+    opacity: 75%;
+    transition: all;
+    transition-duration: 100ms;
+}
+
+.cards-carousel-wrapper .card-carousel-action.action-left {
+    left: 0;
+}
+
+.cards-carousel-wrapper .card-carousel-action.action-right {
+    right: 0;
+}
+
+.cards-carousel-wrapper .card-carousel-action:hover {
+    opacity: 100%;
+}
+
+.cards-carousel {
+
+    display: flex;
+    overflow: hidden;
     flex-direction: row;
     gap: 0.5rem;
-    overflow: hidden;
+    transition: transform 0.5s ease;
+    scroll-behavior: smooth;
+}
+
+.cards-carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .card {
+    flex: 0 0 300px;
     background-color: var(--background-100);
     border-radius: 10px;
     height: 175px;
-    min-width: 300px;
     position: relative;
     cursor: pointer;
     margin: 2px;

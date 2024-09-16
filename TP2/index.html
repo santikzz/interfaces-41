@@ -37,13 +37,13 @@
 
     <main>
 
-        <section id="hero" class="hero-carousel">
+        <section id="hero" class="hero-carousel-wrapper">
 
             <div class="hero-carousel-actions">
-                <button class="hero-carousel-action" id="hero-switch-prev">
+                <button class="hero-carousel-action" id="hero-prev">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
-                <button class="hero-carousel-action" id="hero-switch-next">
+                <button class="hero-carousel-action" id="hero-next">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -54,8 +54,11 @@
             </div>
 
             <div class="hero-gradient-overlay"></div>
-            <img src="static/rayman.jpg" class="hero-carousel-item" />
-
+            <div class="hero-carousel">
+                <img src="static/rayman.jpg" class="hero-slide" />
+                <img src="static/mk.jpg" class="hero-slide" />
+                <img src="static/street.jpg" class="hero-slide" />
+            </div>
         </section>
 
 
@@ -63,124 +66,137 @@
             <div class="card-section-header">
                 <label class="card-section-name">Para ti</label>
             </div>
-            <div class="cards-carousel">
-                
-                <div class="card">
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="cards-carousel-wrapper">
 
-                <div class="card">
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <button class="card-carousel-action action-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="card-carousel-action action-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
 
-                <div class="card">
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <div class="cards-carousel">
 
-                <div class="card">
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div><div class="card"></div>
-                    <img src="static/games/8ball.jpg" class="card-image">
-                    <div class="card-footer">
-                        <div class="card-footer-container">
-                            <label class="card-game-title">8 Ball Billards Classic</label>
-                            <label class="card-game-price">5.25 USD</label>
-                        </div>
-                        <div class="card-footer-container">
-                            <button class="card-btn">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="static/games/8ball.jpg" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Billards Classic</label>
+                                <label class="card-game-price">5.25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -265,6 +281,6 @@
 
 </body>
 
-<script src="scripts.js" async defer></script>
+<script src="scripts.js"></script>
 
 </html>
