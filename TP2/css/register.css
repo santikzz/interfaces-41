@@ -1,0 +1,111 @@
+body {
+    background-image: url('/static/rayman.jpg');
+    overflow: hidden;
+}
+
+.backdrop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+main.login {
+    position: absolute;
+    right: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    color: white;
+    position: absolute;
+    right: 8rem;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    width: 400px;  
+    height: 400px;
+    z-index: 20;
+    /* background-color: red; */
+    gap: 0.5rem;
+}
+
+.input {
+    border: none;
+    background-color: var(--background-200);
+    padding: 12.5px;
+}
+
+.btn-login {
+    padding: 12.5px;
+    box-shadow: none !important;
+}
+
+.third-party-label {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+    color: var(--text-gray);
+}
+
+.start {
+    text-align: start;
+}
+
+.third-party-login {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.third-party-login .btn {
+    flex: 1 1 0%;
+}
+
+.third-party-login .btn.btn-facebook {
+    background-color: #1877F2;
+}
+
+.third-party-login .btn.btn-google {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.register-label{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.register-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.captcha{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2rem;
+    gap: 6px;
+    margin: 0.5rem;
+    border-radius: 6px;
+}
+
+.terms-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: smaller;
+}
+
+h1{
+    color: white;
+}
