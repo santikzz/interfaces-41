@@ -1,8 +1,11 @@
+@import url(main.css);
+
 .hero-carousel-wrapper {
     display: flex;
     height: 420px;
     background-color: gray;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-carousel-wrapper .hero-carousel {

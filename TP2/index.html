@@ -9,19 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/poppins.css">
 </head>
 
 <body>
 
-
     <nav class="navbar">
 
         <div class="nav-container">
-            <i class="icon fa-solid fa-bars"></i>
+            <button class="toggle-sidenav"><i class="icon fa-solid fa-bars"></i></button>
             <img src="static/logo_full.png" class="nav-logo" />
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input placeholder="¿A qué quieres jugar?" />
         </div>
 
         <div class="nav-container">
@@ -30,11 +33,58 @@
             <div class="nav-profile">
                 <img src="static/bardo.jpg" class="nav-profile-image" />
                 <label class="nav-profile-name">Sta. Liv</label>
-                <i class="icon fa-solid fa-chevron-down"></i>
+                <button class="toggle-dropdown"><i class="icon fa-solid fa-chevron-down"></i></button>
             </div>
         </div>
 
+        <div class="dropdown">
+            <ul>
+                <li><i class="fa-solid fa-user"></i> Perfil</li>
+                <li><i class="fa-solid fa-list"></i> Biblioteca</li>
+                <li><i class="fa-solid fa-circle-question"></i> Ayuda</li>
+                <li><a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesion</a></li>
+            </ul>
+        </div>
+
     </nav>
+
+    <aside class="sidenav">
+        <ul>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+        </ul>
+    </aside>
 
     <main>
 
@@ -282,6 +332,6 @@
 
 </body>
 
-<script src="scripts.js"></script>
+<script src="scripts/index.js"></script>
 
 </html>
