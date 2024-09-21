@@ -203,6 +203,7 @@ main {
 
 .btn:hover {
     background-color: var(--primary-200);
+    color: var(--text-white);
 }
 
 .btn-xl {

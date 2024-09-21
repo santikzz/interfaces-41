@@ -7,32 +7,38 @@ hamburger.addEventListener('click', () => {
 });
 
 /* ======================= HERO CAROUSEL ======================= */
-let heroTitles = [
-    'Rayman Adventures: The Lost Treasure',
-    'Mortal Kombat The Alien Invasion',
-    'Street Fighter Rebelion Saga',
-];
-
 let heroCurrentPosition = 0;
-
 const heroCarouselWrapper = document.querySelector('.hero-carousel-wrapper');
 const heroCarousel = heroCarouselWrapper.querySelector('.hero-carousel');
-const heroTotalSides = heroCarousel.querySelectorAll('.hero-slide').length;
+const heroSlides = heroCarousel.querySelectorAll('.hero-slide');
 const heroTitle = heroCarouselWrapper.querySelector('.hero-game-title');
+const dotsContainer = heroCarouselWrapper.querySelector('.dots');
+const dots = heroCarouselWrapper.querySelectorAll('.dot');
+const heroTotalSides = heroSlides.length
+
+// for (let i = 0; i < heroTotalSides; i++){
+//     const d = document.createElement('li');
+//     d.classList.add('dot');
+//     dotsContainer.appendChild(d);
+// }
 
 const heroMoveCarousel = () => {
     const offset = -100 * heroCurrentPosition;
     heroCarousel.style.transform = `translateX(${offset}vw)`;
-    heroTitle.textContent = heroTitles[heroCurrentPosition];
+    heroTitle.textContent = heroSlides[heroCurrentPosition].dataset.title;
 }
 
 const heroNextSlide = () => {
+    dots[heroCurrentPosition].classList.toggle('big');
     heroCurrentPosition = (heroCurrentPosition + 1) % heroTotalSides;
+    dots[heroCurrentPosition].classList.toggle('big');
     heroMoveCarousel();
 }
 
 const heroPrevSlide = () => {
+    dots[heroCurrentPosition].classList.toggle('big');
     heroCurrentPosition = (heroCurrentPosition - 1 + heroTotalSides) % heroTotalSides;
+    dots[heroCurrentPosition].classList.toggle('big');
     heroMoveCarousel();
 }
 
