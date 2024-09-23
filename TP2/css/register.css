@@ -5,6 +5,15 @@ body {
     overflow: hidden;
 }
 
+main.registro{
+    background-color: var(--background-200);
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .backdrop {
     position: absolute;
     left: 0;
@@ -14,39 +23,65 @@ body {
     background-color: rgba(0, 0, 0, 0.65);
 }
 
-main.login {
-    position: absolute;
-    right: 0;
-    display: flex;
-    height: 100vh;
-}
-
 .container {
-    color: white;
-    position: absolute;
-    right: 8rem;
-    top: 25%;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
-    width: 400px;  
+    align-items: center;
+    width: auto;  
     height: 400px;
     z-index: 20;
-    /* background-color: red; */
-    gap: 0.5rem;
 }
 
+.back{
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.back:hover {
+    color: var(--primary-100); /* Esto aplica un color en hover */
+}
+
+.step{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: space-between;
+    display: none;
+    gap: 1rem;
+}
+
+.step.show{
+    display: flex;
+}
+
+.progress{
+    color: wheat;
+    background-color: red;
+    z-index: 2000000;
+    margin-bottom: 200px; /*solucion temproal*/
+}
+
+/**no tocar :D**/
 .input {
     border: none;
     background-color: var(--background-200);
     padding: 12.5px;
+    color: white;
 }
 
 .btn-login {
     padding: 12.5px;
     box-shadow: none !important;
+    width: 100%;
 }
 
 .third-party-label {
+    display: flex;
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
     text-align: center;
@@ -87,6 +122,8 @@ main.login {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .captcha{
