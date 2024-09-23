@@ -1,0 +1,278 @@
+@import url(main.css);
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0 auto;
+    width: 1158px;
+    height: 2313px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 25px 0;
+    gap: 20px;
+    width: 100%; 
+    height: auto; 
+}
+
+.go-back {
+    display: flex;
+    align-items: center;
+}
+.breadcrums {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+    color: var(--text-gray);
+    margin: 0; 
+}
+.header, .breadcrums {
+    width: auto;
+    height: auto; 
+    margin: 0;
+}
+.game-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0 auto;
+    gap: 10px;
+    width: 1158px;
+    height: 671px;
+    background:var( --background-100);
+    border-radius: 15px;
+}
+
+.vector {
+    width: 33px; 
+    height: 33px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+    gap: 50px;
+    width: 1158px;
+    height: 439px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    gap: 10px;
+    width: 1158px;
+    height: 50px;
+}
+
+.game-title {
+    width: 447px;
+    height: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color:var( --text-white);
+}
+
+.share {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 11px;
+    width: 139px;
+    height: 30px;
+}
+
+.bottom .compartir {
+    width: 106px;
+    height: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--accent-100);
+}
+.how2play {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 25px;
+    width: 1158px;
+    height: 319px;
+}
+
+.how2play-title {
+    width: 461px;
+    height: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text-white); 
+}
+
+.how2play-title-v {
+    color: var(--primary-100); 
+}
+
+.how2play-text {
+    width: 1158px;
+    height: 264px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-gray);
+}
+
+.how2play-text-s {
+    font-weight: 800; 
+}
+
+.game-instructions {
+    list-style-type: disc; 
+    padding-left: 20px; 
+    color:var(--text-gray);
+}
+
+.game-instructions li {
+    margin-bottom: 10px; 
+}
+.user-details{
+    display: flex;
+}
+/*<--------------------------COMENTARIOS--------------------------->*/
+.comentarios {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 10px 10px;
+    gap: 20px;
+    width: 842px;
+    height: 1113;
+}
+
+.comentarios-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--text-gray); 
+}
+
+.comentarios-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--primary-100);
+}
+
+.escribir-comentario {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.user-photo img {
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    border: 2px solid var(--primary-100);
+}
+.user-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-white);
+}
+.comentario-contenido{
+    gap: 10px;
+}
+.comentario-fecha {
+    font-size: 15px;
+    color: var(--text-gray);
+}
+.comentario-texto {
+    background: var(--background-200);
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 6px;
+    color: var(--text-gray);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+.user-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.comentarios-opciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.btn-comentar, .btn-cancelar {
+    background-color: var(--primary-100);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-cancelar{
+    background-color: black;
+    color: var(--text-white);
+    
+}
+
+.likes-detalles{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.cantidad-likes{
+    width: 35px;
+    height: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+.btn-comentar:hover {
+    background-color:var(--primary-200);
+    color: var(--text-white);
+}
+.btn-cancelar:hover {
+    background-color: red;
+    color: var(--text-white);
+}
+

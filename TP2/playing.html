@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego 4 en Línea - Zaun vs. Piltover</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/playing.css">
+    <link rel="stylesheet" href="css/poppins.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="toggle-sidenav"><i class="icon fa-solid fa-bars"></i></button>
+            <img src="static/logo_full.png" class="nav-logo" />
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input placeholder="¿A qué quieres jugar?" />
+        </div>
+
+        <div class="nav-container">
+            <i class="icon fa-solid fa-cart-shopping"></i>
+            <div class="nav-separator"></div>
+            <div class="nav-profile">
+                <img src="static/bardo.jpg" class="nav-profile-image" />
+                <label class="nav-profile-name">Srta. Liv</label>
+                <button class="toggle-dropdown"><i class="icon fa-solid fa-chevron-down"></i></button>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <ul>
+                <li><i class="fa-solid fa-user"></i> Perfil</li>
+                <li><i class="fa-solid fa-list"></i> Biblioteca</li>
+                <li><i class="fa-solid fa-circle-question"></i> Ayuda</li>
+                <li><a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesion</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <aside class="sidenav">
+        <ul>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+            <li>
+                <div class="placehodler"></div>Aventura
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main">
+
+        <header class="header">
+            <div class="go-back">
+                <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="35" height="35" rx="17.5" fill="#05855D"/>
+                    <path d="M21.375 10.25L13.625 18L21.375 25.75" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="breadcrums">Inicio > Estrategia > 3 en Raya </div>
+        </header>
+
+        <section class="game-placeholder">
+                    <a href="#" class="btn btn-xl rounded-xl"><i class="fa-solid fa-play"></i> Jugar ahora!</a>
+        </section>
+
+        <section class="bottom">
+            <div class="title">
+                <div class="game-title">4 en Línea - Zaun vs. Piltover</div>
+                <div class="share">
+                    <span class="compartir">Compartir</span>
+                    <div class="icon-share">
+                        <span class="vector">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5833 20.1663C14.8194 20.1663 14.1701 19.899 13.6353 19.3643C13.1006 18.8295 12.8333 18.1802 12.8333 17.4163C12.8333 17.3247 12.8562 17.1108 12.902 16.7747L6.46242 13.0163C6.21797 13.2455 5.93534 13.4252 5.6145 13.5553C5.29367 13.6855 4.94992 13.7503 4.58325 13.7497C3.81936 13.7497 3.17006 13.4823 2.63534 12.9476C2.10061 12.4129 1.83325 11.7636 1.83325 10.9997C1.83325 10.2358 2.10061 9.58648 2.63534 9.05176C3.17006 8.51704 3.81936 8.24967 4.58325 8.24967C4.94992 8.24967 5.29367 8.31476 5.6145 8.44492C5.93534 8.57509 6.21797 8.75445 6.46242 8.98301L12.902 5.22467C12.8714 5.11773 12.8525 5.01476 12.8452 4.91576C12.8378 4.81676 12.8339 4.70584 12.8333 4.58301C12.8333 3.81912 13.1006 3.16981 13.6353 2.63509C14.1701 2.10037 14.8194 1.83301 15.5833 1.83301C16.3471 1.83301 16.9964 2.10037 17.5312 2.63509C18.0659 3.16981 18.3333 3.81912 18.3333 4.58301C18.3333 5.3469 18.0659 5.9962 17.5312 6.53092C16.9964 7.06565 16.3471 7.33301 15.5833 7.33301C15.2166 7.33301 14.8728 7.26792 14.552 7.13776C14.2312 7.00759 13.9485 6.82823 13.7041 6.59967L7.2645 10.358C7.29506 10.465 7.31431 10.5682 7.32225 10.6678C7.3302 10.7675 7.33386 10.8781 7.33325 10.9997C7.33264 11.1213 7.32897 11.2322 7.32225 11.3324C7.31553 11.4326 7.29628 11.5356 7.2645 11.6413L13.7041 15.3997C13.9485 15.1705 14.2312 14.9911 14.552 14.8616C14.8728 14.732 15.2166 14.667 15.5833 14.6663C16.3471 14.6663 16.9964 14.9337 17.5312 15.4684C18.0659 16.0031 18.3333 16.6525 18.3333 17.4163C18.3333 18.1802 18.0659 18.8295 17.5312 19.3643C16.9964 19.899 16.3471 20.1663 15.5833 20.1663Z" fill="#05855D"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+     
+            <div class="how2play">
+                <div class="how2play-title">¿Cómo Jugar <span class="how2play-title-v">4 en Línea - Zaun vs. Piltover</span>?</div>
+                <ul class="game-instructions">
+                    <li><span class="how2play-text-s">Inicio del juego:</span> Haz clic en el botón "Jugar" para comenzar la partida. Luego, selecciona tu facción (Zaun o Piltover) haciendo clic en el ícono correspondiente.</li>
+                    <li><span class="how2play-text-s">Selecciona una columna:</span> tu turno, mueve el cursor sobre el tablero y verás que las columnas se resaltan al pasar por encima. Haz clic en la columna donde deseas dejar tu ficha.</li>
+                    <li><span class="how2play-text-s">Turno del oponente:</span> Espera a que tu oponente, ya sea la IA o un jugador en línea, haga su movimiento.</li>
+                    <li><span class="how2play-text-s">Ganar la partida:</span> El objetivo es conectar cuatro fichas consecutivas de tu color. Sigue colocando fichas haciendo clic en las columnas que te parezcan estratégicas para lograr una línea de cuatro en horizontal, vertical o diagonal.</li>
+                </ul>
+            </div>
+
+            <section class="comentarios">
+                <div class="comentarios-header">
+                    <span class="comentarios-titulo">Comentarios</span>
+                </div>
+                <div class="escribir-comentario">
+                    <div class="user-details">
+                        <div class="user-photo">
+                            <img src="static/bardo.jpg" class="image-89">
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">Srta. Liv</span>
+                            <span class="comentario-fecha">31/2/2024</span>
+                        </div>
+                    </div>
+                    <p class="comentario-texto">
+                        ¡Me encantó! Es el clásico 4 en línea pero con un toque súper original. Las habilidades de Zaun y Piltover le dan un giro estratégico que lo hace mucho más divertido. ¡Muy recomendado!
+                    </p>
+                </div>
+                <div class="comentarios-opciones">
+                    <button class="btn-cancelar">Cancelar</button>
+                    <button class="btn-comentar">Comentar</button>
+                </div>
+
+                <div class="escribir-comentario">
+                    <div class="user-details">
+                        <div class="user-photo">
+                            <img src="static/bardo.jpg" class="image-89">
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">HexaBlitzX</span>
+                            <span class="comentario-fecha">10/2/2023</span>
+                        </div>
+                    </div>
+                    <p class="comentario-texto">
+                        Un juego que transforma lo clásico en algo completamente nuevo. Las habilidades especiales hacen que cada partida sea una experiencia diferente, llena de estrategia y emoción. Perfecto para quienes buscan un desafío más allá de lo tradicional.
+                    </p>
+                    <div class="likes-detalles">
+                        <div class="cantidad-likes">
+                            <p>200</p>
+                        </div>
+                        <div class="vector"> 
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.0834 9.1665C21.0834 8.68027 20.8903 8.21396 20.5464 7.87014C20.2026 7.52633 19.7363 7.33317 19.2501 7.33317H13.4567L14.3367 3.144C14.3551 3.05234 14.3642 2.9515 14.3642 2.85067C14.3642 2.47484 14.2084 2.1265 13.9609 1.879L12.9892 0.916504L6.95758 6.94817C6.61841 7.28734 6.41675 7.74567 6.41675 8.24984V17.4165C6.41675 17.9027 6.6099 18.369 6.95372 18.7129C7.29754 19.0567 7.76385 19.2498 8.25008 19.2498H16.5001C17.2609 19.2498 17.9117 18.7915 18.1867 18.1315L20.9551 11.669C21.0376 11.4582 21.0834 11.2382 21.0834 10.9998V9.1665ZM0.916748 19.2498H4.58341V8.24984H0.916748V19.2498Z" fill="#7C3AED"/>
+                            </svg>
+                        </div>    
+                    </div>
+                </div>
+
+                <div class="escribir-comentario">
+                    <div class="user-details">
+                        <div class="user-photo">
+                            <img src="static/bardo.jpg" class="image-89">
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">VoltShade</span>
+                            <span class="comentario-fecha">31/2/2024</span>
+                        </div>
+                    </div>
+                    <p class="comentario-texto">
+                        Un clásico reinventado con un toque único. Las habilidades de Zaun y Piltover le añaden un giro estratégico que lo hace mucho más emocionante y desafiante. ¡Súper entretenido y muy recomendable para quienes buscan algo más que el típico 4 en línea!
+                    </p>
+                    <div class="likes-detalles">
+                        <div class="cantidad-likes">
+                            <p>380</p>
+                        </div>
+                        <div class="vector"> 
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.0834 9.1665C21.0834 8.68027 20.8903 8.21396 20.5464 7.87014C20.2026 7.52633 19.7363 7.33317 19.2501 7.33317H13.4567L14.3367 3.144C14.3551 3.05234 14.3642 2.9515 14.3642 2.85067C14.3642 2.47484 14.2084 2.1265 13.9609 1.879L12.9892 0.916504L6.95758 6.94817C6.61841 7.28734 6.41675 7.74567 6.41675 8.24984V17.4165C6.41675 17.9027 6.6099 18.369 6.95372 18.7129C7.29754 19.0567 7.76385 19.2498 8.25008 19.2498H16.5001C17.2609 19.2498 17.9117 18.7915 18.1867 18.1315L20.9551 11.669C21.0376 11.4582 21.0834 11.2382 21.0834 10.9998V9.1665ZM0.916748 19.2498H4.58341V8.24984H0.916748V19.2498Z" fill="#7C3AED"/>
+                            </svg>
+                        </div>    
+                    </div>
+                </div>
+
+                <div class="escribir-comentario">
+                    <div class="user-details">
+                        <div class="user-photo">
+                            <img src="static/bardo.jpg" class="image-89">
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">ShadowGears</span>
+                            <span class="comentario-fecha">31/2/2024</span>
+                        </div>
+                    </div>
+                    <p class="comentario-texto">
+                        Una versión fresca del clásico 4 en línea. Las mecánicas innovadoras con las habilidades de Zaun y Piltover lo convierten en un juego mucho más dinámico y divertido. Ideal para pasar horas jugando con amigos.
+                    </p>
+                    <div class="likes-detalles">
+                        <div class="cantidad-likes">
+                            <p>170</p>
+                        </div>
+                        <div class="vector"> 
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.0834 9.1665C21.0834 8.68027 20.8903 8.21396 20.5464 7.87014C20.2026 7.52633 19.7363 7.33317 19.2501 7.33317H13.4567L14.3367 3.144C14.3551 3.05234 14.3642 2.9515 14.3642 2.85067C14.3642 2.47484 14.2084 2.1265 13.9609 1.879L12.9892 0.916504L6.95758 6.94817C6.61841 7.28734 6.41675 7.74567 6.41675 8.24984V17.4165C6.41675 17.9027 6.6099 18.369 6.95372 18.7129C7.29754 19.0567 7.76385 19.2498 8.25008 19.2498H16.5001C17.2609 19.2498 17.9117 18.7915 18.1867 18.1315L20.9551 11.669C21.0376 11.4582 21.0834 11.2382 21.0834 10.9998V9.1665ZM0.916748 19.2498H4.58341V8.24984H0.916748V19.2498Z" fill="#7C3AED"/>
+                            </svg>
+                        </div>    
+                    </div>
+                </div>
+            </section>
+            
+        <footer class="footer">
+            <img src="static/logo_simple.png" class="footer-logo" />
+            <div class="footer-container">
+                <div class="footer-section">
+                    <label class="footer-section-title">Link de sitios</label>
+                    <label class="footer-section-item">Inicio</label>
+                    <label class="footer-section-item">Privacidad y seguridad</label>
+                </div>
+                <div class="footer-section">
+                    <label class="footer-section-title">Compania</label>
+                    <label class="footer-section-item">Sobre nosotros</label>
+                </div>
+                <div class="footer-section">
+                    <label class="footer-section-title">Ayuda</label>
+                    <label class="footer-section-item">Preguntas frecuentes</label>
+                </div>
+                <div class="footer-section">
+                    <label class="footer-section-title">Siguenos</label>
+                    <label class="footer-section-item">Facebook</label>
+                    <label class="footer-section-item">YouTube</label>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    
+</body>
+</html> 
