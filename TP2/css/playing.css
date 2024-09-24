@@ -1,4 +1,7 @@
 @import url(main.css);
+
+
+
 .main {
     display: flex;
     flex-direction: column;
@@ -8,6 +11,7 @@
     width: 1158px;
     height: 2313px;
     font-family: 'Poppins', sans-serif;
+    position: static;
 }
 
 .header {
@@ -276,3 +280,6 @@
     color: var(--text-white);
 }
 
+footer{
+    display: flex;
+}
