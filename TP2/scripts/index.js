@@ -16,12 +16,6 @@ const dotsContainer = heroCarouselWrapper.querySelector('.dots');
 const dots = heroCarouselWrapper.querySelectorAll('.dot');
 const heroTotalSides = heroSlides.length
 
-// for (let i = 0; i < heroTotalSides; i++){
-//     const d = document.createElement('li');
-//     d.classList.add('dot');
-//     dotsContainer.appendChild(d);
-// }
-
 const heroMoveCarousel = () => {
     const offset = -100 * heroCurrentPosition;
     heroCarousel.style.transform = `translateX(${offset}vw)`;
@@ -68,3 +62,18 @@ const dropdown = document.querySelector('.dropdown');
 toggleDropdown.addEventListener('click', () => {
     dropdown.classList.toggle('open');
 });
+
+/* ======================= ADD TO CART LOGIC ======================= */
+
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+
+    card.querySelector('.card-btn').addEventListener('click', () => {
+        card.classList.add('incart');
+        card.querySelector('i').classList.remove('fa-cart-shopping');
+        card.querySelector('i').classList.add('fa-cart-plus');
+    })
+
+});
+

@@ -11,7 +11,7 @@
     --secondary-200: #1E40AF;
 
     --accent-100: #05855D;
-    --accent-200: #082C22;
+    --accent-200: #03533A;
 
     --text-white: #ffffff;
     --text-gray: #777786;
@@ -62,6 +62,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem 0 1.5rem;
+    box-shadow: 0px 5px 15px rgba(24, 24, 27, 0.75);
 }
 
 .navbar .toggle-sidenav {
@@ -79,7 +80,20 @@ body {
     height: 50px;
 }
 
+.navbar .nav-logo.logo-desktop {
+    display: none;
+}
+
+.navbar .nav-logo.logo-mobile {
+    display: block;
+}
+
+.navbar #nav-cart-icon {
+    display: none;
+}
+
 .navbar .nav-separator {
+    display: none;
     background-color: var(--primary-100);
     width: 2px;
     height: 22px;
@@ -110,7 +124,8 @@ body {
 }
 
 .navbar .search-box {
-    display: flex;
+    /* display: flex; */
+    display: none;
     align-items: center;
     background-color: var(--background-100);
     gap: 0.5rem;
@@ -143,6 +158,10 @@ body {
     padding: 5px;
     display: none;
 
+}
+
+.navbar .dropdown #dropdown-cart-icon {
+    display: block;
 }
 
 .navbar .dropdown a {
@@ -221,32 +240,32 @@ main {
 .footer {
     margin-top: 10rem;
     background-color: var(--background-200);
-    height: 360px;
+    padding: 100px 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0 100px;
     gap: 100px;
     justify-content: space-between;
 
 }
 
 .footer .footer-logo {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .footer .footer-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer .footer-section {
     display: flex;
     flex-direction: column;
-
+    width: 100%;
+    padding: 0 50px;
 }
 
 .footer .footer-section .footer-section-title {
@@ -321,4 +340,73 @@ a:hover {
 
 .sidenav .placehodler::after {
     content: "";
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    .navbar {
+        background-color: var(--background-200);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5rem 0 1.5rem;
+        box-shadow: 0px 5px 15px rgba(24, 24, 27, 0.75);
+
+    }
+
+    .navbar .search-box {
+        display: flex;
+    }
+
+    .navbar .nav-logo.logo-desktop {
+        display: block;
+    }
+
+    .navbar .nav-logo.logo-mobile {
+        display: none;
+    }
+
+    .navbar .nav-separator {
+        display: block;
+    }
+
+    .navbar #nav-cart-icon {
+        display: block;
+    }
+
+    .navbar .dropdown #dropdown-cart-icon {
+        display: none;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: start;
+        padding: 100px;
+    }
+
+    .footer .footer-logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .footer .footer-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer .footer-section .footer-section-title {
+        color: var(--text-white);
+        font-size: 24px;
+        font-family: Poppins-SemiBold;
+    }
+
+    .footer .footer-section .footer-section-item {
+        color: var(--text-gray);
+        font-size: 24px;
+        font-family: Poppins-Regular;
+    }
+
 }

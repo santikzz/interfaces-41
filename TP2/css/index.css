@@ -74,7 +74,7 @@
 .hero-carousel-wrapper .hero-game-title {
     color: var(--text-white);
     text-align: center;
-    font-size: 64px;
+    font-size: 32px;
     font-family: Poppins-Bold;
     text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.75);
     transform: all 1s;
@@ -104,19 +104,23 @@
     transition: all 200ms ease-in-out;
 }
 
-.hero-carousel-wrapper .dots .dot.big{
+.hero-carousel-wrapper .dots .dot.big {
     width: 35px;
     border-radius: 20px;
 }
 
+.hero-carousel-wrapper .btn {
+    margin-top: 12px;
+    font-size: 24px;
+    text-wrap: nowrap;
+}
+
 .card-section {
-    padding: 1rem 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
-
-.card-section .card-section-header {}
 
 .card-section .card-section-header .card-section-name {
     font-family: Poppins-Medium;
@@ -135,17 +139,10 @@
     position: relative;
 }
 
-/* .cards-carousel-wrapper .cards-carousel-actions {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-} */
-
 .cards-carousel-wrapper .card-carousel-action {
+
+    display: none;
+
     z-index: 20;
     position: absolute;
     top: 0;
@@ -176,10 +173,9 @@
 }
 
 .cards-carousel {
-
     display: flex;
-    overflow: hidden;
-    flex-direction: row;
+    /* overflow: hidden; */
+    flex-direction: column;
     gap: 0.5rem;
     transition: transform 0.5s ease;
     scroll-behavior: smooth;
@@ -188,6 +184,8 @@
 .cards-carousel::-webkit-scrollbar {
     display: none;
 }
+
+/* ======= DEFAULT CARD ======= */
 
 .card {
     flex: 0 0 300px;
@@ -199,6 +197,7 @@
     margin: 2px;
     transition: all;
     transition-duration: 100ms;
+    max-height: 200px;
 }
 
 .card:hover {
@@ -266,4 +265,93 @@
 
 .card .card-btn:hover {
     background-color: var(--primary-200);
+}
+
+/* ======= BUY CARD ======= */
+
+.card.card-buy:hover {
+    outline: 2px solid var(--accent-100);
+}
+
+.card.card-buy .card-btn {
+    background-color: var(--accent-100);
+}
+
+.card.card-buy .card-btn:hover {
+    background-color: var(--accent-200);
+}
+
+/* ======= IN CART CARD ======= */
+
+.card.card-buy.incart .card-btn {
+    background-color: var(--accent-200);
+}
+
+.card .tag {
+    z-index: 20;
+    opacity: 0;
+    position: absolute;
+    min-width: 120px;
+    right: -7px;
+    top: 13px;
+    background-color: var(--accent-100);
+    padding: 4px 12px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.75);
+}
+
+.card.incart>.tag {
+    opacity: 1;
+    background-color: var(--accent-100);
+}
+
+.card.owned>.tag {
+    opacity: 1;
+    background-color: var(--primary-100);
+}
+
+.card .tag label {
+    color: var(--text-white);
+    font-family: Poppins-Medium;
+    font-size: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .cards-carousel {
+
+        display: flex;
+        overflow: hidden;
+        flex-direction: row;
+
+    }
+
+    .cards-carousel-wrapper {
+        position: relative;
+        display: flex;
+    }
+
+    .hero-carousel-apper .btn {
+        font-size: 36px;
+    }
+
+    .hero-carousel-wrapper .hero-game-title {
+        font-size: 64px;
+    }
+
+    .cards-carousel-wrapper .card-carousel-action {
+        display: block;
+    }
+
+    .card-section {
+        padding: 1rem 2rem;
+    }
+
+    .cards-carousel {
+        overflow: hidden;
+    }
+
 }

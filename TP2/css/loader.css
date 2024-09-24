@@ -16,6 +16,9 @@
     z-index: 1000;
     text-align: center;
     transition: opacity 1s ease;
+
+    /* uncomment to disable loader */
+    display: none;
 }
 
 .loader-icon {
