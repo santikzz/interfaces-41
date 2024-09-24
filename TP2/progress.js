@@ -69,5 +69,5 @@ function showCongratulations(){
 function calcularPorcentaje(pasoActual){
   const porcentaje = (pasoActual / totalPasos) * 100;
   progressBar.style.width = `${porcentaje}%`;
-  progressText.innerHTML = `Paso ${pasoActual} de ${totalPasos}`;
+  progressText.innerHTML = `${pasoActual} de ${totalPasos}`;
 }
