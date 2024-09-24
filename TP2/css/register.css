@@ -87,6 +87,18 @@ p{
     top: -24px;
 }
 
+.congratulations{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.congratulations.show{
+    display: flex;
+    z-index: 2000000;
+}
+
 /**no tocar :D**/
 .input {
     border: none;
@@ -103,7 +115,6 @@ p{
 }
 
 .third-party-label {
-    display: flex;
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
     text-align: center;
@@ -112,6 +123,8 @@ p{
 
 .start {
     text-align: start;
+    flex-direction: column;
+    width: 100%;
 }
 
 .third-party-login {
@@ -162,6 +175,7 @@ p{
 
 .terms-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 0.5rem;
     font-size: smaller;
