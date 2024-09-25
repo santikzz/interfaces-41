@@ -65,6 +65,8 @@ toggleDropdown.addEventListener('click', () => {
 
 /* ======================= ADD TO CART LOGIC ======================= */
 
+let itemsInCart = 0;
+const cartItems = document.querySelector('#cart-items');
 const cards = document.querySelectorAll('.card');
 
 cards.forEach(card => {
@@ -73,6 +75,10 @@ cards.forEach(card => {
         card.classList.add('incart');
         card.querySelector('i').classList.remove('fa-cart-shopping');
         card.querySelector('i').classList.add('fa-cart-plus');
+        
+        itemsInCart++;
+        cartItems.textContent = `(${itemsInCart})`;
+
     })
 
 });

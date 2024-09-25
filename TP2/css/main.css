@@ -97,6 +97,31 @@ body {
     display: none;
 }
 
+.navbar .cart{
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* gap: 0.25rem; */
+}
+
+.navbar .cart label{
+    color: var(--text-gray);
+}
+
+.navbar .cart .badge{
+    position: absolute;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    top: 0;
+    left: 0;
+}
+
+.navbar .cart .badge::after{
+    content: "";
+}
+
 .navbar .nav-separator {
     display: none;
     background-color: var(--primary-100);
