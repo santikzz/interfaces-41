@@ -8,9 +8,10 @@ body {
     overflow: hidden;
 }
 
+
 main.registro{
     background-color: var(--background-300);
-     width: 50vw;
+    width: 50vw;
     height: 100vh;
     display: flex;
     justify-content: space-between;
@@ -209,7 +210,7 @@ h1{
 }
 
 /**BUTTON REGISTRATE**/
-.next{
+.btn-2{
     background-color: #7C3AED;
     border: none;
     color: white;
@@ -224,20 +225,20 @@ h1{
     font-size: 17px;
     font-weight: 500;
     overflow: hidden;
-    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    position: relative;
+    margin-left: 18px; /*no se por que cuando es relative no se centraaa, por eso le puse el margiin :C!!*/
 }
 
 /*cartel registrate*/
-.next .registrate{
+.btn-2 .registrate{
     position: absolute;
     transform: translateX(0px); 
     transition: transform 0.5s ease-in-out;
 }
 
-.next:hover .registrate{
+.btn-2:hover .registrate{
     transition: transform 0.5s ease-out;
     transform: translateX(50vw);
 }
@@ -249,7 +250,7 @@ h1{
     left: -1rem;
 }
 
-.next:hover .btn-2-svg{
+.btn-2:hover .btn-2-svg{
     background-color: transparent;
     animation: show2 0.5s ;
     animation-fill-mode: forwards;
