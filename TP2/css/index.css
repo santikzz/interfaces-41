@@ -1,4 +1,5 @@
 @import url(main.css);
+@import url(animations.css);
 @import url(loader.css);
 
 .hero-carousel-wrapper {
@@ -15,7 +16,7 @@
     position: relative;
     /* overflow: hidden; */
     width: 100vw;
-    transition: transform 1s ease-in-out;
+    transition: transform 1s var(--ease-out-expo);
 }
 
 .hero-carousel .hero-slide {
@@ -67,8 +68,17 @@
     font-size: 80px;
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.25);
     cursor: pointer;
+}
+
+.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action i{
+    color: #ffffff;
+    opacity: 0.25;
+    transform: opacity 1s ease;
+}
+
+.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action i:hover{
+    opacity: 0.75;
 }
 
 .hero-carousel-wrapper .hero-game-title {
@@ -101,7 +111,7 @@
     height: 10px;
     background-color: var(--primary-100);
     border-radius: 20px;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease;
 }
 
 .hero-carousel-wrapper .dots .dot.big {
@@ -113,6 +123,11 @@
     margin-top: 12px;
     font-size: 24px;
     text-wrap: nowrap;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.hero-container .hero-play-now:hover {
+    transform: scale(1.2);
 }
 
 .card-section {
@@ -174,10 +189,9 @@
 
 .cards-carousel {
     display: flex;
-    /* overflow: hidden; */
-    flex-direction: column;
+    overflow-x: scroll;
+    flex-direction: row;
     gap: 0.5rem;
-    transition: transform 0.5s ease;
     scroll-behavior: smooth;
 }
 

@@ -1,5 +1,6 @@
 :root {
 
+    /* ======= Colors =======  */
     --background-100: #1F1F23;
     --background-200: #18181B;
     --background-300: #0E0E10;
@@ -18,8 +19,12 @@
 
     --btn-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
     --text-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
-
+    
+    /* ======= Header =======  */
     --header-height: 70px;
+
+    /* ======= Easing Curves =======  */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
 }
 

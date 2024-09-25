@@ -15,7 +15,7 @@
     background-color: var(--background-200);
     z-index: 1000;
     text-align: center;
-    transition: opacity 1s ease;
+    transition: pulseWOpacity 1s ease;
 
     /* uncomment to disable loader */
     display: none;
@@ -54,19 +54,3 @@
     font-family: Poppins-Medium;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
