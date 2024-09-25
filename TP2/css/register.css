@@ -209,7 +209,7 @@ h1{
 }
 
 /**BUTTON REGISTRATE**/
-.btn-2{
+.next{
     background-color: #7C3AED;
     border: none;
     color: white;
@@ -231,13 +231,13 @@ h1{
 }
 
 /*cartel registrate*/
-.btn-2 .registrate{
+.next .registrate{
     position: absolute;
     transform: translateX(0px); 
     transition: transform 0.5s ease-in-out;
 }
 
-.btn-2:hover .registrate{
+.next:hover .registrate{
     transition: transform 0.5s ease-out;
     transform: translateX(50vw);
 }
@@ -249,7 +249,7 @@ h1{
     left: -1rem;
 }
 
-.btn-2:hover .btn-2-svg{
+.next:hover .btn-2-svg{
     background-color: transparent;
     animation: show2 0.5s ;
     animation-fill-mode: forwards;
