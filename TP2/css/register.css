@@ -256,18 +256,28 @@ h1{
     animation-fill-mode: forwards;
 }
 
+/*flechita en next*/
+.flechita{
+    right: 1rem;
+    animation: regresar 0.3s;
+}
+
+button:hover .flechita{
+    animation: show2 0.3s forwards ;
+}
+
 @keyframes show2{
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(25vw);
+        transform: translateX(10px);
     }
 }
 
 @keyframes regresar{
     0% {
-        transform: translateX(25vw);
+        transform: translateX(10px);
     }
     100% {
         transform: translateX(0);
