@@ -49,10 +49,13 @@ function validateForm(step) {
   const inputs = document.querySelectorAll(`#step-${step} input`);
   let valid = true;
   inputs.forEach(input => {
+    if (input.classList.contains('optional')) {
+      return; 
+    }
     if (input.value === '') {
       input.style.border = '1px solid red';
       valid = false;
-    }
+    } 
     else{
       input.style.border = '1px solid #ccc';
     }
