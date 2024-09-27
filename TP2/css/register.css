@@ -14,7 +14,9 @@ main.registro{
     width: 50vw;
     height: 100vh;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     position: inherit;
 }
