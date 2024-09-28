@@ -71,13 +71,21 @@
     cursor: pointer;
 }
 
-.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action i{
-    color: #ffffff;
-    opacity: 0.25;
-    transform: opacity 1s ease;
+/* .hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action#hero-prev{
+    background: var(--shadow-gradient-left);
 }
 
-.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action i:hover{
+.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action#hero-next{
+    background: var(--shadow-gradient-right);
+} */
+
+.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action i {
+    color: #ffffff;
+    opacity: 0.25;
+    transition: opacity 200ms ease;
+}
+
+.hero-carousel-wrapper .hero-carousel-actions .hero-carousel-action:hover i {
     opacity: 0.75;
 }
 
@@ -157,12 +165,10 @@
 .cards-carousel-wrapper .card-carousel-action {
 
     display: none;
-
     z-index: 20;
     position: absolute;
     top: 0;
     bottom: 0;
-
     padding: 0 1rem;
     font-size: 48px;
     background: none;
@@ -170,20 +176,24 @@
     cursor: pointer;
     color: #ffffff;
     text-shadow: var(--text-shadow);
-    opacity: 75%;
-    transition: all;
-    transition-duration: 100ms;
 }
 
 .cards-carousel-wrapper .card-carousel-action.action-left {
     left: 0;
+    background: var(--shadow-gradient-left)
 }
 
 .cards-carousel-wrapper .card-carousel-action.action-right {
     right: 0;
+    background: var(--shadow-gradient-right)
 }
 
-.cards-carousel-wrapper .card-carousel-action:hover {
+.cards-carousel-wrapper .card-carousel-action i {
+    transition: opacity 200ms ease;
+    opacity: 75%;
+}
+
+.cards-carousel-wrapper .card-carousel-action:hover i {
     opacity: 100%;
 }
 
@@ -202,10 +212,10 @@
 /* ======= DEFAULT CARD ======= */
 
 .card {
-    flex: 0 0 300px;
     background-color: var(--background-100);
     border-radius: 10px;
-    height: 175px;
+    flex: 0 0 80vw;
+    aspect-ratio: 16/9;
     position: relative;
     cursor: pointer;
     margin: 2px;
@@ -237,7 +247,7 @@
     display: flex;
     flex-direction: row;
     padding: 5px 12px;
-    height: 55px;
+    height: 60px;
     align-items: center;
     justify-content: space-between;
     cursor: initial;
@@ -250,19 +260,24 @@
 
 .card .card-footer .card-game-title {
     color: var(--text-white);
-    font-size: 14px;
+    font-size: 16px;
     font-family: Poppins-SemiBold;
 }
 
 .card .card-footer .card-game-price {
     color: var(--text-gray);
-    font-size: 14px;
+    font-size: 16px;
     font-family: Poppins-Regular;
 }
 
+.center-fix {
+    margin-right: 3px;
+    margin-top: 2px;
+}
+
 .card .card-btn {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -272,7 +287,7 @@
     text-decoration: none;
     color: var(--text-white);
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     transition: all;
     transition-duration: 100ms;
 }
@@ -336,16 +351,18 @@
 @media only screen and (min-width: 768px) {
 
     .cards-carousel {
-
         display: flex;
         overflow: hidden;
         flex-direction: row;
-
     }
 
     .cards-carousel-wrapper {
         position: relative;
         display: flex;
+    }
+
+    .card {
+        flex: 0 0 350px;
     }
 
     .hero-carousel-apper .btn {
@@ -361,7 +378,7 @@
     }
 
     .card-section {
-        padding: 1rem 2rem;
+        padding: 1rem 0;
     }
 
     .cards-carousel {

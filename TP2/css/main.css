@@ -1,3 +1,5 @@
+@import url(poppins.css);
+
 :root {
 
     /* ======= Colors =======  */
@@ -19,12 +21,18 @@
 
     --btn-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
     --text-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
-    
+
+    --shadow-gradient-right: linear-gradient(270deg, rgb(14 14 16 / 90%) 0%, rgb(14 14 16 / 0%) 50%);
+    --shadow-gradient-left: linear-gradient(90deg, rgb(14 14 16 / 90%) 0%, rgb(14 14 16 / 0%) 50%);
+
     /* ======= Header =======  */
     --header-height: 70px;
 
     /* ======= Easing Curves =======  */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* ======= Horizontal Padding =======  */
+    --padding-x: 15rem;
 
 }
 
@@ -39,6 +47,7 @@ body {
     background-color: var(--background-300);
     display: flex;
     flex-direction: column;
+    font-family: Poppins-Regular;
 }
 
 .icon {
@@ -97,18 +106,18 @@ body {
     display: none;
 }
 
-.navbar .cart{
+.navbar .cart {
     position: relative;
     display: flex;
     align-items: center;
     /* gap: 0.25rem; */
 }
 
-.navbar .cart label{
+.navbar .cart label {
     color: var(--text-gray);
 }
 
-.navbar .cart .badge{
+.navbar .cart .badge {
     position: absolute;
     background-color: red;
     width: 20px;
@@ -118,7 +127,7 @@ body {
     left: 0;
 }
 
-.navbar .cart .badge::after{
+.navbar .cart .badge::after {
     content: "";
 }
 
@@ -176,7 +185,7 @@ body {
 
 .navbar .dropdown {
     position: absolute;
-    right: 0;
+    right: 15rem;
     margin: 5px;
     top: var(--header-height);
     background-color: var(--background-100);
@@ -227,10 +236,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
+    margin-top: var(--header-height);
 }
 
 .btn {
@@ -268,7 +274,7 @@ main {
 }
 
 .footer {
-    margin-top: 10rem;
+    margin-top: 5rem;
     background-color: var(--background-200);
     padding: 100px 0;
     display: flex;
@@ -330,7 +336,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     transform: translate(-100%, 0);
-    transition: transform 150ms ease-in-out;
+    transition: transform 200ms ease;
 
 }
 
@@ -375,15 +381,12 @@ a:hover {
 
 @media only screen and (min-width: 768px) {
 
-    .navbar {
-        background-color: var(--background-200);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1.5rem 0 1.5rem;
-        box-shadow: 0px 5px 15px rgba(24, 24, 27, 0.75);
+    main{
+        padding: 0 var(--padding-x);
+    }
 
+    .navbar {
+        padding: 0 var(--padding-x);
     }
 
     .navbar .search-box {
@@ -412,9 +415,9 @@ a:hover {
 
     .footer {
         flex-direction: row;
-        justify-content: space-evenly;
-        align-items: start;
-        padding: 50px;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 5rem var(--padding-x);
     }
 
     .footer .footer-logo {
@@ -425,18 +428,23 @@ a:hover {
     .footer .footer-section {
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
+        padding: 0;
+        width: max-content;        
     }
 
     .footer .footer-section .footer-section-title {
         color: var(--text-white);
-        font-size: 24px;
+        font-size: 16px;
         font-family: Poppins-SemiBold;
+        white-space: nowrap;
     }
 
     .footer .footer-section .footer-section-item {
         color: var(--text-gray);
-        font-size: 24px;
+        font-size: 16px;
         font-family: Poppins-Regular;
+        white-space: nowrap;
     }
 
 }
