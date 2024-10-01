@@ -9,6 +9,12 @@ body {
     overflow: hidden;
 }
 
+.registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 section.registro{
     background-color: var(--background-100);
     width: 50vw;
@@ -19,6 +25,7 @@ section.registro{
     justify-content: center;
     align-items: center;
     /* position: inherit; */
+    justify-content: space-beetween;
 }
 
 .backdrop {
@@ -86,7 +93,8 @@ section.registro{
     border-radius: 6px;
     text-align: center;
     background-color: var(--background-100); 
-    margin: 200px;
+    margin: 350px 200px 0 200px;
+
 }
 
 .progress-bar {
