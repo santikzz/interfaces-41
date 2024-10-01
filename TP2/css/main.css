@@ -371,7 +371,6 @@ a:hover {
 .sidenav ul li .placehodler {
     width: 30px;
     height: 30px;
-    background-color: #7C3AED;
 }
 
 .sidenav .placehodler::after {
