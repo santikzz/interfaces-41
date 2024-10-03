@@ -5,8 +5,8 @@
     align-items: flex-start;
     padding: 0;
     margin: 0 auto;
-    width: 1158px;
-    height: 2313px;
+    width: 1255px;
+    height: 2181px;
     font-family: 'Poppins', sans-serif;
     position: relative; 
 }
@@ -21,6 +21,7 @@
     width: 100%; 
     height: auto;
     position: relative;
+    margin-top: 70px;
 }
 
 .go-back {
@@ -34,15 +35,17 @@
     font-size: 20px;
     line-height: 36px;
     color: var(--text-gray);
-    margin: 0; 
-}
-
-.header, .breadcrums {
-    width: auto;
-    height: auto;
     margin: 0;
 }
 
+.breadcrums a {
+    color: var(--text-gray); 
+    text-decoration: none; 
+}
+
+.breadcrums a:hover {
+    color: var(--text-white);
+}
 .game-placeholder {
     display: flex;
     flex-direction: column;
@@ -51,7 +54,7 @@
     padding: 0;
     margin: 0 auto;
     gap: 10px;
-    width: 1158px;
+    width: 1255px;
     height: 671px;
     background: var(--background-100);
     border-radius: 15px;
@@ -65,13 +68,8 @@
 .bottom {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 0;
-    gap: 50px;
-    width: 1158px;
-    height: 439px;
+    gap: 20px;
 }
-
 .title {
     display: flex;
     flex-direction: row;
@@ -79,16 +77,19 @@
     align-items: center;
     padding: 10px 0;
     gap: 10px;
-    width: 1158px;
-    height: 50px;
+    width: 100%;
+    max-width: 1255px;
+    margin: 0 auto;
+    margin-top: 15px;
 }
 
 .game-title {
-    width: 447px;
+    width: auto;
     height: auto; 
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    font-family: 'Poppins';
+    font-weight: 700;
     font-size: 30px;
+    line-height: 30px;
     color: var(--text-white);
 }
 
@@ -102,6 +103,22 @@
     height: 30px;
 }
 
+.compartir {
+    width: 106px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--accent-100)
+}
+
+.icon-share {
+    width: 22px;
+    height: 22px;
+    position: relative; 
+}
+
 .bottom .compartir {
     width: 106px;
     height: 30px;
@@ -111,54 +128,33 @@
     color: var(--accent-100);
 }
 
-.how2play {
+.descripcion {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0;
     gap: 25px;
-    width: 1158px;
-    height: 319px;
 }
-
-.how2play-title {
-    width: 461px;
-    height: 30px;
+.descripcion-texto {
+    height: auto;
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--text-white);
-}
-
-.how2play-title-v {
-    color: var(--primary-100);
-}
-
-.how2play-text {
-    width: 1158px;
-    height: 264px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
     font-size: 16px;
     color: var(--text-gray);
 }
+.howtoplay{
+    width: 447px;
+    height: auto; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--text-white);
 
-.how2play-text-s {
-    font-weight: 800;
 }
-
-.game-instructions {
-    list-style-type: disc;
-    padding-left: 20px;
-    color: var(--text-gray);
-}
-
-.game-instructions li {
-    margin-bottom: 10px;
-}
-
 .user-details {
+    position: relative;
     display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 
@@ -168,7 +164,7 @@
     align-items: flex-start;
     padding: 50px 10px 10px;
     gap: 20px;
-    width: 842px;
+    width: 100%;
     height: auto; 
 }
 
@@ -203,7 +199,16 @@
     width: 35px;
     border: 2px solid var(--primary-100);
 }
-
+.user-photo-comment {
+    left: 0px;
+    top: 0px;
+}
+.user-photo-comment img {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    border: 2px solid var(--primary-100);
+}
 .user-name {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
@@ -223,7 +228,8 @@
 .comentario-texto {
     background: var(--background-200);
     padding: 10px 20px;
-    width: 100%;
+    width: 1182px;
+    height: 138px;
     border-radius: 6px;
     color: var(--text-gray);
     font-family: 'Poppins', sans-serif;
@@ -253,18 +259,15 @@
     padding-top: 10px;
 }
 
-.btn-comentar, .btn-cancelar {
+.btn-comentar{
+    display: flex;
+    align-self: flex-start;
     background-color: var(--primary-100);
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.btn-cancelar {
-    background-color: black;
-    color: var(--text-white);
 }
 
 .likes-detalles {
@@ -287,7 +290,4 @@
     color: var(--text-white);
 }
 
-.btn-cancelar:hover {
-    background-color: var(--background-100);
-    color: var(--text-white);
-}
+
