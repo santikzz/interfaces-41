@@ -18,8 +18,9 @@
 
     --text-white: #ffffff;
     --text-gray: #777786;
+    --text-lightgray: #BFBFBF;
 
-    --btn-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
+    --btn-shadow: 0 5px 10px rgba(26, 25, 25, 0.75);
     --text-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
 
     --shadow-gradient-right: linear-gradient(270deg, rgb(14 14 16 / 90%) 0%, rgb(14 14 16 / 0%) 50%);
