@@ -1,16 +1,4 @@
 @import url(main.css);
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    margin: 0 auto;
-    width: 1255px;
-    height: 2181px;
-    font-family: 'Poppins', sans-serif;
-    position: relative; 
-}
-
 .header {
     display: flex;
     flex-direction: row;
@@ -21,7 +9,6 @@
     width: 100%; 
     height: auto;
     position: relative;
-    margin-top: 70px;
 }
 
 .breadcrums {
@@ -46,13 +33,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 0 auto;
-    gap: 10px;
-    width: 1255px;
-    height: 671px;
     background: var(--background-100);
     border-radius: 15px;
+    height: 671px;
+    width: 1255px;
 }
 
 .vector {
@@ -173,7 +157,7 @@
 }
 
 .comment-details{
-    margin-left: 23px;
+    margin-left: 40px;
 }
 
 .write-comment {
