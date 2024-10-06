@@ -13,9 +13,13 @@
 
 <body>
     <nav class="navbar">
+
         <div class="nav-container">
             <button class="toggle-sidenav"><i class="icon fa-solid fa-bars"></i></button>
-            <img src="static/logo_full.png" class="nav-logo" />
+            <a href="index.html">
+                <img src="static/logo_full.png" class="nav-logo logo-desktop" />
+                <img src="static/logo_simple.png" class="nav-logo logo-mobile" />
+            </a>
         </div>
 
         <div class="search-box">
@@ -24,7 +28,11 @@
         </div>
 
         <div class="nav-container">
-            <i class="icon fa-solid fa-cart-shopping"></i>
+            <div class="cart">
+                <!-- <div class="badge"></div> -->
+                <i class="icon fa-solid fa-cart-shopping" id="nav-cart-icon"></i>
+                <label id="cart-items"></label>
+            </div>
             <div class="nav-separator"></div>
             <div class="nav-profile">
                 <img src="static/bardo.jpg" class="nav-profile-image" />
@@ -35,6 +43,7 @@
 
         <div class="dropdown">
             <ul>
+                <li id="dropdown-cart-icon"><i class="fa-solid fa-cart-shopping"></i> Carrito</li>
                 <li><i class="fa-solid fa-user"></i> Perfil</li>
                 <li><i class="fa-solid fa-list"></i> Biblioteca</li>
                 <li><i class="fa-solid fa-circle-question"></i> Ayuda</li>
@@ -43,44 +52,104 @@
         </div>
 
     </nav>
+
     <aside class="sidenav">
         <ul>
+
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Home.svg" alt="Descripción del SVG">
+                </div>Inicio
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Recent.svg" alt="Descripción del SVG">
+                </div>Recientes
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/New.svg" alt="Descripción del SVG">
+                </div>Juegos nuevos
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Beauty.svg" alt="Descripción del SVG">
+                </div>De moda
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Clicker.svg" alt="Descripción del SVG">
+                </div>Random
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Action.svg" alt="Descripción del SVG">
+                </div>Acción
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Adventure.svg" alt="Descripción del SVG">
+                </div>Aventuras
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Casual.svg" alt="Descripción del SVG">
+                </div>Clásicos
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Beauty.svg" alt="Descripción del SVG">
+                </div>Infantiles                
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Mahjong.svg" alt="Descripción del SVG">
+                </div>Mesa
             </li>
             <li>
-                <div class="placehodler"></div>Aventura
+                <div class="placehodler">
+                    <img src="static/icons/Card.svg" alt="Descripción del SVG">
+                </div>Cartas
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Car.svg" alt="Descripción del SVG">
+                </div>Coches
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Home.svg" alt="Descripción del SVG">
+                </div>Escape
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Home.svg" alt="Descripción del SVG">
+                </div>Motos
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Multiplayer.svg" alt="Descripción del SVG">
+                </div>Multijugador
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Puzzle.svg" alt="Descripción del SVG">
+                </div>Puzzles
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Horror.svg" alt="Descripción del SVG">
+                </div>Terror
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/DressUp.svg" alt="Descripción del SVG">
+                </div>Vestir
             </li>
         </ul>
     </aside>
-     <main class="main">
+
+     <main>
             <header class="header">
                 <div class="breadcrums">
                     <a href="index.html">Inicio</a> > 
@@ -118,12 +187,12 @@
                     <img src="static/banner 1.png" class="banner">
                 </div>
 
-                <section class="comments">
 
+
+                <section class="comments">
                     <div class="comments-header">
                         <span class="comments-title">Comentarios</span>
                     </div>
-                    
                     <div class="write-comment">
                         <div class="user-details">
                             <div class="user-photo">
@@ -144,8 +213,8 @@
                                 <img src="static/bardo.jpg" class="image-89">
                             </div>
                             <div class="user-info">
-                                <span class="user-name">HexaBlitzX</span>
-                                <span class="comment-date">10/2/2023</span>
+                                <span class="user-name">Srta.Liv</span>
+                                <span class="comment-date">18/2/2022</span>
                             </div>
                         </div>
                         <div class="comment-details">
@@ -154,7 +223,7 @@
                             </p>
                             <div class="likes-details">
                                 <div class="likes-count">
-                                    <p>200</p>
+                                    <p>290</p>
                                 </div>
                                 <div class="vector">
                                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
@@ -167,7 +236,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="comment-sent">
                         <div class="user-details">
                             <div class="user-photo">
@@ -197,7 +266,42 @@
                             </div>
                         </div>
                     </div>
+
                 </section>
         </main>
+
+
+        <footer class="footer">
+            <img src="static/logo_simple.png" class="footer-logo" />
+            <div class="footer-section">
+                <label class="footer-section-title">Link de sitios</label>
+                <label class="footer-section-item">Inicio</label>
+                <label class="footer-section-item">Categorias</label>
+                <label class="footer-section-item">Perfil</label>
+                <label class="footer-section-item">Privacidad y seguridad</label>
+            </div>
+            <div class="footer-section">
+                <label class="footer-section-title">Compania</label>
+                <label class="footer-section-item">Sobre nosotros</label>
+                <label class="footer-section-item">Derechos de autor</label>
+                <label class="footer-section-item">Asuntos legales</label>
+            </div>
+            <div class="footer-section">
+                <label class="footer-section-title">Ayuda</label>
+                <label class="footer-section-item">Preguntas frecuentes</label>
+                <label class="footer-section-item">Contactar al soporte</label>
+                <label class="footer-section-item">Guias de la comunidad</label>
+            </div>
+            <div class="footer-section">
+                <label class="footer-section-title">Siguenos</label>
+                <label class="footer-section-item">Facebook</label>
+                <label class="footer-section-item">Twitter</label>
+                <label class="footer-section-item">Instagram</label>
+                <label class="footer-section-item">YouTube</label>
+            </div>
+        </footer>
 </body>
+
+<script src="scripts/index.js"></script>
+
 </html>
