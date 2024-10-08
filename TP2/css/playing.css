@@ -171,7 +171,7 @@
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    padding: 10px 0;
+    padding: 10px 0px 0px;
 }
 
 
@@ -206,7 +206,8 @@
 
 .user-details {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: row;
     gap: 10px;
 }
 
@@ -238,14 +239,12 @@
 .comments-button{
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
+
     width: 100%;
-    padding-top: 10px;
 }
 
 .btn-comment {
     display: flex;
-    align-self: flex-start;
     background-color: var(--primary-100);
     color: white;
     border: none;
