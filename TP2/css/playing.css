@@ -236,28 +236,46 @@
     color: var(--text-gray);
 }
 
-.comments-button{
+.comments-button {
     display: flex;
     justify-content: flex-end;
-
     width: 100%;
 }
 
 .btn-comment {
     display: flex;
+    align-items: center;  /* Alineación vertical */
+    justify-content: center;  /* Alineación horizontal */
     background-color: var(--primary-100);
     color: white;
     border: none;
-    padding: 10px 20px;
+    width: 115px;  /* Ancho fijo */
+    height: 39px;  /* Altura fija */
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+.btn-comment:active {
+    animation: flash 0.9s ease-out;
 }
 
 .btn-comment:hover {
     background-color: var(--primary-200);
     color: var(--text-white);
+    transform: scale(1.05);
 }
 
+.texto, .icono {
+    position: absolute; /* Ambos elementos ocupan el mismo lugar */
+    transition: visibility 0.3s ease, opacity 0.3s ease; /* Transición suave */
+}
+
+.icono {
+    visibility: hidden; /* El icono está oculto inicialmente */
+    opacity: 0; /* Para animar la transición */
+}
 .likes-details{
     display: flex;
     flex-direction: row;
