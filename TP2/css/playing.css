@@ -55,12 +55,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 10px 0;
     gap: 10px;
     width: 100%;
     max-width: 1255px;
-    margin: 0 auto;
     margin-top: 15px;
 }
 .banner{
@@ -197,8 +196,7 @@
 }
 
 .write-comment-text{
-    padding: 10px 20px;
-    width: 1182px;
+    width: 1255px;
     height: 138px;
     background-color: var(--background-100);
     color: var(--text-gray);
@@ -244,13 +242,13 @@
 
 .btn-comment {
     display: flex;
-    align-items: center;  /* Alineación vertical */
-    justify-content: center;  /* Alineación horizontal */
+    align-items: center; 
+    justify-content: center; 
     background-color: var(--primary-100);
     color: white;
     border: none;
-    width: 115px;  /* Ancho fijo */
-    height: 39px;  /* Altura fija */
+    width: 115px; 
+    height: 39px; 
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -268,13 +266,13 @@
 }
 
 .texto, .icono {
-    position: absolute; /* Ambos elementos ocupan el mismo lugar */
-    transition: visibility 0.3s ease, opacity 0.3s ease; /* Transición suave */
+    position: absolute;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
 }
 
 .icono {
-    visibility: hidden; /* El icono está oculto inicialmente */
-    opacity: 0; /* Para animar la transición */
+    visibility: hidden; 
+    opacity: 0; 
 }
 .likes-details{
     display: flex;
