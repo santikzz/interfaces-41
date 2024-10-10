@@ -18,7 +18,7 @@
     transition: pulseWOpacity 1s ease;
 
     /* uncomment to disable loader */
-    display: none;
+    /* display: none; */
 }
 
 .loader-icon {
