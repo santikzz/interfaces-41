@@ -42,16 +42,49 @@ heroCarouselWrapper.querySelector('#hero-next').addEventListener('click', heroNe
 setInterval(heroNextSlide, 5000);
 
 /* ======================= CARDS CAROUSEL ======================= */
-let cardWidth = 300;
 let cardCarousels = document.querySelectorAll('.cards-carousel-wrapper');
+const cardWidth = document.querySelector('.card').offsetWidth;
 
 cardCarousels.forEach(wrapper => {
+
     const carousel = wrapper.querySelector('.cards-carousel');
-    wrapper.querySelector('.action-left').addEventListener('click', () => {
-        carousel.scrollLeft -= cardWidth * 1.5;
+    let scrollPosition = 0;
+
+    carousel.addEventListener('transitionend', () => {
+        carousel.classList.remove('skew-left', 'skew-right');
     });
+
+    wrapper.querySelector('.action-left').addEventListener('click', () => {
+        // carousel.scrollLeft -= cardWidth * 1.5;
+        scrollPosition -= cardWidth * 1.5;
+        carousel.style.transform = `translateX(${scrollPosition}px)`;
+        carousel.classList.add('skew-left');
+        // carousel.querySelectorAll('.card').forEach(card => {
+        //     card.style.transform = 'skewX(10deg)';
+        // });
+        // setTimeout(() => {
+        //     carousel.querySelectorAll('.card').forEach(card => {
+        //         card.style.transform = 'skewX(0)';
+        //     });
+        // }, 300);
+
+    });
+
     wrapper.querySelector('.action-right').addEventListener('click', () => {
-        carousel.scrollLeft += cardWidth * 1.5;
+        // carousel.scrollLeft += cardWidth * 1.5;  
+
+        scrollPosition += cardWidth * 1.5;
+        carousel.style.transform = `translateX(${scrollPosition}px)`;
+        carousel.classList.add('skew-right');
+        // carousel.querySelectorAll('.card').forEach(card => {
+        //     card.style.transform = 'skewX(-10deg)';
+        // });
+        // setTimeout(() => {
+        //     carousel.querySelectorAll('.card').forEach(card => {
+        //         card.style.transform = 'skewX(0)';
+        //     });
+        // }, 300);
+
     });
 });
 
@@ -65,20 +98,14 @@ toggleDropdown.addEventListener('click', () => {
 
 /* ======================= ADD TO CART LOGIC ======================= */
 
-let itemsInCart = 0;
-const cartItems = document.querySelector('#cart-items');
 const cards = document.querySelectorAll('.card');
 
 cards.forEach(card => {
 
     card.querySelector('.card-btn').addEventListener('click', () => {
-        card.classList.add('incart');
-        card.querySelector('i').classList.remove('fa-cart-shopping');
-        card.querySelector('i').classList.add('fa-cart-plus');
-        
-        itemsInCart++;
-        cartItems.textContent = `(${itemsInCart})`;
-
+        card.classList.toggle('incart');
+        card.querySelector('i').classList.toggle('fa-cart-shopping');
+        card.querySelector('i').classList.toggle('fa-cart-plus');
     })
 
 });

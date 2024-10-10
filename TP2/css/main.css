@@ -33,7 +33,7 @@
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
     /* ======= Horizontal Padding =======  */
-    --padding-x: 15rem;
+    --padding-x: 10rem;
 
 }
 
@@ -186,7 +186,7 @@ body {
 
 .navbar .dropdown {
     position: absolute;
-    right: 15rem;
+    right: 0;
     margin: 5px;
     top: var(--header-height);
     background-color: var(--background-100);
@@ -197,7 +197,6 @@ body {
     flex-direction: column;
     padding: 5px;
     display: none;
-
 }
 
 .navbar .dropdown #dropdown-cart-icon {
@@ -275,15 +274,14 @@ main {
 }
 
 .footer {
-    margin-top: 5rem;
+    /* margin-top: 1rem; */
     background-color: var(--background-200);
-    padding: 100px 0;
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
     justify-content: space-between;
-
+    gap: 2rem;
 }
 
 .footer .footer-logo {
@@ -303,17 +301,18 @@ main {
     flex-direction: column;
     width: 100%;
     padding: 0 50px;
+    text-align: center;
 }
 
 .footer .footer-section .footer-section-title {
     color: var(--text-white);
-    font-size: 24px;
+    font-size: 16px;
     font-family: Poppins-SemiBold;
 }
 
 .footer .footer-section .footer-section-item {
     color: var(--text-gray);
-    font-size: 24px;
+    font-size: 16px;
     font-family: Poppins-Regular;
 }
 
@@ -414,10 +413,13 @@ a:hover {
     }
 
     .footer {
+        margin-top: 5rem;
+        padding: 100px 0;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
         padding: 5rem var(--padding-x);
+        gap: 100px;
     }
 
     .footer .footer-logo {
@@ -426,25 +428,22 @@ a:hover {
     }
 
     .footer .footer-section {
-        display: flex;
-        flex-direction: column;
         gap: 0.5rem;
         padding: 0;
-        width: max-content;        
+        width: max-content;
+        text-align: left;
     }
 
     .footer .footer-section .footer-section-title {
-        color: var(--text-white);
-        font-size: 16px;
-        font-family: Poppins-SemiBold;
         white-space: nowrap;
     }
 
     .footer .footer-section .footer-section-item {
-        color: var(--text-gray);
-        font-size: 16px;
-        font-family: Poppins-Regular;
         white-space: nowrap;
+    }
+    
+    .navbar .dropdown {
+        right: var(--padding-x);
     }
 
 }

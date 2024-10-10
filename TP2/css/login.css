@@ -2,7 +2,7 @@
 @import url(animations.css);
 
 body {
-    background-image: url('/static/rayman.jpg');
+    background-image: url('../static/rayman.jpg');
     overflow: hidden;
 }
 

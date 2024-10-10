@@ -160,6 +160,7 @@
 
 .cards-carousel-wrapper {
     position: relative;
+    overflow: hidden;
 }
 
 .cards-carousel-wrapper .card-carousel-action {
@@ -200,6 +201,7 @@
 .cards-carousel {
     display: flex;
     overflow-x: scroll;
+    /* overflow: hidden; */
     flex-direction: row;
     gap: 0.5rem;
     scroll-behavior: smooth;
@@ -219,9 +221,16 @@
     position: relative;
     cursor: pointer;
     margin: 2px;
-    transition: all;
-    transition-duration: 100ms;
+    transition: all 200ms ease;
     max-height: 200px;
+}
+
+.cards-carousel.skew-left .card {
+    transform: skewX(10deg);
+}
+
+.cards-carousel.skew-right .card {
+    transform: skewX(-10deg);
 }
 
 .card:hover {
@@ -251,6 +260,8 @@
     align-items: center;
     justify-content: space-between;
     cursor: initial;
+
+    transition: height 200ms ease;
 }
 
 .card .card-footer .card-footer-container {
@@ -258,10 +269,19 @@
     flex-direction: column;
 }
 
+.card:hover .card-footer {
+    height: 70px;
+}
+
+.card:hover .card-footer .card-game-title {
+    font-size: 17px;
+}
+
 .card .card-footer .card-game-title {
     color: var(--text-white);
     font-size: 16px;
     font-family: Poppins-SemiBold;
+    transition: font-size 200ms ease;
 }
 
 .card .card-footer .card-game-price {
@@ -288,12 +308,16 @@
     color: var(--text-white);
     cursor: pointer;
     font-size: 20px;
-    transition: all;
-    transition-duration: 100ms;
+    transition: background-color 200ms ease, transform 0.3s ease;
 }
 
 .card .card-btn:hover {
     background-color: var(--primary-200);
+    transform: scale(1.2);
+}
+
+.card .card-btn:active {
+    transform: scale(1.5);
 }
 
 /* ======= BUY CARD ======= */
@@ -352,8 +376,10 @@
 
     .cards-carousel {
         display: flex;
-        overflow: hidden;
+        /* overflow: hidden; */
+        overflow: unset;
         flex-direction: row;
+        transition: transform 1s var(--ease-out-expo);
     }
 
     .cards-carousel-wrapper {
@@ -379,10 +405,6 @@
 
     .card-section {
         padding: 1rem 0;
-    }
-
-    .cards-carousel {
-        overflow: hidden;
     }
 
 }
