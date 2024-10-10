@@ -1,11 +1,3 @@
-/* ======================= SIDENAV LOGIC ======================= */
-const hamburger = document.querySelector('.toggle-sidenav');
-const sidenav = document.querySelector('.sidenav');
-
-hamburger.addEventListener('click', () => {
-    sidenav.classList.toggle('open');
-});
-
 /* ======================= HERO CAROUSEL ======================= */
 let heroCurrentPosition = 0;
 const heroCarouselWrapper = document.querySelector('.hero-carousel-wrapper');
@@ -56,9 +48,9 @@ cardCarousels.forEach(wrapper => {
 
     wrapper.querySelector('.action-left').addEventListener('click', () => {
         // carousel.scrollLeft -= cardWidth * 1.5;
-        scrollPosition -= cardWidth * 1.5;
-        carousel.style.transform = `translateX(${scrollPosition}px)`;
-        carousel.classList.add('skew-left');
+        scrollPosition += cardWidth * 1.5;
+        carousel.style.transform = `translateX(${scrollPosition}px)`;        
+        carousel.classList.add('skew-right');
         // carousel.querySelectorAll('.card').forEach(card => {
         //     card.style.transform = 'skewX(10deg)';
         // });
@@ -72,10 +64,9 @@ cardCarousels.forEach(wrapper => {
 
     wrapper.querySelector('.action-right').addEventListener('click', () => {
         // carousel.scrollLeft += cardWidth * 1.5;  
-
-        scrollPosition += cardWidth * 1.5;
+        scrollPosition -= cardWidth * 1.5;
         carousel.style.transform = `translateX(${scrollPosition}px)`;
-        carousel.classList.add('skew-right');
+        carousel.classList.add('skew-left');
         // carousel.querySelectorAll('.card').forEach(card => {
         //     card.style.transform = 'skewX(-10deg)';
         // });
@@ -86,14 +77,6 @@ cardCarousels.forEach(wrapper => {
         // }, 300);
 
     });
-});
-
-/* ======================= DROPDOWN LOGIC ======================= */
-const toggleDropdown = document.querySelector('.toggle-dropdown');
-const dropdown = document.querySelector('.dropdown');
-
-toggleDropdown.addEventListener('click', () => {
-    dropdown.classList.toggle('open');
 });
 
 /* ======================= ADD TO CART LOGIC ======================= */

@@ -1,13 +1,14 @@
 @import url(main.css);
 @import url(animations.css);
+
 .header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     padding: 25px 0;
     gap: 20px;
-    width: 100%; 
+    width: 100%;
     height: auto;
     position: relative;
 }
@@ -22,13 +23,14 @@
 }
 
 .breadcrums a {
-    color: var(--text-gray); 
-    text-decoration: none; 
+    color: var(--text-gray);
+    text-decoration: none;
 }
 
 .breadcrums a:hover {
     color: var(--text-white);
 }
+
 .game-placeholder {
     display: flex;
     flex-direction: column;
@@ -37,12 +39,12 @@
     background: var(--background-100);
     border-radius: 15px;
     width: 100%;
-    height: 661px; 
+    height: 661px;
     max-width: 100%;
 }
 
 .vector {
-    width: 33px; 
+    width: 33px;
     height: 33px;
 }
 
@@ -51,6 +53,7 @@
     flex-direction: column;
     gap: 20px;
 }
+
 .title {
     display: flex;
     flex-direction: row;
@@ -59,17 +62,18 @@
     padding: 10px 0;
     gap: 10px;
     width: 100%;
-    max-width: 1255px;
     margin-top: 15px;
 }
-.banner{
-    width: 100%; 
-    height: auto; 
-    max-width: 100%; 
+
+.banner {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
 }
+
 .game-title {
     width: auto;
-    height: auto; 
+    height: auto;
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 30px;
@@ -100,7 +104,7 @@
 .icon-share {
     width: 22px;
     height: 22px;
-    position: relative; 
+    position: relative;
 }
 
 .bottom .compartir {
@@ -119,15 +123,17 @@
     padding: 0;
     gap: 25px;
 }
+
 .descripcion-texto {
     height: auto;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: var(--text-gray);
 }
-.howtoplay{
+
+.howtoplay {
     width: 447px;
-    height: auto; 
+    height: auto;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 30px;
@@ -161,7 +167,7 @@
     color: var(--primary-100);
 }
 
-.comment-details{
+.comment-details {
     margin-left: 40px;
 }
 
@@ -181,23 +187,26 @@
     border: 2px solid var(--primary-100);
 }
 
-.write-comment-text, .sent-comment-text {
+.write-comment-text,
+.sent-comment-text {
     border-radius: 6px;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     margin-top: 10px;
     line-height: 1.5;
 }
+
 .sent-comment-text {
     color: var(--text-lightgray);
-    width: 832px;
+    width: 100%;
     height: auto;
     margin-bottom: 5px;
 }
 
-.write-comment-text{
-    width: 1255px;
+.write-comment-text {
+    width: 100%;
     height: 138px;
+    padding: 1rem;
     background-color: var(--background-100);
     color: var(--text-gray);
 }
@@ -242,13 +251,13 @@
 
 .btn-comment {
     display: flex;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     background-color: var(--primary-100);
     color: white;
     border: none;
-    width: 115px; 
-    height: 39px; 
+    width: 115px;
+    height: 39px;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -265,20 +274,22 @@
     transform: scale(1.05);
 }
 
-.texto, .icono {
+.texto,
+.icono {
     position: absolute;
     transition: visibility 0.3s ease, opacity 0.3s ease;
 }
 
 .icono {
-    visibility: hidden; 
-    opacity: 0; 
+    visibility: hidden;
+    opacity: 0;
 }
-.likes-details{
+
+.likes-details {
     display: flex;
     flex-direction: row;
-    align-items: center; 
-    margin-top: 0; 
+    align-items: center;
+    margin-top: 0;
 }
 
 .likes-count {
@@ -287,4 +298,21 @@
     font-size: 16px;
     color: var(--text-white);
     margin-right: 8px;
+}
+
+.play-now {
+    transition: background-color 200ms ease;
+    animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none running btn-pulse;
+    box-shadow: rgba(108, 21, 189, 0.582) 0px 0px 0px 0px;
+    transition: transform 300ms ease-in-out;
+}
+
+.play-now:is(:hover, :focus) {
+    transform: scale(1.2);
+  }
+
+@keyframes btn-pulse {
+    100% {
+        box-shadow: 0 0 0 45px rgba(193,244,246,0);
+    }
 }

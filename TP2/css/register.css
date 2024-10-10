@@ -132,6 +132,10 @@ p{
     z-index: 2000000;
 }
 
+.congratulations h1{
+    text-align: center;
+}
+
 /**no tocar :D**/
 .input{
     border: none;
@@ -196,7 +200,7 @@ p{
 }
 
 .captcha{
-    background-color: white;
+    /* background-color: white;
     color: black;
     display: flex;
     flex-direction: row;
@@ -204,7 +208,13 @@ p{
     padding: 2rem;
     gap: 6px;
     margin: 0.5rem;
-    border-radius: 6px;
+    border-radius: 6px; */
+    height: 70px;
+}
+
+.captcha img{
+    border-radius: 7px;
+    height: 100%;
 }
 
 .terms-container {

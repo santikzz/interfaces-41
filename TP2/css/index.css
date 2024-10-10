@@ -221,16 +221,16 @@
     position: relative;
     cursor: pointer;
     margin: 2px;
-    transition: all 200ms ease;
+    transition: transform 250ms ease, outline 100ms ease;
     max-height: 200px;
 }
 
 .cards-carousel.skew-left .card {
-    transform: skewX(10deg);
+    transform: skewX(13deg);
 }
 
 .cards-carousel.skew-right .card {
-    transform: skewX(-10deg);
+    transform: skewX(-13deg);
 }
 
 .card:hover {
@@ -309,6 +309,7 @@
     cursor: pointer;
     font-size: 20px;
     transition: background-color 200ms ease, transform 0.3s ease;
+    
 }
 
 .card .card-btn:hover {
