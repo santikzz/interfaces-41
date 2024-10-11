@@ -10,7 +10,6 @@ function updateProgress() {
     percentageText.innerText = progress + '%';
   } else {
     clearInterval(interval);
-    //loader.classList.add('hidden');
     loader.style.display = 'none';
   }
 }
