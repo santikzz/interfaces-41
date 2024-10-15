@@ -1,4 +1,6 @@
 let progress = 0;
+
+const body = document.querySelector('body');
 const loader = document.querySelector('.loader-container');
 const progressBar = document.getElementById('progress');
 const percentageText = document.getElementById('percentage');
@@ -11,6 +13,7 @@ function updateProgress() {
   } else {
     clearInterval(interval);
     loader.style.display = 'none';
+    body.classList.remove('body-no-overflow');
   }
 }
 

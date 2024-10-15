@@ -2,6 +2,10 @@
 @import url(animations.css);
 @import url(loader.css);
 
+.body-no-overflow {
+    overflow: hidden;
+}
+
 .hero-carousel-wrapper {
     display: flex;
     height: 420px;
