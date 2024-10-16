@@ -12,11 +12,6 @@ class Circle extends Figure {
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); // Dibuja un círculo
         this.ctx.fill();
         this.ctx.closePath();
-        
-    }
-
-    getRadius(){
-        return this.radius;
     }
 }
 
