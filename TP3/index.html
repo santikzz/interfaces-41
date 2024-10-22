@@ -6,30 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>canvas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #1a1a1a;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #canvas {
-            background-color: black;
-        }
-    </style>
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <div class="options-game">
+        <button class="option" data-option="1">Opción 1: 5 x 8</button>
+        <button class="option" data-option="2">Opción 2: 6 x 6</button>
+        <button class="option" data-option="3">Opción 3: 7 x 8</button>
+    </div>    
+
     <canvas id="canvas"></canvas>
     <!-- <script src="scripts/Figure.js"></script> -->
     <script src="scripts/CanvasElement.js"></script>
@@ -38,7 +24,7 @@
     <script src="scripts/CoinOli.js"></script>
     <!-- <script src="scripts/Coin.js"></script> -->
     <script src="scripts/Game.js"></script>
-    <!-- <script src="scripts/main.js"></script> -->
+    <script src="scripts/main.js"></script>
     <script src="scripts/mainOli.js"></script>
 </body>
 

@@ -57,4 +57,8 @@ class Board extends CanvasElement {
         this.cells.forEach(cell => cell.draw());                                                    // renderizo las celdas
     }
 
+    reset() {
+        this.cells.forEach(cell => cell.reset());
+    }
+
 }

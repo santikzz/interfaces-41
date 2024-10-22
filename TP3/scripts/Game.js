@@ -46,15 +46,37 @@
 class Game {
 
     constructor() {
-
         this.board = new Board({ rows: 6, cols: 7, cellSize: 64 });
-        this.board.draw();
+    }
 
+    showOptionsGame(option) {
+        switch (option) {
+            case 1:
+                this.board = new Board({ rows: 5, cols: 8, cellSize: 64 });
+                break;
+            case 2:
+                this.board = new Board({ rows: 6, cols: 6, cellSize: 64 });
+                break;
+            case 3:
+                this.board = new Board({ rows: 7, cols: 8, cellSize: 64 });
+                break;
+            default:
+                console.log("Invalid option");
+                return;
+        }
+        this.board.draw(); // Dibujar el nuevo tablero con el tamaño seleccionado
+    }
 
-        // let coin = new Coin(0, 0, 32, 1);
+    endGame(){
+
+    }
+    
+    start() { 
 
     }
 
-    start() { }
+    resetGame(){
+        this.board.reset();
+    }
 
 }
