@@ -1,59 +1,48 @@
-//3 modos de juego
-//encargado de recorrerse, ver si tiene fichas, si son del mismo jugador,
-//determina si hay un ganador o no
-//debe saber dibujarse
-
-//Casillero alto y largo
-//casilletro esta disponible?
-
-//cuando tiro la ficha, la pos 0,0 esta disponible? no, la 1,1,.. si? la dejo ahi. Debe recorrer toda la columna, FOR DE UN FOR
-
-//REQUISITOS
-//deben funcionar las diagonales!!
-
-//**********EVENTOS*************//
-//Drag and drop
-
-//mouseDown
-//mouseUp
-//mouseMove
-
-//e.layerX - e.layerY
-//borrar y dibujar todo el tiempo
-
-// createBoard() {
-//     //rows x columns
-// }
-
-// searchFreeSlot() {
-//     //esta libre?
-// }
-
-// checkWin() { }
-
-// drawCoin() {
-//     //ir reponiendo fichas a medida que usamos
-// }
-
-// finishGame() {
-//     //finaliza el juego?
-// }
-
-// resetGame() {
-//     //reiniciar tablero
-// }
-
-class Game {
+class Game extends CanvasElement {
 
     constructor() {
+        super(0, 0);
 
-        this.board = new Board({ rows: 6, cols: 7, cellSize: 64 });
+        this.playerTurn = 1;
+
+        this.board = new Board({ rows: 6, cols: 7, mode: 4, cellSize: 74 }); // width 512 
+        // this.board = new Board({ rows: 7, cols: 8, mode: 5, cellSize: 64 });
+        // this.board = new Board({ rows: 8, cols: 9, mode: 6, cellSize: 56 });
         this.board.draw();
 
+        this.canvas.addEventListener('mousemove', (event) => {
+            const rect = this.canvas.getBoundingClientRect();
+            const mouseX = event.clientX - rect.left;
+            const mouseY = event.clientY - rect.top;
 
-        // let coin = new Coin(0, 0, 32, 1);
+            // if (coin.isCursorInside(mouseX, mouseY)) {
+            //     console.log("Cursor is inside the coin!");
+            // } else {
+            //     console.log("Cursor is outside the coin.");
+            // }
+
+        });
+
+        this.canvas.addEventListener('click', (event) => {
+            const rect = this.canvas.getBoundingClientRect();
+            const mouseX = event.clientX - rect.left;
+            const mouseY = event.clientY - rect.top;
+
+            const columnIndex = this.board.getHoveredColumn(mouseX, mouseY);
+            if (columnIndex !== -1) {
+                if (this.board.placeCoin(columnIndex, this.playerTurn) !== null) {
+                    this.playerTurn = this.playerTurn === 1 ? 2 : 1;
+                }
+                this.board.printGrid();
+            }
+
+        });
+
+
 
     }
+
+
 
     start() { }
 

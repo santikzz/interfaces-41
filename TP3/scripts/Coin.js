@@ -1,20 +1,22 @@
 class Coin extends CanvasElement {
 
-    constructor({ x, y, radius, type }) {
+    constructor({ x, y, radius, player }) {
         super(x, y);
-        this.type = type;
+        this.player = player;
         this.radius = radius;
         this.draw();
     }
 
     draw() {
-
-        this.ctx.fillStyle = "#FF0000";
         this.ctx.beginPath();
+        if (this.player === 1) {
+            this.ctx.fillStyle = "#FF0000";
+        } else {
+            this.ctx.fillStyle = "#0000FF";
+        }
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         this.ctx.fill();
         this.ctx.closePath();
-
     }
 
     getPosition() {
