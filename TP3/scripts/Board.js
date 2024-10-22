@@ -7,7 +7,7 @@ class Board extends CanvasElement {
         this.cellSize = cellSize;                                                       // tamaño en pixeles de cada celda
         //this.grid = Array.from({ length: rows }, () => Array(cols).fill(0));            // inicializo la matrix de rows*cols con ceros
         this.cells = [];                                                                // inicalizo el arreglo de celdas Cell();
-        
+
         this.boardSize = {                                                              // inicializo las variables del tamaño del tablero
             width: this.cols * this.cellSize,
             height: this.rows * this.cellSize
@@ -17,6 +17,7 @@ class Board extends CanvasElement {
         this.y = (canvas.height / 2) - (this.boardSize.height / 2);
 
         this.generateBoard();                                                           // genero el tablero (creo las celdas en su posicion)
+        this.debugDrawDropArea();
     }
 
     // genero el tablero de forma dinamica con rows*cols
@@ -30,6 +31,24 @@ class Board extends CanvasElement {
                     size: this.cellSize
                 }));
             }
+        }
+    }
+
+    debugDrawDropArea() {
+        for (let i = 0; i < this.cols; i++) {
+            if (i % 2 == 0) {
+                this.ctx.fillStyle = "#0000FF";
+            } else {
+                this.ctx.fillStyle = "#00FF00";
+            }
+            this.ctx.rect(
+                this.x + (i * this.cellSize),
+                this.y - this.cellSize,
+                this.cellSize,
+                this.cellSize
+            );
+            this.ctx.fill();
+            this.ctx.closePath();
         }
     }
 
