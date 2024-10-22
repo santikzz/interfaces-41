@@ -21,35 +21,14 @@
 //e.layerX - e.layerY
 //borrar y dibujar todo el tiempo
 
-// createBoard() {
-//     //rows x columns
-// }
-
-// searchFreeSlot() {
-//     //esta libre?
-// }
-
-// checkWin() { }
-
-// drawCoin() {
-//     //ir reponiendo fichas a medida que usamos
-// }
-
-// finishGame() {
-//     //finaliza el juego?
-// }
-
-// resetGame() {
-//     //reiniciar tablero
-// }
-
 class Game {
 
     constructor() {
         this.board = new Board({ rows: 6, cols: 7, cellSize: 64 });
+        this.coin = new CoinOli({ x: 100, y: 100, radius: 32, type: 1 });
     }
 
-    showOptionsGame(option) {
+    createBoard(option) {
         switch (option) {
             case 1:
                 this.board = new Board({ rows: 5, cols: 8, cellSize: 64 });
@@ -67,16 +46,31 @@ class Game {
         this.board.draw(); // Dibujar el nuevo tablero con el tamaño seleccionado
     }
 
-    endGame(){
-
-    }
-    
-    start() { 
+    endGame() {
+        //     //finaliza el juego?
 
     }
 
-    resetGame(){
+    start() {
+
+    }
+
+    resetGame() {
         this.board.reset();
     }
+
+    drawCoin() {
+        //ir reponiendo fichas a medida que usamos
+    }
+
+    checkWin() {
+        //verificar si hay un ganador
+    }
+
+    searchFreeSlot() {
+        //esta libre?
+    }
+
+
 
 }

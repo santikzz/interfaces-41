@@ -61,4 +61,14 @@ class Board extends CanvasElement {
         this.cells.forEach(cell => cell.reset());
     }
 
+    
+    calculateCoinsCount(){
+        let coins = 0;
+        this.cells.forEach(cell => {
+            if(cell.type != 0){
+                coins++;
+            }
+        });
+        return coins;
+    }
 }

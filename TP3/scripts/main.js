@@ -9,7 +9,6 @@ canvas.height = canvas_height;
 
 let game = new Game();
 
-
 /* OPCIONES DEL JUEGO */
 const options = document.querySelector('.options-game');
 const optionsButton = document.querySelector('.option');
@@ -23,12 +22,13 @@ options.addEventListener('click', (event) => {
 
     if (option) {
         const optionValue = option.getAttribute('data-option'); // Obtener el valor de la opción
-        game.showOptionsGame(parseInt(optionValue)); // obtener el 1, 2 o 3 de los botones
+        game.createBoard(parseInt(optionValue)); // obtener el 1, 2 o 3 de los botones    
     }
 }); 
 
 
 let coin = new CoinOli({ x: 100, y: 100, radius: 32, type: 1 });
+
 
 let arrastre = false; // variable para saber si se está arrastrando una ficha
 let disponibleCasillero = false;
@@ -60,6 +60,7 @@ canvas.addEventListener('mousemove', function (event) {
     if (arrastre) {
         coin.setPosition({ x: mouseX, y: mouseY });
         coin.draw();
+        game.board.createBoard();
     }
 });
 
