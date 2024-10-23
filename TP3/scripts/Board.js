@@ -22,12 +22,13 @@ class Board extends CanvasElement {
         };
 
         this.generateBoard();                                                           // genero el tablero (creo las celdas en su posicion)
-        this.drawDropArea();
+        this.draw();
+
     }
 
     // genero el tablero de forma dinamica con rows*cols
     generateBoard() {
-        this.cells = [];
+        // this.cells = [];
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.cols; col++) {
                 this.cells.push(new Cell({
@@ -59,8 +60,8 @@ class Board extends CanvasElement {
     }
 
     draw() {
-        this.ctx.clearRect(this.x, this.y, this.boardSize.width, this.boardSize.height);            // limpio el area del tablero antes de re-renderizar
-        this.cells.forEach(cell => cell.draw());                                                    // renderizo las celdas
+        this.drawDropArea();
+        this.cells.forEach(cell => cell.draw()); // renderizo las celdas
     }
 
     // obtengo el indice de la columna que tengo el mouse encima
@@ -78,22 +79,20 @@ class Board extends CanvasElement {
     placeCoin(column, player) {
         for (let row = this.rows - 1; row >= 0; row--) {
             if (this.grid[row][column] === 0) {
+
                 this.grid[row][column] = player;
 
-                let cx = this.x + column * this.cellSize + this.cellSize / 2;
-                let cy = this.y + row * this.cellSize + this.cellSize / 2;
-                let coin = new Coin({ x: cx, y: cy, radius: this.cellSize / 2.5, player: player });
-                coin.draw();
-
-                if (this.checkWin(row, column)) {
-                    return true;
-                }
+                // if (this.checkWin(row, column)) {
+                //     return true;
+                // }
 
                 return row;
             }
         }
         return null;
     }
+
+
 
     printGrid() {
         console.log(this.grid.map(row => row.join(' ')).join('\n'));

@@ -8,9 +8,9 @@ class Cell extends CanvasElement {
     }
 
     draw() {
-        this.image.onload = () => {
+        if (this.image.complete) {
             this.ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
         }
     }
-    
+
 }

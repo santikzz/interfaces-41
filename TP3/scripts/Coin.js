@@ -1,10 +1,10 @@
 class Coin extends CanvasElement {
 
-    constructor({ x, y, radius, player }) {
+    constructor({ x, y, cellSize, player }) {
         super(x, y);
         this.player = player;
-        this.radius = radius;
-        this.draw();
+        this.cellSize = cellSize;
+        // this.draw();
     }
 
     draw() {
@@ -14,25 +14,25 @@ class Coin extends CanvasElement {
         } else {
             this.ctx.fillStyle = "#0000FF";
         }
-        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        this.ctx.arc(this.x, this.y, this.cellSize / 2.5, 0, Math.PI * 2);
         this.ctx.fill();
         this.ctx.closePath();
     }
 
-    getPosition() {
-        return {
-            x: this.x + this.radius / 2,
-            y: this.y + this.radius / 2,
-        }
-    }
+    // getPosition() {
+    //     return {
+    //         x: this.x + this.cellSize / 2,
+    //         y: this.y + this.cellSize / 2,
+    //     }
+    // }
 
-    setPosition({ x, y }) {
-        this.x = x - this.radius / 2;
-        this.y = y - this.radius / 2;
+    setPosition(x, y) {
+        this.x = x;
+        this.y = y;
     }
 
     isCursorInside(mouseX, mouseY) {
-        return Math.sqrt((mouseX - this.x) ** 2 + (mouseY - this.y) ** 2) <= this.radius;
+        return Math.sqrt((mouseX - this.x) ** 2 + (mouseY - this.y) ** 2) <= this.cellSize / 2.5;
     }
 
 }
