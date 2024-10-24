@@ -28,7 +28,6 @@ class Board extends CanvasElement {
 
     // genero el tablero de forma dinamica con rows*cols
     generateBoard() {
-        // this.cells = [];
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.cols; col++) {
                 this.cells.push(new Cell({
@@ -60,7 +59,8 @@ class Board extends CanvasElement {
     }
 
     draw() {
-        this.drawDropArea();
+        // this.drawDropArea();
+        // this.ctx.clearReact(this.x, this.y, this.boardSize.width, this.boardSize.height)
         this.cells.forEach(cell => cell.draw()); // renderizo las celdas
     }
 
@@ -91,9 +91,7 @@ class Board extends CanvasElement {
         }
         return null;
     }
-
-
-
+    
     printGrid() {
         console.log(this.grid.map(row => row.join(' ')).join('\n'));
     }

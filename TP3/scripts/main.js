@@ -8,3 +8,4 @@ canvas.width = canvas_width;
 canvas.height = canvas_height;
 
 let game = new Game();
+

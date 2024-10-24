@@ -4,27 +4,36 @@ class Coin extends CanvasElement {
         super(x, y);
         this.player = player;
         this.cellSize = cellSize;
-        // this.draw();
+        this.scale = 1.25;
+
+        this.image = new Image();
+        if (player === 1) {
+            this.image.src = 'static/piltover.png';
+        } else if (player === 2) {
+            this.image.src = 'static/zaun.png';
+        }
+
+        this.image.onload = () => {
+            this.draw();
+        }
+
+        this.isDraggable = true;
     }
 
     draw() {
         this.ctx.beginPath();
-        if (this.player === 1) {
-            this.ctx.fillStyle = "#FF0000";
-        } else {
-            this.ctx.fillStyle = "#0000FF";
+        if (this.image.complete) {
+            this.ctx.drawImage(this.image,
+                this.x - this.cellSize / this.scale / 2,
+                this.y - this.cellSize / this.scale / 2,
+                this.cellSize / this.scale,
+                this.cellSize / this.scale
+            );
         }
-        this.ctx.arc(this.x, this.y, this.cellSize / 2.5, 0, Math.PI * 2);
-        this.ctx.fill();
+
         this.ctx.closePath();
     }
 
-    // getPosition() {
-    //     return {
-    //         x: this.x + this.cellSize / 2,
-    //         y: this.y + this.cellSize / 2,
-    //     }
-    // }
 
     setPosition(x, y) {
         this.x = x;
@@ -32,7 +41,11 @@ class Coin extends CanvasElement {
     }
 
     isCursorInside(mouseX, mouseY) {
-        return Math.sqrt((mouseX - this.x) ** 2 + (mouseY - this.y) ** 2) <= this.cellSize / 2.5;
+        if ((Math.sqrt((mouseX - this.x) ** 2 + (mouseY - this.y) ** 2) <= this.cellSize / this.scale) && this.isDraggable) {
+            this.canvas.style.cursor = 'url("static/point.png"), auto';
+            return true;
+        }
+        return false;
     }
 
 }

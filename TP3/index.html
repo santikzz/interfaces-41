@@ -25,14 +25,23 @@
         #canvas {
             background-color: black;
         }
+
+        @font-face {
+            font-family: 'PressStart2P';
+            font-style: normal;
+            font-weight: 400;
+            src: url('static/font.ttf') format('truetype')
+        }
+        
     </style>
 
 </head>
 
 <body>
     <canvas id="canvas"></canvas>
-    <!-- <script src="scripts/Figure.js"></script> -->
     <script src="scripts/CanvasElement.js"></script>
+    <script src="scripts/Text.js"></script>
+    <script src="scripts/Button.js"></script>
     <script src="scripts/Cell.js"></script>
     <script src="scripts/Coin.js"></script>
     <script src="scripts/Board.js"></script>
