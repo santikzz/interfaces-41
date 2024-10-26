@@ -14,6 +14,7 @@ class Game extends CanvasElement {
 
     menu() {
 
+        this.background = new ImageObj({ x: 0, y: 0, width: this.canvas.width, height: this.canvas.height, src: 'static/game/background.webp' });
         this.logo = new ImageObj({ x: this.canvas.width / 2 - 200, y: 100, width: 400, height: 200, src: 'static/game/logo.png' });
         this.selectText = new Text({
             x: this.canvas.width / 2,
@@ -55,6 +56,17 @@ class Game extends CanvasElement {
             }
         });
 
+        let blink = true;
+        this.menuInterval = setInterval(() => {
+            if (blink) {
+                this.selectText.text = 'Elige un modo de juego';
+            } else {
+                this.selectText.text = '';
+            }
+            blink = !blink;
+            this.draw();
+        }, 500);
+
         // this.modo1.draw();
         // this.modo2.draw();
         // this.modo3.draw();
@@ -64,8 +76,9 @@ class Game extends CanvasElement {
     start({ rows, cols, mode, cellSize }) {
 
         this.inMenu = false;
+        clearInterval(this.menuInterval);
         // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.background = new ImageObj({ x: 0, y: 0, width: this.canvas.width, height: this.canvas.height, src: 'static/game/background.webp' });
+        // this.background = new ImageObj({ x: 0, y: 0, width: this.canvas.width, height: this.canvas.height, src: 'static/game/background.webp' });
 
         this.board = new Board({ rows, cols, mode, cellSize });
 
@@ -85,7 +98,7 @@ class Game extends CanvasElement {
         this.restartBtn = new Button({
             x: 25, y: 25,
             width: 150, height: 50,
-            text: 'Reinicar',
+            text: 'Reiniciar',
             onClick: () => {
                 this.restart();
             }
@@ -100,7 +113,7 @@ class Game extends CanvasElement {
             this.draw();
         }, 1000);
 
-        this.draw();
+        // this.draw();
 
     }
 
@@ -159,6 +172,7 @@ class Game extends CanvasElement {
                 }
 
                 if (this.draggedCoin !== null) {
+                    this.hoveredColumn = this.board.getHoveredColumn(mouseX, mouseY);
                     this.draggedCoin.coin.x = mouseX;
                     this.draggedCoin.coin.y = mouseY;
                     this.draw();
@@ -258,7 +272,9 @@ class Game extends CanvasElement {
 
     draw() {
 
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        this.background.draw();
 
         if (this.inMenu) {
 
@@ -269,7 +285,12 @@ class Game extends CanvasElement {
             this.selectText.draw();
 
         } else {
-            this.background.draw();
+
+            if (this.hoveredColumn >= 0 && this.draggedCoin !== null) {
+                this.board.hover.x = this.board.x + this.board.cellSize * this.hoveredColumn;
+                this.board.hover.draw();
+            }
+
             this.drawGameElements();
             this.player1Stack.forEach(coin => coin.draw(this.ctx));
             this.player2Stack.forEach(coin => coin.draw(this.ctx));

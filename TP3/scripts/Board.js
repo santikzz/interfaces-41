@@ -12,9 +12,9 @@ class Board extends CanvasElement {
             width: this.cols * this.cellSize,
             height: this.rows * this.cellSize
         };
-
-        this.x = (canvas.width / 2) - (this.boardSize.width / 2);                       // pongo el tablero en el centro de la pantalla
-        this.y = (canvas.height / 2) - (this.boardSize.height / 2);
+        this.x = (this.canvas.width / 2) - (this.boardSize.width / 2);                       // pongo el tablero en el centro de la pantalla
+        // this.y = (canvas.height / 2) - (this.boardSize.height / 2);
+        this.y = this.canvas.height - this.boardSize.height;
 
         this.dropArea = {
             x: this.x, y: this.y - this.cellSize,
@@ -23,6 +23,15 @@ class Board extends CanvasElement {
 
         this.generateBoard();                                                           // genero el tablero (creo las celdas en su posicion)
         this.draw();
+
+        this.hover = new ImageObj({
+            x: this.x + this.cellSize,
+            y: this.y - 128,
+            width: this.cellSize,
+            height: 128,
+            src: 'static/game/glow.png',
+            drawOnLoad: false,
+        });
 
     }
 
@@ -91,7 +100,7 @@ class Board extends CanvasElement {
         }
         return null;
     }
-    
+
     printGrid() {
         console.log(this.grid.map(row => row.join(' ')).join('\n'));
     }

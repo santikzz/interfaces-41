@@ -1,6 +1,6 @@
 class ImageObj extends CanvasElement {
 
-    constructor({ x, y, width, height, src, smooth = true }) {
+    constructor({ x, y, width, height, src, smooth = true, drawOnLoad = true }) {
         super(x, y);
         this.image = new Image();
         this.image.src = src;
@@ -8,8 +8,10 @@ class ImageObj extends CanvasElement {
         this.height = height;
         this.smooth = smooth;
 
-        this.image.onload = () => {
-            this.draw();
+        if(drawOnLoad){
+            this.image.onload = () => {
+                this.draw();
+            }
         }
 
     }
