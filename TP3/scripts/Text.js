@@ -1,15 +1,16 @@
 class Text extends CanvasElement {
 
-    constructor({ x, y, text, anchor }) {
+    constructor({ x, y, text, anchor, size = 12 }) {
         super(x, y);
         this.text = text;
         this.anchor = anchor;
+        this.size = size;
     }
 
     draw() {
         this.ctx.beginPath();
 
-        this.ctx.font = '12px PressStart2P';
+        this.ctx.font = `${this.size}px PressStart2P`;
         this.ctx.fillStyle = '#ffffff';
 
         const textWidth = this.ctx.measureText(this.text).width;

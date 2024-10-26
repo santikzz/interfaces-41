@@ -3,87 +3,102 @@ class Game extends CanvasElement {
     constructor() {
         super(0, 0);
 
-
         this.playerTurn = 1;
         this.draggedCoin = null;
-
-        this.showMenu = true;
-
+        this.inMenu = true;
+        this.time = 250;
         this.setupEventListeners();
         this.menu();
-        this.draw();
+        // this.start({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
     }
 
     menu() {
 
+        this.logo = new ImageObj({ x: this.canvas.width / 2 - 200, y: 100, width: 400, height: 200, src: 'static/game/logo.png' });
+        this.selectText = new Text({
+            x: this.canvas.width / 2,
+            y: this.canvas.height / 2 + 75,
+            text: 'Elige un modo de juego',
+            anchor: 'center',
+            size: 20,
+        });
+
+        this.selectText.draw();
+
         this.modo1 = new Button({
             x: this.canvas.width / 2 - (75 * 3),
-            y: this.canvas.height / 2 - 25,
+            y: this.canvas.height / 2 + 100,
             width: 150, height: 50,
             text: '4 en Linea',
             onClick: () => {
-                alert('clicked!');
+                this.start({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
             }
         });
 
         this.modo2 = new Button({
             x: this.canvas.width / 2 - 75,
-            y: this.canvas.height / 2 - 25,
+            y: this.canvas.height / 2 + 100,
             width: 150, height: 50,
             text: '5 en Linea',
             onClick: () => {
-                alert('clicked!');
+                this.start({ rows: 7, cols: 8, mode: 5, cellSize: 64 });
             }
         });
 
         this.modo3 = new Button({
             x: this.canvas.width / 2 + (75),
-            y: this.canvas.height / 2 - 25,
+            y: this.canvas.height / 2 + 100,
             width: 150, height: 50,
             text: '6 en Linea',
             onClick: () => {
-                alert('clicked!');
+                this.start({ rows: 8, cols: 9, mode: 6, cellSize: 56 });
             }
         });
 
-        this.modo1.draw();
-        this.modo2.draw();
-        this.modo3.draw();
-
+        // this.modo1.draw();
+        // this.modo2.draw();
+        // this.modo3.draw();
 
     }
 
     start({ rows, cols, mode, cellSize }) {
 
-        // this.board = new Board({ rows: 6, cols: 7, mode: 4, cellSize: 74 }); // width 512 
-        // this.board = new Board({ rows: 7, cols: 8, mode: 5, cellSize: 64 });
-        this.ctx.beginPath();
-        this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.fillStyle = "#000000"
-        this.ctx.fill();
-        this.ctx.closePath();
+        this.inMenu = false;
+        // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.background = new ImageObj({ x: 0, y: 0, width: this.canvas.width, height: this.canvas.height, src: 'static/game/background.webp' });
 
         this.board = new Board({ rows, cols, mode, cellSize });
-        this.player1Stack = this.generateCoinStack(1, 10);
-        this.player2Stack = this.generateCoinStack(2, 10);
+
+        const coinsPerStack = Math.ceil((rows * cols) / 2);
+
+        this.player1Stack = this.generateCoinStack(1, coinsPerStack);
+        this.player2Stack = this.generateCoinStack(2, coinsPerStack);
 
         this.timeText = new Text({
             x: this.canvas.width / 2,
             y: 50,
             text: 250,
             anchor: 'center',
+            size: 20,
         });
 
         this.restartBtn = new Button({
             x: 25, y: 25,
             width: 150, height: 50,
-            text: 'Restart',
+            text: 'Reinicar',
             onClick: () => {
-                alert('clicked!');
+                this.restart();
             }
         });
 
-        // this.canvas.style.cursor = 'url("static/default.png"), auto';
+        this.gameInterval = setInterval(() => {
+            this.time = this.time - 1;
+            this.timeText.text = `Tiempo ${this.time}s`;
+            if (this.time <= 0) {
+                this.endGame({ reason: 'timeout' });
+            }
+            this.draw();
+        }, 1000);
 
         this.draw();
 
@@ -96,30 +111,18 @@ class Game extends CanvasElement {
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;
 
-            if (this.showMenu) {
+            if (this.inMenu) {
 
-                if (this.modo1.isCursorInside(mouseX, mouseY)) {
-                    this.showMenu = false;
-                    // this.board = new Board({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
-                    this.start({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
-                }
-
-                if (this.modo2.isCursorInside(mouseX, mouseY)) {
-                    this.showMenu = false;
-                    // // this.board = new Board({ rows: 7, cols: 8, mode: 5, cellSize: 64 });
-                    this.start({ rows: 7, cols: 8, mode: 5, cellSize: 64 });
-                }
-
-                if (this.modo3.isCursorInside(mouseX, mouseY)) {
-                    this.showMenu = false;
-                    // this.board = new Board({ rows: 8, cols: 9, mode: 6, cellSize: 56 });
-                    this.start({ rows: 8, cols: 9, mode: 6, cellSize: 56 });
-                }
+                if (this.modo1.isCursorInside(mouseX, mouseY))
+                    this.modo1.click();
+                if (this.modo2.isCursorInside(mouseX, mouseY))
+                    this.modo2.click();
+                if (this.modo3.isCursorInside(mouseX, mouseY))
+                    this.modo3.click();
 
             } else {
-                if (this.restartBtn.isCursorInside(mouseX, mouseY)) {
+                if (this.restartBtn.isCursorInside(mouseX, mouseY))
                     this.restartBtn.click();
-                }
             }
         });
 
@@ -127,7 +130,7 @@ class Game extends CanvasElement {
             const rect = canvas.getBoundingClientRect();
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;
-            if (this.showMenu) {
+            if (this.inMenu) {
 
             } else {
                 this.startDragging(mouseX, mouseY);
@@ -139,15 +142,13 @@ class Game extends CanvasElement {
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;
 
-            if (this.showMenu) {
+            if (this.inMenu) {
 
                 if (this.modo1.isCursorInside(mouseX, mouseY) ||
                     this.modo2.isCursorInside(mouseX, mouseY) ||
                     this.modo3.isCursorInside(mouseX, mouseY)) {
-
+                    this.draw();
                 }
-
-                // this.draw();
 
             } else {
                 this.restartBtn.isCursorInside(mouseX, mouseY);
@@ -171,9 +172,8 @@ class Game extends CanvasElement {
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;
 
-            if (this.showMenu) {
+            if (this.inMenu) {
             } else {
-
 
                 if (this.draggedCoin !== null) {
                     const columnIndex = this.board.getHoveredColumn(mouseX, mouseY);
@@ -183,7 +183,6 @@ class Game extends CanvasElement {
                             this.playerTurn = this.playerTurn === 1 ? 2 : 1;
                             let cx = this.board.x + columnIndex * this.board.cellSize + this.board.cellSize / 2;
                             let cy = this.board.y + row * this.board.cellSize + this.board.cellSize / 2;
-                            // this.draggedCoin.coin.setPosition(cx, cy);
                             this.draggedCoin.coin.isDraggable = false;
                             this.animateDrop(this.draggedCoin.coin, cx, cy)
 
@@ -193,13 +192,10 @@ class Game extends CanvasElement {
 
                         }
                     } else {
-
                         this.draggedCoin.coin.x = this.draggedCoin.prevX;
                         this.draggedCoin.coin.y = this.draggedCoin.prevY;
-
                     }
                 }
-
                 this.draggedCoin = null;
                 this.draw();
 
@@ -225,10 +221,20 @@ class Game extends CanvasElement {
 
     generateCoinStack(player, count) {
         let stack = [];
+        let offset = 0;
+        let index = 0;
         for (let i = 0; i < count; i++) {
+
+            if (i % 2 == 0) {
+                offset = this.board.cellSize;
+                index++;
+            } else {
+                offset = 0;
+            }
+
             stack.push(new Coin({
-                x: player === 1 ? 50 : this.canvas.width - 50,
-                y: this.canvas.height - 50 - i * this.board.cellSize / 2,
+                x: player === 1 ? 50 + offset : this.canvas.width - 50 - offset,
+                y: this.canvas.height - 25 - index * this.board.cellSize / 3,
                 cellSize: this.board.cellSize,
                 player: player
             }));
@@ -251,56 +257,78 @@ class Game extends CanvasElement {
     }
 
     draw() {
+
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        if (this.showMenu) {
+        if (this.inMenu) {
+
+            this.modo1.draw();
+            this.modo2.draw();
+            this.modo3.draw();
+            this.logo.draw();
+            this.selectText.draw();
 
         } else {
-            this.drawBackground();
-            this.drawElements();
+            this.background.draw();
+            this.drawGameElements();
             this.player1Stack.forEach(coin => coin.draw(this.ctx));
             this.player2Stack.forEach(coin => coin.draw(this.ctx));
             this.board.draw();
+
+            // this.drawTimeout();
+
         }
     }
 
-    drawElements() {
-
+    drawGameElements() {
         this.restartBtn.draw();
         this.timeText.draw();
+    }
 
-        // this.ctx.beginPath();
-        // this.ctx.font = "30px Arial";
-        // this.ctx.fillStyle = "blue";
-        // this.ctx.fillText("Hello, World!", this.canvas.width / 2, 50);
-        // this.ctx.closePath();
+    restart() {
+
+        clearInterval(this.gameInterval);
+        this.inMenu = true;
+        this.draw();
+        this.playerTurn = 1;
+        this.draggedCoin = null;
+        this.time = 250;
+        // this.ctx.fillStyle = "#FF0000"
+        // this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.menu();
 
     }
 
-    drawBackground() {
-        let image = new Image();
-        image.src = 'static/background.webp';
+    endGame({ reason, player = null }) {
 
-        image.onload = () => {
-            // this.ctx.drawImage(image, 0, 0, this.canvas.width, this.canvas.height);
+        if (reason === 'timeout') {
+
+            // show timeout
+
+        } else if (reason === 'win') {
+
+            // player wins
+
         }
-
-        if (image.complete) {
-            this.ctx.drawImage(image, 0, 0, this.canvas.width, this.canvas.height);
-        }
-
-    }
-
-    endGame(winner) {
-
-        // const size = 350, 150
 
         this.ctx.beginPath();
         this.ctx.rect()
-
         this.ctx.closePath();
 
     }
 
+
+    drawTimeout() {
+
+        frame = new ImageObj({
+            x: this.canvas.width / 2 - 200,
+            y: this.canvas.height / 2 - 100,
+            width: 600,
+            height: 200,
+            src: 'static/game/border-image.png',
+            smooth: false,
+        });
+
+    }
 
 }

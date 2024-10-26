@@ -1,0 +1,153 @@
+@import url(main.css);
+@import url(animations.css);
+
+body {
+    background-image: url('../static/rayman.jpg');
+    overflow: hidden;
+}
+
+.backdrop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+section.login {
+    position: absolute;
+    right: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    position: absolute;
+    right: 8rem;
+    top: 25%;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 400px;
+    height: 400px;
+    z-index: 20;
+    /* background-color: red; */
+    gap: 0.5rem;
+}
+
+.input input{
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    padding: 12.5px;
+    width: 100%;
+}
+
+.input {
+    border: none;
+    background-color: var(--background-200);
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input.password{
+    justify-content: space-between;
+}
+
+.input.password .eye{
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0 1rem;
+    border-left: 1px solid #707275;
+    color: #707275;
+    cursor: pointer;
+    transition: opacity 200ms ease;
+    font-size: 16px;
+}
+
+.input.password .eye:hover{
+    opacity: 75%;
+}
+
+.btn-login {
+    padding: 12.5px;
+    box-shadow: none !important;
+    font-size: 16px;
+}
+
+.third-party-label {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+    color: var(--text-gray);
+}
+
+.third-party-login {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.third-party-login .btn {
+    flex: 1 1 0%;
+}
+
+.third-party-login .btn.btn-facebook {
+    background-color: #1877F2;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+
+.third-party-login .btn.btn-google {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.register-label {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.btn-facebook:hover {
+    animation: changeFacebook 0.3s forwards;
+    transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+}
+
+.btn-google:hover {
+    animation: changeGoogle 0.3s forwards;
+    transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+}
+
+@keyframes changeFacebook {
+    0% {
+        background-color: #016fff;
+    }
+
+    100% {
+        background-color: #ffffff;
+        color: #016fff;
+    }
+}
+
+@keyframes changeGoogle {
+    0% {
+        background-color: #ffffff;
+    }
+
+    100% {
+        background-color: #000000;
+        color: #ffffff;
+    }
+}

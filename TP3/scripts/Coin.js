@@ -8,9 +8,9 @@ class Coin extends CanvasElement {
 
         this.image = new Image();
         if (player === 1) {
-            this.image.src = 'static/piltover.png';
+            this.image.src = 'static/game/piltover.png';
         } else if (player === 2) {
-            this.image.src = 'static/zaun.png';
+            this.image.src = 'static/game/zaun.png';
         }
 
         this.image.onload = () => {
@@ -42,7 +42,7 @@ class Coin extends CanvasElement {
 
     isCursorInside(mouseX, mouseY) {
         if ((Math.sqrt((mouseX - this.x) ** 2 + (mouseY - this.y) ** 2) <= this.cellSize / this.scale) && this.isDraggable) {
-            this.canvas.style.cursor = 'url("static/point.png"), auto';
+            this.canvas.style.cursor = 'url("static/game/point.png"), auto';
             return true;
         }
         return false;

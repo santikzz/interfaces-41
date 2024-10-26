@@ -3,7 +3,7 @@ class Cell extends CanvasElement {
     constructor({ x, y, size = 64 }) {
         super(x, y);
         this.image = new Image();
-        this.image.src = 'static/cell.png';
+        this.image.src = 'static/game/cell.png';
         this.size = size;
 
         this.image.onload = () => {

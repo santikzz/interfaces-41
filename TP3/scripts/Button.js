@@ -8,7 +8,7 @@ class Button extends CanvasElement {
         this.onClick = onClick;
 
         this.image = new Image();
-        this.image.src = 'static/button.png';
+        this.image.src = 'static/game/button.png';
 
         this.image.onload = () => {
             this.draw();
@@ -37,12 +37,12 @@ class Button extends CanvasElement {
 
     isCursorInside(mouseX, mouseY) {
         if (mouseX > this.x && mouseX < this.x + this.width && mouseY > this.y && mouseY < this.y + this.height) {
-            this.image.src = 'static/button-down.png';
-            this.canvas.style.cursor = 'url("static/point.png"), auto';
+            this.image.src = 'static/game/button-down.png';
+            this.canvas.style.cursor = 'url("static/game/point.png"), auto';
             return true;
         }
-        this.image.src = 'static/button.png';
-        this.canvas.style.cursor = 'url("static/default.png"), auto';
+        this.image.src = 'static/game/button.png';
+        this.canvas.style.cursor = 'url("static/game/default.png"), auto';
         return false;
     }
 
