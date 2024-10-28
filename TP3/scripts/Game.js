@@ -105,10 +105,10 @@ class Game extends CanvasElement {
 
         this.gameInterval = setInterval(() => {
             this.time = this.time - 1;
-            this.timeText.text = `Tiempo ${this.time}s`;
-            if (this.time <= 0) {
+            if (this.time < 0) {
                 this.endGame({ reason: 'timeout' });
             }
+            this.timeText.text = `Tiempo ${this.time}s`;
             this.draw();
         }, 1000);
 
