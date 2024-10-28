@@ -13,7 +13,6 @@ class Game extends CanvasElement {
     }
 
     menu() {
-
         this.background = new ImageObj({ x: 0, y: 0, width: this.canvas.width, height: this.canvas.height, src: 'static/game/background.webp' });
         this.logo = new ImageObj({ x: this.canvas.width / 2 - 200, y: 100, width: 400, height: 200, src: 'static/game/logo.png' });
         this.selectText = new Text({
@@ -307,7 +306,6 @@ class Game extends CanvasElement {
     }
 
     restart() {
-
         clearInterval(this.gameInterval);
         this.inMenu = true;
         this.draw();
@@ -317,19 +315,13 @@ class Game extends CanvasElement {
         // this.ctx.fillStyle = "#FF0000"
         // this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         this.menu();
-
     }
 
     endGame({ reason, player = null }) {
-
         if (reason === 'timeout') {
-
             // show timeout
-
         } else if (reason === 'win') {
-
             // player wins
-
         }
 
         this.ctx.beginPath();
@@ -340,7 +332,6 @@ class Game extends CanvasElement {
 
 
     drawTimeout() {
-
         frame = new ImageObj({
             x: this.canvas.width / 2 - 200,
             y: this.canvas.height / 2 - 100,
