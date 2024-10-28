@@ -10,6 +10,17 @@ class Game extends CanvasElement {
         this.setupEventListeners();
         this.menu();
         // this.start({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
+
+        this.audios = {
+            clickGame: new Audio('static/audios/Click.mp3'),
+            startGame: new Audio('static/audios/Start game.mp3'),
+            hoverGame: new Audio('static/audios/hover.mp3'),
+            dragCoin: new Audio('static/audios/Drag.mp3'),
+            dropCoin: new Audio('static/audios/Drop.mp3'),
+            errorCoin: new Audio('static/audios/Error.mp3')
+        };
+
+        this.hoveredButton = null;
     }
 
     menu() {
@@ -32,7 +43,7 @@ class Game extends CanvasElement {
             text: '4 en Linea',
             onClick: () => {
                 this.start({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
-            }
+            },
         });
 
         this.modo2 = new Button({
@@ -340,7 +351,23 @@ class Game extends CanvasElement {
             src: 'static/game/border-image.png',
             smooth: false,
         });
+    }
 
+    playAudio(audioKey) {
+        const audio = this.audios[audioKey];
+        if (audio) {
+            audio.play();
+        } else {
+            console.warn(`El audio ${audioKey} no fue encontrado`);
+        }
+    }
+
+    handleHover(audioKey) {
+        console.log("hover")
+        if (this.hoveredButton !== audioKey) {
+            this.hoveredButton = audioKey;
+            this.playAudio(audioKey);
+        }
     }
 
 }

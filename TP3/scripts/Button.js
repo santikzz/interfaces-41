@@ -1,6 +1,6 @@
 class Button extends CanvasElement {
 
-    constructor({ x, y, width, height, text, onClick }) {
+    constructor({ x, y, width, height, text, onClick, audio }) {
         super(x, y);
         this.width = width;
         this.height = height;
@@ -13,6 +13,10 @@ class Button extends CanvasElement {
         this.image.onload = () => {
             this.draw();
         }
+
+        //  this.onHover = onHover;
+        // this.audio = audio;
+        // this.isHovered = false;
     }
 
     draw() {

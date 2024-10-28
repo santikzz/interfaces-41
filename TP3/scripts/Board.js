@@ -33,6 +33,14 @@ class Board extends CanvasElement {
             drawOnLoad: false,
         });
 
+        // this.audios = {
+        //     clickGame: new Audio('static/audios/Click.mp3'),
+        //     startGame: new Audio('static/audios/Start game.mp3'),
+        //     hoverGame: new Audio('static/audios/hover.mp3'),
+        //     dragCoin: new Audio('static/audios/Drag.mp3'),
+        //     dropCoin: new Audio('static/audios/Drop.mp3'),
+        //     errorCoin: new Audio('static/audios/Error.mp3')
+        // };
     }
 
     // genero el tablero de forma dinamica con rows*cols
@@ -117,22 +125,6 @@ class Board extends CanvasElement {
         const currentCol = this.grid[row];                                              // elementos de la columna actual
         const currentRow = this.grid.map((column) => column[col]);                      // elementos de la fila actual
 
-        // elementos de la diagonal izquierda
-        // const leftDiagonal = [];
-        // for (let i = -5; i <= 5; i++) {
-        //     if (this.isValidPosition(this.grid[col + 1])) {
-        //         leftDiagonal.push(this.grid[row + i][col + i]);
-        //     }
-        // }
-
-        // // elementos de la diagonal derecha
-        // const rightDiagonal = [];
-        // for (let i = -5; i <= 5; i++) {
-        //     if (this.isValidPosition(this.grid[col - 1])) {
-        //         rightDiagonal.push(this.grid[row - i][col - i]);
-        //     }
-        // }
-
         // Diagonal /
         const leftDiagonal = [];
         for (let i = -this.mode + 1; i < this.mode; i++) {
@@ -168,67 +160,20 @@ class Board extends CanvasElement {
             })
         );
 
-        // checkeo si el patron esta en las direcciones
-        // if (
-        //     allLines.some(line => {
-        //         const lineString = line.join("");
-        //         if (lineString.includes(pattern)) {
-        //             console.log(`Player ${lastCoinPlayer} wins!`);
-        //             return lastCoinPlayer;
-        //         }
-        //     })
-        // )
-
-            return null;
+        return null;
     }
 
     showWin(row, col) {
         console.log("Desea jugar nuevamente?")
     }
 
-    // checkWin(row, col) {
-    //     const lastCoinPlayer = this.grid[row][col];                 // Valor de la última ficha colocada
-    //     const pattern = `${lastCoinPlayer}`.repeat(this.mode);      // Patrón a buscar, ej: "1111" o "2222"
-
-    //     const currentCol = this.grid[row];                          // Elementos de la fila actual
-    //     const currentRow = this.grid.map(column => column[col]);    // Elementos de la columna actual
-
-    //     // Diagonal izquierda a derecha (/)
-    //     const leftDiagonal = [];
-    //     for (let i = -this.mode + 1; i < this.mode; i++) {
-    //         const newRow = row + i;
-    //         const newCol = col + i;
-    //         if (this.isValidPosition(newRow, newCol)) {
-    //             leftDiagonal.push(this.grid[newRow][newCol]);
-    //         }
-    //     }
-
-    //     // Diagonal derecha a izquierda (\)
-    //     const rightDiagonal = [];
-    //     for (let i = -this.mode + 1; i < this.mode; i++) {
-    //         const newRow = row + i;
-    //         const newCol = col - i;
-    //         if (this.isValidPosition(newRow, newCol)) {
-    //             rightDiagonal.push(this.grid[newRow][newCol]);
-    //         }
-    //     }
-
-    //     // Combina todas las direcciones
-    //     const allLines = [currentRow, currentCol, leftDiagonal, rightDiagonal];
-
-    //     // Chequea si alguna línea contiene el patrón
-    //     if (
-    //         allLines.some(line => {
-    //             const lineString = line.join("");
-    //             if (lineString.includes(pattern)) {
-    //                 console.log(`Player ${lastCoinPlayer} wins!`);
-    //                 return lastCoinPlayer;
-    //             }
-    //         })
-    //     ) return lastCoinPlayer;
-
-    //     return null;
-    // }
-
+    playAudio(audioKey) {
+        const audio = this.audios[audioKey];
+        if (audio) {
+            audio.play();
+        } else {
+            console.warn(`El audio ${audioKey} no fue encontrado`);
+        }
+    }
 
 }
