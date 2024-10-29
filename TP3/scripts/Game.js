@@ -21,6 +21,8 @@ class Game extends CanvasElement {
         };
 
         this.hoveredButton = null;
+
+  
     }
 
     menu() {
@@ -42,8 +44,16 @@ class Game extends CanvasElement {
             width: 150, height: 50,
             text: '4 en Linea',
             onClick: () => {
+                this.audios.clickGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
                 this.start({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
             },
+            onHover: () => {
+                this.audios.hoverGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
+            }
         });
 
         this.modo2 = new Button({
@@ -52,6 +62,9 @@ class Game extends CanvasElement {
             width: 150, height: 50,
             text: '5 en Linea',
             onClick: () => {
+                this.audios.clickGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
                 this.start({ rows: 7, cols: 8, mode: 5, cellSize: 64 });
             }
         });
@@ -62,8 +75,11 @@ class Game extends CanvasElement {
             width: 150, height: 50,
             text: '6 en Linea',
             onClick: () => {
+                this.audios.clickGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
                 this.start({ rows: 8, cols: 9, mode: 6, cellSize: 56 });
-            }
+            },
         });
 
         let blink = true;
@@ -110,6 +126,9 @@ class Game extends CanvasElement {
             width: 150, height: 50,
             text: 'Reiniciar',
             onClick: () => {
+                this.audios.clickGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
                 this.restart();
             }
         });
@@ -362,12 +381,14 @@ class Game extends CanvasElement {
         }
     }
 
-    handleHover(audioKey) {
-        console.log("hover")
-        if (this.hoveredButton !== audioKey) {
-            this.hoveredButton = audioKey;
-            this.playAudio(audioKey);
-        }
+    playClick() {
+        // Espera a que el usuario haga clic para activar el audio
+        this.canvas.addEventListener('click', () => {
+            this.audios.dropCoin.load(); // Carga el audio
+            this.audios.dropCoin.play().catch(error => {
+                console.error('Error reproduciendo el audio:', error);
+            });
+        }, { once: true }); // Escucha solo una vez
     }
 
 }

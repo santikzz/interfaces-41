@@ -168,6 +168,7 @@ class Board extends CanvasElement {
     }
 
     playAudio(audioKey) {
+        console.log("play audio")
         const audio = this.audios[audioKey];
         if (audio) {
             audio.play();

@@ -1,11 +1,13 @@
 class Button extends CanvasElement {
 
-    constructor({ x, y, width, height, text, onClick, audio }) {
+    constructor({ x, y, width, height, text, onClick, onHover }) {
         super(x, y);
         this.width = width;
         this.height = height;
         this.text = text;
         this.onClick = onClick;
+
+        this.onHover = onHover;
 
         this.image = new Image();
         this.image.src = 'static/game/button.png';
@@ -14,9 +16,6 @@ class Button extends CanvasElement {
             this.draw();
         }
 
-        //  this.onHover = onHover;
-        // this.audio = audio;
-        // this.isHovered = false;
     }
 
     draw() {
@@ -53,5 +52,10 @@ class Button extends CanvasElement {
     click() {
         this.onClick();
     }
+
+    hover() {
+        this.onHover();
+    }
+
 
 }
