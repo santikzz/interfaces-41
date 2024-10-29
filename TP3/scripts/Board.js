@@ -33,14 +33,6 @@ class Board extends CanvasElement {
             drawOnLoad: false,
         });
 
-        // this.audios = {
-        //     clickGame: new Audio('static/audios/Click.mp3'),
-        //     startGame: new Audio('static/audios/Start game.mp3'),
-        //     hoverGame: new Audio('static/audios/hover.mp3'),
-        //     dragCoin: new Audio('static/audios/Drag.mp3'),
-        //     dropCoin: new Audio('static/audios/Drop.mp3'),
-        //     errorCoin: new Audio('static/audios/Error.mp3')
-        // };
     }
 
     // genero el tablero de forma dinamica con rows*cols
@@ -167,14 +159,5 @@ class Board extends CanvasElement {
         console.log("Desea jugar nuevamente?")
     }
 
-    playAudio(audioKey) {
-        console.log("play audio")
-        const audio = this.audios[audioKey];
-        if (audio) {
-            audio.play();
-        } else {
-            console.warn(`El audio ${audioKey} no fue encontrado`);
-        }
-    }
 
 }

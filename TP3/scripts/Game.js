@@ -8,7 +8,9 @@ class Game extends CanvasElement {
         this.inMenu = true;
         this.time = 250;
         this.setupEventListeners();
-        this.menu();
+
+        this.hoveredButton = null;
+
         // this.start({ rows: 6, cols: 7, mode: 4, cellSize: 74 });
 
         this.audios = {
@@ -20,9 +22,8 @@ class Game extends CanvasElement {
             errorCoin: new Audio('static/audios/Error.mp3')
         };
 
-        this.hoveredButton = null;
-
-  
+        this.canvas.addEventListener('mousemove', (event) => this.handleHover(event)); //maneja eventos del audio
+        this.menu();
     }
 
     menu() {
@@ -66,6 +67,11 @@ class Game extends CanvasElement {
                     console.error('Error reproduciendo el audio:', error);
                 });
                 this.start({ rows: 7, cols: 8, mode: 5, cellSize: 64 });
+            },
+            onHover: () => {
+                this.audios.hoverGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
             }
         });
 
@@ -80,6 +86,11 @@ class Game extends CanvasElement {
                 });
                 this.start({ rows: 8, cols: 9, mode: 6, cellSize: 56 });
             },
+            onHover: () => {
+                this.audios.hoverGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
+            }
         });
 
         let blink = true;
@@ -96,7 +107,7 @@ class Game extends CanvasElement {
         // this.modo1.draw();
         // this.modo2.draw();
         // this.modo3.draw();
-
+        this.buttons.push(modo1, modo2, modo3);
     }
 
     start({ rows, cols, mode, cellSize }) {
@@ -390,5 +401,25 @@ class Game extends CanvasElement {
             });
         }, { once: true }); // Escucha solo una vez
     }
+
+    // handleHover(event) {
+    //     const rect = this.canvas.getBoundingClientRect();
+    //     const mouseX = event.clientX - rect.left;
+    //     const mouseY = event.clientY - rect.top;
+
+    //     if (this.modo1.isCursorInside(mouseX, mouseY)) {
+    //         this.modo1.hover();
+    //     }
+    //     if (this.modo2.isCursorInside(mouseX, mouseY)) {
+    //         this.modo1.hover();
+    //     }
+    //     if (this.modo3.isCursorInside(mouseX, mouseY)) {
+    //         this.modo1.hover();
+    //     }
+
+    //     else {
+    //         this.hoveredButton = null;
+    //     }
+    // }
 
 }

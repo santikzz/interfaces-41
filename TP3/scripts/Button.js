@@ -6,7 +6,6 @@ class Button extends CanvasElement {
         this.height = height;
         this.text = text;
         this.onClick = onClick;
-
         this.onHover = onHover;
 
         this.image = new Image();
