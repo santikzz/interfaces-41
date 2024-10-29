@@ -19,10 +19,14 @@ class Game extends CanvasElement {
             hoverGame: new Audio('static/audios/hover.mp3'),
             dragCoin: new Audio('static/audios/Drag.mp3'),
             dropCoin: new Audio('static/audios/Drop.mp3'),
-            errorCoin: new Audio('static/audios/Error.mp3')
+            errorCoin: new Audio('static/audios/Error.mp3'),
+            ambiente: new Audio('static/audios/Ambiente.mp3'),
         };
 
-        this.canvas.addEventListener('mousemove', (event) => this.handleHover(event)); //maneja eventos del audio
+        // this.canvas.addEventListener('mousemove', (event) => this.handleHover(event)); //maneja eventos del audio
+        this.audios.ambiente.play().catch(error => {
+            console.error('Error reproduciendo el audio:', error);
+        });
         this.menu();
     }
 
@@ -107,7 +111,6 @@ class Game extends CanvasElement {
         // this.modo1.draw();
         // this.modo2.draw();
         // this.modo3.draw();
-        this.buttons.push(modo1, modo2, modo3);
     }
 
     start({ rows, cols, mode, cellSize }) {
@@ -227,6 +230,7 @@ class Game extends CanvasElement {
             const mouseY = event.clientY - rect.top;
 
             if (this.inMenu) {
+
             } else {
 
                 if (this.draggedCoin !== null) {
@@ -300,12 +304,21 @@ class Game extends CanvasElement {
         let stack = this.playerTurn === 1 ? this.player1Stack : this.player2Stack;
         for (let i = 0; i < stack.length; i++) {
             if (stack[i].isCursorInside(mouseX, mouseY)) {
+                this.audios.startGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
+
                 this.draggedCoin = {
                     coin: stack[i],
                     prevX: stack[i].x,
                     prevY: stack[i].y,
                 }
                 return;
+            }
+            else {
+                this.audios.errorCoin.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
             }
         }
     }
@@ -401,25 +414,5 @@ class Game extends CanvasElement {
             });
         }, { once: true }); // Escucha solo una vez
     }
-
-    // handleHover(event) {
-    //     const rect = this.canvas.getBoundingClientRect();
-    //     const mouseX = event.clientX - rect.left;
-    //     const mouseY = event.clientY - rect.top;
-
-    //     if (this.modo1.isCursorInside(mouseX, mouseY)) {
-    //         this.modo1.hover();
-    //     }
-    //     if (this.modo2.isCursorInside(mouseX, mouseY)) {
-    //         this.modo1.hover();
-    //     }
-    //     if (this.modo3.isCursorInside(mouseX, mouseY)) {
-    //         this.modo1.hover();
-    //     }
-
-    //     else {
-    //         this.hoveredButton = null;
-    //     }
-    // }
 
 }
