@@ -22,7 +22,7 @@ class Game extends CanvasElement {
             errorCoin: new Audio('static/audios/Error.mp3'),
             ambiente: new Audio('static/audios/Ambiente.mp3'),
         };
-        this.audios.ambiente.volume = 0.2; 
+        this.audios.ambiente.volume = 0.5; 
 
         // this.canvas.addEventListener('mousemove', (event) => this.handleHover(event)); //maneja eventos del audio
         this.audios.ambiente.play().catch(error => {
@@ -153,12 +153,29 @@ class Game extends CanvasElement {
             if (this.time < 0) {
                 this.endGame({ reason: 'timeout' });
             }
+            if (this.board.isWinner) {
+                this.handlevictory();
+            }
             this.timeText.text = `Tiempo ${this.time}s`;
             this.draw();
         }, 1000);
 
-        // this.draw();
+    }
 
+    handlevictory(){
+        this.restartBtn = new Button({
+            x: this.canvas.width / 2 - 75,
+            y: this.canvas.height / 2 + 200,
+            width: 170, 
+            height: 50,
+            text: 'Volver a Menu',
+            onClick: () => {
+                this.audios.clickGame.play().catch(error => {
+                    console.error('Error reproduciendo el audio:', error);
+                });
+                this.restart();
+            },
+    });
     }
 
     setupEventListeners() {

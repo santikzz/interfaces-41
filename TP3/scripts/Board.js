@@ -32,6 +32,7 @@ class Board extends CanvasElement {
             src: 'static/game/glow.png',
             drawOnLoad: false,
         });
+        
         this.victoryOpacity = 0;
         this.victoryImage = new ImageObj({
             x: (this.boardSize.width - 900) / 2 + this.x, 
@@ -41,11 +42,9 @@ class Board extends CanvasElement {
             src: 'static/game/victory.png', 
             drawOnLoad: false 
         });
-
         this.isWinner = false;
         this.audioPlayed = false;
-        
-        this.victorySound = new Audio('static/audios/victory.mp3');
+        this.victorySound = new Audio('static/audios/victory2.mp3');
 
     }
 
@@ -90,9 +89,10 @@ class Board extends CanvasElement {
             if (this.audioPlayed==false) {
                 this.victorySound.play();
                 this.audioPlayed = true;
-            }
+            } 
         }
     }
+    
 
     // obtengo el indice de la columna que tengo el mouse encima
     getHoveredColumn(mouseX, mouseY) {
@@ -113,7 +113,6 @@ class Board extends CanvasElement {
     
                 if (this.checkWin(row, column)) {
                     this.isWinner = true; 
-                    // Aquí llamamos a la animación de victoria
                     this.animateVictoryImage();
                     return { row, player }; // retorno la fila y el jugador
                 }
@@ -183,12 +182,14 @@ class Board extends CanvasElement {
 
     animateVictoryImage() {
         if (this.victoryOpacity < 1) {
-            this.victoryOpacity += 0.1;
+            this.victoryOpacity += 0.2; // Incrementa la opacidad
         }
-        
+    
         this.ctx.globalAlpha = this.victoryOpacity; 
         this.victoryImage.draw(); 
         this.ctx.globalAlpha = 1; 
+    
+        // Si la opacidad es menor a 1, sigue animando
         if (this.victoryOpacity < 1) {
             this.animationFrame = requestAnimationFrame(() => this.animateVictoryImage());
         }
