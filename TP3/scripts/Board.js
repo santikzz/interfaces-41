@@ -33,6 +33,17 @@ class Board extends CanvasElement {
             drawOnLoad: false,
         });
 
+        this.victoryImage = new ImageObj({
+            x: (this.boardSize.width - 700) / 2 + this.x, 
+            y: (this.boardSize.height - 350) / 2 + this.y,
+            width: 700, 
+            height: 350, 
+            src: 'static/game/victory.png', 
+            drawOnLoad: false 
+        });
+
+        this.isWinner = false; 
+
     }
 
     // genero el tablero de forma dinamica con rows*cols
@@ -70,7 +81,10 @@ class Board extends CanvasElement {
     draw() {
         // this.drawDropArea();
         // this.ctx.clearReact(this.x, this.y, this.boardSize.width, this.boardSize.height)
-        this.cells.forEach(cell => cell.draw()); // renderizo las celdas
+        this.cells.forEach(cell => cell.draw()); // renderizo las celdasdraw() 
+        if (this.isWinner) { 
+            this.victoryImage.draw(); 
+        }
     }
 
     // obtengo el indice de la columna que tengo el mouse encima
@@ -91,11 +105,10 @@ class Board extends CanvasElement {
 
                 this.grid[row][column] = player;
 
-                // if (this.checkWin(row, column)) {
-                //     console.log("place coin win")
-                //     return row;
-                // }
-
+                if (this.checkWin(row, column)) {
+                    this.isWinner = true; 
+                    return { row, player }; // retorno la fila y el
+                }
                 return row;
             }
         }
@@ -146,6 +159,7 @@ class Board extends CanvasElement {
             allLines.some((line) => {
                 let lineString = line.join("");
                 if (lineString.includes(pattern)) {
+                    this.isWinner = true; 
                     console.log(`Player ${lastCoinPlayer} wins!`);
                     return lastCoinPlayer;
                 }
