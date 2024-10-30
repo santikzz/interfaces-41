@@ -22,6 +22,7 @@ class Game extends CanvasElement {
             errorCoin: new Audio('static/audios/Error.mp3'),
             ambiente: new Audio('static/audios/Ambiente.mp3'),
         };
+        this.audios.ambiente.volume = 0.2; 
 
         // this.canvas.addEventListener('mousemove', (event) => this.handleHover(event)); //maneja eventos del audio
         this.audios.ambiente.play().catch(error => {
