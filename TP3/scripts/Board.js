@@ -12,8 +12,7 @@ class Board extends CanvasElement {
             width: this.cols * this.cellSize,
             height: this.rows * this.cellSize
         };
-        this.x = (this.canvas.width / 2) - (this.boardSize.width / 2);                       // pongo el tablero en el centro de la pantalla
-        // this.y = (canvas.height / 2) - (this.boardSize.height / 2);
+        this.x = (this.canvas.width / 2) - (this.boardSize.width / 2);                  // pongo el tablero en el centro de la pantalla
         this.y = this.canvas.height - this.boardSize.height;
 
         this.dropArea = {
@@ -32,17 +31,17 @@ class Board extends CanvasElement {
             src: 'static/game/glow.png',
             drawOnLoad: false,
         });
-        
+
         this.victoryOpacity = 0;
         this.victoryImage = new ImageObj({
-            x: (this.boardSize.width - 900) / 2 + this.x, 
+            x: (this.boardSize.width - 900) / 2 + this.x,
             y: (this.boardSize.height - 500) / 2 + this.y,
-            width: 900, 
-            height: 500, 
-            src: 'static/game/victory.png', 
-            drawOnLoad: false 
+            width: 900,
+            height: 500,
+            src: 'static/game/victory.png',
+            drawOnLoad: false
         });
-        this.isWinner = false;
+        this.winner = null;
         this.audioPlayed = false;
         this.victorySound = new Audio('static/audios/victory2.mp3');
 
@@ -81,18 +80,8 @@ class Board extends CanvasElement {
     }
 
     draw() {
-        // this.drawDropArea();
-        // this.ctx.clearReact(this.x, this.y, this.boardSize.width, this.boardSize.height)
-        this.cells.forEach(cell => cell.draw()); // renderizo las celdasdraw() 
-        if (this.isWinner) { 
-            this.animateVictoryImage();
-            if (this.audioPlayed==false) {
-                this.victorySound.play();
-                this.audioPlayed = true;
-            } 
-        }
+        this.cells.forEach(cell => cell.draw()); // renderizo las celdas
     }
-    
 
     // obtengo el indice de la columna que tengo el mouse encima
     getHoveredColumn(mouseX, mouseY) {
@@ -110,20 +99,10 @@ class Board extends CanvasElement {
         for (let row = this.rows - 1; row >= 0; row--) {
             if (this.grid[row][column] === 0) {
                 this.grid[row][column] = player;
-    
-                if (this.checkWin(row, column)) {
-                    this.isWinner = true; 
-                    this.animateVictoryImage();
-                    return { row, player }; // retorno la fila y el jugador
-                }
                 return row;
             }
         }
         return null;
-    }
-
-    printGrid() {
-        console.log(this.grid.map(row => row.join(' ')).join('\n'));
     }
 
     isValidPosition(row, col) {
@@ -157,7 +136,6 @@ class Board extends CanvasElement {
             }
         }
 
-
         // todas las direcciones juntas a partir de la ultima ficha colocada
         const allLines = [currentRow, currentCol, leftDiagonal, rightDiagonal];
 
@@ -166,8 +144,7 @@ class Board extends CanvasElement {
             allLines.some((line) => {
                 let lineString = line.join("");
                 if (lineString.includes(pattern)) {
-                    this.isWinner = true; 
-                    console.log(`Player ${lastCoinPlayer} wins!`);
+                    this.winner = lastCoinPlayer;
                     return lastCoinPlayer;
                 }
             })
@@ -175,25 +152,5 @@ class Board extends CanvasElement {
 
         return null;
     }
-
-    showWin(row, col) {
-        console.log("Desea jugar nuevamente?")
-    }
-
-    animateVictoryImage() {
-        if (this.victoryOpacity < 1) {
-            this.victoryOpacity += 0.2; // Incrementa la opacidad
-        }
-    
-        this.ctx.globalAlpha = this.victoryOpacity; 
-        this.victoryImage.draw(); 
-        this.ctx.globalAlpha = 1; 
-    
-        // Si la opacidad es menor a 1, sigue animando
-        if (this.victoryOpacity < 1) {
-            this.animationFrame = requestAnimationFrame(() => this.animateVictoryImage());
-        }
-    }
-
 
 }

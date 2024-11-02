@@ -8,7 +8,7 @@ class ImageObj extends CanvasElement {
         this.height = height;
         this.smooth = smooth;
 
-        if(drawOnLoad){
+        if (drawOnLoad) {
             this.image.onload = () => {
                 this.draw();
             }

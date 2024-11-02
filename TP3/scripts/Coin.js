@@ -1,23 +1,24 @@
 class Coin extends CanvasElement {
 
-    constructor({ x, y, cellSize, player }) {
+    constructor({ x, y, cellSize, coinImageIndex }) {
         super(x, y);
-        this.player = player;
+        this.coinImageIndex = coinImageIndex;
         this.cellSize = cellSize;
         this.scale = 1.25;
-
+        this.isDraggable = true;
         this.image = new Image();
-        if (player === 1) {
-            this.image.src = 'static/game/piltover.png';
-        } else if (player === 2) {
-            this.image.src = 'static/game/zaun.png';
-        }
-
+        this.coinImages = [
+            'static/game/piltover1.png',
+            'static/game/piltover2.png',
+            'static/game/piltover3.png',
+            'static/game/zaun1.png',
+            'static/game/zaun2.png',
+            'static/game/zaun3.png',
+        ]
+        this.image.src = this.coinImages[this.coinImageIndex];
         this.image.onload = () => {
             this.draw();
         }
-
-        this.isDraggable = true;
     }
 
     draw() {
@@ -30,10 +31,8 @@ class Coin extends CanvasElement {
                 this.cellSize / this.scale
             );
         }
-
         this.ctx.closePath();
     }
-
 
     setPosition(x, y) {
         this.x = x;

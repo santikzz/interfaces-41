@@ -7,32 +7,25 @@ class Button extends CanvasElement {
         this.text = text;
         this.onClick = onClick;
         this.onHover = onHover;
-
         this.image = new Image();
         this.image.src = 'static/game/button.png';
-
         this.image.onload = () => {
             this.draw();
         }
-
     }
 
     draw() {
         this.ctx.beginPath();
         this.ctx.imageSmoothingEnabled = false;
-
         this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         this.ctx.font = '12px PressStart2P';
         this.ctx.fillStyle = '#ffffff';
-
         const textWidth = this.ctx.measureText(this.text).width;
-
         this.ctx.fillText(
             this.text,
             this.x + (this.width / 2) - (textWidth / 2),
             this.y + (this.height / 2) + 6
         );
-
         this.ctx.imageSmoothingEnabled = true;
         this.ctx.closePath();
     }
@@ -55,6 +48,5 @@ class Button extends CanvasElement {
     hover() {
         this.onHover();
     }
-
 
 }
