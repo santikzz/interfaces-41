@@ -12,6 +12,7 @@ class Game extends CanvasElement {
         this.placedCoins = 0;
         this.player1SelectedCoin = 0;
         this.player2SelectedCoin = 3;
+        this.alreadyPlaying = false;
         this.setupEventListeners();
 
         this.audios = {
@@ -22,8 +23,7 @@ class Game extends CanvasElement {
         };
 
         this.audios.ambience.loop = true;
-        this.audios.ambience.volume = 0.3;
-        this.audios.ambience.play();
+        this.audios.ambience.volume = 0.25;
         this.menu();
     }
 
@@ -183,6 +183,11 @@ class Game extends CanvasElement {
     }
 
     start({ rows, cols, mode, cellSize }) {
+
+        if (!this.alreadyPlaying) {
+            this.audios.ambience.play();
+            this.alreadyPlaying = true;
+        }
 
         this.inMenu = false;                                                                                    // cambio el flag de inMenu
         clearInterval(this.menuInterval);                                                                       // corto el timer del menu
