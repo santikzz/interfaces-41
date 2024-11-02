@@ -6,7 +6,7 @@ class Game extends CanvasElement {
         this.playerTurn = 1;
         this.draggedCoin = null;
         this.inMenu = true;
-        this.time = 5;
+        this.time = 250;
         this.hoveredButton = null;
         this.allowDrag = true;
         this.placedCoins = 0;

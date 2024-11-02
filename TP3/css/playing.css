@@ -343,3 +343,23 @@
 .strategies-items {
     margin-left: 20px;
 }
+
+.screen-video{
+    position: relative;
+}
+
+.screen-video svg{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    padding: 15px;
+    background-color: var(--accent-100);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.screen-video svg:hover{
+    cursor: pointer;
+}
