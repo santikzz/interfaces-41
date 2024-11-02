@@ -345,12 +345,10 @@ class Game extends CanvasElement {
                     const columnIndex = this.board.getHoveredColumn(mouseX, mouseY);
                     if (columnIndex >= 0) {
                         let row = this.board.placeCoin(columnIndex, this.playerTurn);
+                        this.allowDrag = false;
                         if (row !== null) {
-
-                            // this.playerTurn = this.playerTurn === 1 ? 2 : 1;
                             this.draggedCoin.coin.isDraggable = false;
                             this.animateDrop(this.draggedCoin.coin, row, columnIndex);
-
                         }
                     } else {
                         this.draggedCoin.coin.x = this.draggedCoin.prevX;
@@ -405,6 +403,7 @@ class Game extends CanvasElement {
 
         // si ninguna de las anteriores sucedio, cambio al siguiente turno
         this.playerTurn = this.playerTurn === 1 ? 2 : 1;
+        this.allowDrag = true;
         this.playerTurnText.text = `Turno del jugador ${this.playerTurn}`;
     }
 
