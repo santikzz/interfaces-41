@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>GameShack!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body class="body-no-overflow">
+    <div class="loader-container">
+        <div class="loader-icon">
+            <img src="static/logo_full.png" />
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="percentage" id="percentage">0%</div>
+        <button id="skip-btn">skip?</button>
+    </div>
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+            <button class="toggle-sidenav"><i class="icon fa-solid fa-bars"></i></button>
+            <a href="index.html">
+                <img src="static/logo_full.png" class="nav-logo logo-desktop" />
+                <img src="static/logo_simple.png" class="nav-logo logo-mobile" />
+            </a>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input placeholder="¿A qué quieres jugar?" />
+        </div>
+
+        <div class="nav-container">
+            <div class="cart">
+                <!-- <div class="badge"></div> -->
+                <i class="icon fa-solid fa-cart-shopping" id="nav-cart-icon"></i>
+                <label id="cart-items"></label>
+            </div>
+            <div class="nav-separator"></div>
+            <div class="nav-profile">
+                <img src="static/bardo.jpg" class="nav-profile-image" />
+                <label class="nav-profile-name">Srta. Liv</label>
+                <button class="toggle-dropdown"><i class="icon fa-solid fa-chevron-down"></i></button>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <ul>
+                <li id="dropdown-cart-icon"><i class="fa-solid fa-cart-shopping"></i> Carrito</li>
+                <li><i class="fa-solid fa-user"></i> Perfil</li>
+                <li><i class="fa-solid fa-list"></i> Biblioteca</li>
+                <li><i class="fa-solid fa-circle-question"></i> Ayuda</li>
+                <li><a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesion</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <aside class="sidenav">
+        <ul>
+
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Home.svg" alt="Descripción del SVG">
+                </div>Inicio
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Recent.svg" alt="Descripción del SVG">
+                </div>Recientes
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/New.svg" alt="Descripción del SVG">
+                </div>Juegos nuevos
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Beauty.svg" alt="Descripción del SVG">
+                </div>De moda
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Clicker.svg" alt="Descripción del SVG">
+                </div>Random
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Action.svg" alt="Descripción del SVG">
+                </div>Acción
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Adventure.svg" alt="Descripción del SVG">
+                </div>Aventuras
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Casual.svg" alt="Descripción del SVG">
+                </div>Clásicos
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Beauty.svg" alt="Descripción del SVG">
+                </div>Infantiles
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Mahjong.svg" alt="Descripción del SVG">
+                </div>Mesa
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Card.svg" alt="Descripción del SVG">
+                </div>Cartas
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Car.svg" alt="Descripción del SVG">
+                </div>Coches
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Home.svg" alt="Descripción del SVG">
+                </div>Escape
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Home.svg" alt="Descripción del SVG">
+                </div>Motos
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Multiplayer.svg" alt="Descripción del SVG">
+                </div>Multijugador
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Puzzle.svg" alt="Descripción del SVG">
+                </div>Puzzles
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/Horror.svg" alt="Descripción del SVG">
+                </div>Terror
+            </li>
+            <li>
+                <div class="placehodler">
+                    <img src="static/icons/DressUp.svg" alt="Descripción del SVG">
+                </div>Vestir
+            </li>
+        </ul>
+    </aside>
+
+    <main>
+
+        <section id="hero" class="hero-carousel-wrapper">
+
+            <div class="hero-carousel-actions">
+                <button class="hero-carousel-action" id="hero-prev">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="hero-carousel-action" id="hero-next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="hero-container">
+                <h2 class="hero-game-title">4 en Linea: Zaun vs. Piltover</h2>
+                <a href="playing.html" class="btn btn-xl rounded-xl hero-play-now"><i class="fa-solid fa-play"></i> Jugar ahora!</a>
+            </div>
+
+            <div class="hero-gradient-overlay"></div>
+            <div class="hero-carousel">
+                <img src="static/screen_2.jpg" class="hero-slide" data-title="4 en Linea: Zaun vs. Piltover" />
+                <img src="static/numberblocks-banner.png" class="hero-slide" data-title="Number Blocks!" />
+                <img src="static/cards/gamecard_34.png" class="hero-slide" data-title="Mahjong Solitaire" />
+                <img src="static/cards/gamecard_35.png" class="hero-slide" data-title="Sniper Mission" />
+                <img src="static/cards/gamecard_31.png" class="hero-slide" data-title="Moto X3M" />
+            </div>
+
+            <div class="carousel-dots">
+                <ul class="dots">
+                    <li class="dot big"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
+                    <li class="dot"></li>
+                </ul>
+            </div>
+
+        </section>
+
+
+        <section class="card-section">
+            <div class="card-section-header">
+                <label class="card-section-name">Creemos que estos juegos te encantarán</label>
+            </div>
+
+            <div class="cards-carousel-wrapper">
+
+                <button class="card-carousel-action action-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="card-carousel-action action-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="cards-carousel">
+
+                    <div class="card owned">
+                        <img src="static/screen_2.jpg" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">4 en Linea: Zaun vs. Piltover</label>
+                                <label class="card-game-price">5,25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <a href="playing.html" class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_numberblocks.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">NumberBlocks</label>
+                                <label class="card-game-price">10,00 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <a href="parallax.html" class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_1.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Cube Stories: Escape</label>
+                                <label class="card-game-price">6,00 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_2.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Farm Merge Valley</label>
+                                <label class="card-game-price">3,12 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_3.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Basketball Stars</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_4.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Mazean</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_5.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">One Treasure</label>
+                                <label class="card-game-price">5,00 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_6.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Moto X3M</label>
+                                <label class="card-game-price">6,25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="static/cards/gamecard_7.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Speedy Golf</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-section-header">
+                <label class="card-section-name">Populares</label>
+            </div>
+
+            <div class="cards-carousel-wrapper">
+
+                <button class="card-carousel-action action-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="card-carousel-action action-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="cards-carousel">
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_8.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">PolyTrack</label>
+                                <label class="card-game-price">1,25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_9.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Bighead Ball Bros</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_10.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">8 Ball Pool Billiards Multiplayer</label>
+                                <label class="card-game-price">5,00 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_11.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Xtreme City Drifting</label>
+                                <label class="card-game-price">2,25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_12.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Spot The Difference</label>
+                                <label class="card-game-price">3,15 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_13.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Tap-Tap Shots</label>
+                                <label class="card-game-price">8,25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_14.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Time Shooters</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_15.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Ships 3D</label>
+                                <label class="card-game-price">7,00 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-section-header">
+                <label class="card-section-name">Lo nuevo en GameShack</label>
+            </div>
+
+            <div class="cards-carousel-wrapper">
+
+                <button class="card-carousel-action action-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="card-carousel-action action-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="cards-carousel">
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_16.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Drift Hunters</label>
+                                <label class="card-game-price">10,00 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_17.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Cube Ninja</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_18.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Haunted School</label>
+                                <label class="card-game-price">8,50 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_19.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Jelly Land</label>
+                                <label class="card-game-price">1,25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_20.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Pizza Party</label>
+                                <label class="card-game-price">4,75 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_21.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Sushi Matching</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_22.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Air Wars 3</label>
+                                <label class="card-game-price">15,75 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_23.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Air Wars 2</label>
+                                <label class="card-game-price">9,75 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-section-header">
+                <label class="card-section-name">Más jugados del mes</label>
+            </div>
+
+            <div class="cards-carousel-wrapper">
+
+                <button class="card-carousel-action action-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="card-carousel-action action-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="cards-carousel">
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_49.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Pool Ultima Edicion Legendari..</label>
+                                <label class="card-game-price">10,00 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_18.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Haunted School</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_19.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Jelly Island</label>
+                                <label class="card-game-price">8,50 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-buy">
+                        <img src="static/cards/gamecard_20.png" class="card-image">
+                        <div class="tag">
+                            <label>En el carrito</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Pizza Party</label>
+                                <label class="card-game-price">1,25 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-cart-shopping center-fix"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_52.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Somos Los Palitos</label>
+                                <label class="card-game-price">4,75 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="static/cards/gamecard_32.png" class="card-image">
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Las Motos X3X Winter</label>
+                                <label class="card-game-price">Gratis</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_34.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Mahongg</label>
+                                <label class="card-game-price">15,75 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card owned">
+                        <img src="static/cards/gamecard_23.png" class="card-image">
+                        <div class="tag">
+                            <label>En tu biblioteca</label>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-container">
+                                <label class="card-game-title">Air Wars 2</label>
+                                <label class="card-game-price">9,75 USD</label>
+                            </div>
+                            <div class="card-footer-container">
+                                <button class="card-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <img src="static/logo_simple.png" class="footer-logo" />
+        <div class="footer-section">
+            <label class="footer-section-title">Link de sitios</label>
+            <label class="footer-section-item">Inicio</label>
+            <label class="footer-section-item">Categorias</label>
+            <label class="footer-section-item">Perfil</label>
+            <label class="footer-section-item">Privacidad y seguridad</label>
+        </div>
+        <div class="footer-section">
+            <label class="footer-section-title">Compania</label>
+            <label class="footer-section-item">Sobre nosotros</label>
+            <label class="footer-section-item">Derechos de autor</label>
+            <label class="footer-section-item">Asuntos legales</label>
+        </div>
+        <div class="footer-section">
+            <label class="footer-section-title">Ayuda</label>
+            <label class="footer-section-item">Preguntas frecuentes</label>
+            <label class="footer-section-item">Contactar al soporte</label>
+            <label class="footer-section-item">Guias de la comunidad</label>
+        </div>
+        <div class="footer-section">
+            <label class="footer-section-title">Siguenos</label>
+            <label class="footer-section-item">Facebook</label>
+            <label class="footer-section-item">Twitter</label>
+            <label class="footer-section-item">Instagram</label>
+            <label class="footer-section-item">YouTube</label>
+        </div>
+    </footer>
+
+
+</body>
+
+<script src="scripts/nav.js"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/loader.js"></script>
+
+</html>
