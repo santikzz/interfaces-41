@@ -516,9 +516,9 @@ header .container #logo {
 
 #section-6 #character-3d-placeholder {
     position: absolute;
+    width: 667px; 
     height: 973px;
-    top: 0;
-    left: 599px;
+    left: 599px; 
 }
 
 /* ====================================================================== */
