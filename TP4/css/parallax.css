@@ -301,6 +301,16 @@ header .container #logo {
     font-style: normal;
     font-size: 20px;
 }
+.floater {
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.floater.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* ====================================================================== */
 /*                                SECTION 3                                    
