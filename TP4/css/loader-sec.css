@@ -3,33 +3,57 @@
     padding: 0;
 }
 
-.loader-train{
+.loader-train {
     position: relative;
-    background-image: url("../static/parallax/loaderTrain/clielo.png");
+    /* background-image: url("../static/parallax/loaderTrain/clielo.png"); */
+    background-color: #8acdf8;
     overflow: hidden;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
-    justify-content: center;
-}
+    justify-content: flex-end;
 
-.train-img {
-    transform: translateX(-100%);
-    height: 150px;
-    position: relative;
+    /* animation: camera-zoom 5s ease forwards; */
+
 }
 
 .grass {
-    bottom: 0;
-    top: 0;
     width: 100%;
-    height: 40vw;
+    height: 20vw;
     background-color: greenyellow;
-    position: relative;
+    position: static;
     display: flex;
     align-items: flex-end;
+    position: relative;
+}
+
+.railway {
+    position: absolute;
+    bottom: 20px; /* Position it slightly above the bottom of the grass */
+    height: 20px; /* Height of the railway track */
+    width: 100%;
+    background-color: gray; /* Base color for the metal rails */
+    display: flex;
+    justify-content: center;
+}
+
+.railway::before {
+    content: '';
+    height: 100%; 
+    width: 100%;
+    background: repeating-linear-gradient(
+        to right,
+        brown 0,
+        brown 20px,
+        transparent 20px,
+        transparent 40px
+    );
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
 }
 
 .clouds div:nth-child(1) {
@@ -68,17 +92,146 @@
     height: 40vw;
 }
 
-.clouds div{
+.clouds div {
     position: relative;
 }
 
-.move {
-    animation: move-train 3s ease-in forwards;
+.train {
+    transform: translateX(-170%);
+    /* height: 150px; */
+    position: absolute;
+    bottom: 20vw;
+}
+
+.train-animate {
+    animation: move-train-santi 10s ease forwards;
+}
+
+.train {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.train .wagon {
+    position: relative;
+}
+
+.train .wagon .wagon-img {
+    animation: wagon-live 1s infinite linear;
+}
+
+.train .wagon .wheel {
+    position: absolute;
+    bottom: 0;
+    animation: wheel-spin 1s infinite linear;
+}
+
+.train .wagon .wheel.back {
+    left: 25px;
+}
+
+.train .wagon .wheel.center {
+    left: 80px;
+}
+
+.train .wagon .wheel.front {
+    right: 25px;
+}
+
+.train .wagon:nth-child(1) .wagon-img {
+    animation-delay: 0s;
+}
+
+.train .wagon:nth-child(2) .wagon-img {
+    animation-delay: 0.2s;
+}
+
+.train .wagon:nth-child(3) .wagon-img {
+    animation-delay: 0.4s;
+}
+
+.train .wagon:nth-child(4) .wagon-img {
+    animation-delay: 0.6s;
+}
+
+@keyframes wagon-live {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes wheel-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes camera-zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.25);
+    }
+}
+
+@keyframes move-train-santi {
+    0% {
+        transform: translateX(-200%);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    80% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
 }
 
 @keyframes move-train {
-    to {
-        transform: translateX(100%);
+    0% {
+        transform: translateX(-100%);
+    }
+
+    40% {
+        transform: translateX(2%);
+    }
+
+    50% {
+        transform: translateX(2%);
+    }
+
+    60% {
+        transform: translateX(2%);
+    }
+
+    70% {
+        transform: translateX(2%);
+    }
+
+    100% {
+        transform: translateX(200%);
     }
 }
 
@@ -92,5 +245,6 @@
 
 .clouds div {
     position: absolute;
-    top: 100px; /* O cualquier valor para la posición vertical */
+    top: 100px;
+    /* O cualquier valor para la posición vertical */
 }

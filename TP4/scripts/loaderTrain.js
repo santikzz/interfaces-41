@@ -4,10 +4,10 @@ const loaderTrain = document.querySelector("loader-train");
 
 function startTrain() {
     train.classList.add("move")
-    setTimeout(() => {
-        animateClouds();
-    }, 3000);
-  
+    // setTimeout(() => {
+    //     animateClouds();
+    // }, 4000);
+    animateClouds()
 }
 
 function animateClouds() {
