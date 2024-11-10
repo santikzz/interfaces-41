@@ -4,7 +4,7 @@
 }
 
 .loader-train {
-    position: relative;
+    position: static;
     background-color: skyblue; 
     overflow: hidden;
     height: 100vh;
@@ -13,31 +13,25 @@
     align-content: center;
     align-items: center;
     justify-content: flex-end;
-
     /* animation: camera-zoom 5s ease forwards; */
-
 }
 
 .grass {
-    width: 100%;
-    height: 30vw;
-    background-color: greenyellow;
-    position: static;
-    display: flex;
-    display: flex;
-    align-items: flex-start; 
-    position: relative;
+    width: 1280px;
+    height: 80vw;
+    /* background-color: greenyellow; */
+    background-image: url('../static/parallax/loaderTrain/suelo.png');
+    position: absolute;
 }
 
 /* Contenedor de la vía */
 .railway {
-    position: relative;
     width: 100%;
     height: 40px;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    position: relative;
+    top:630px;
+    z-index: 200;
 }
 
 /* Los rieles */
@@ -55,6 +49,7 @@
 /* Las traviesas */
 .ties {
     display: flex;
+    z-index: 20;
     position: absolute;
     top: 5px;
     width: 100%;
@@ -114,7 +109,7 @@
     transform: translateX(-170%);
     /* height: 150px; */
     position: absolute;
-    bottom: 20vw;
+    bottom: 16vw;
 }
 
 .train-animate {
@@ -125,6 +120,7 @@
     display: flex;
     flex-direction: row;
     align-items: end;
+    z-index: 20;
 }
 
 .train .wagon {
@@ -213,17 +209,13 @@
     50% {
         transform: translateX(0);
     }
-    100%{
-        transform: translateX(10px)
-    }
-    /* }
     80% {
         transform: translateX(-20%);
     }
 
     100% {
         transform: translateX(200%);
-    } */
+    }
 }
 
 .clouds {
