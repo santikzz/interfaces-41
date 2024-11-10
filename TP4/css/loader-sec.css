@@ -5,7 +5,7 @@
 
 .loader-train {
     position: static;
-    background-color: skyblue; 
+    background-color: skyblue;
     overflow: hidden;
     height: 100vh;
     display: flex;
@@ -15,55 +15,6 @@
     justify-content: flex-end;
     /* animation: camera-zoom 5s ease forwards; */
 }
-
-.grass {
-    width: 1280px;
-    height: 60vw;
-    /* background-color: greenyellow; */
-    background-image: url('../static/parallax/loaderTrain/suelo.png');
-    position: absolute;
-}
-
-/* Contenedor de la vía */
-.railway {
-    width: 100%;
-    height: 40px;
-    overflow: hidden;
-    position: relative;
-    top:630px;
-    z-index: 200;
-}
-
-/* Los rieles */
-.rail {
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    background-color: gray;
-    border-top: 4px solid #333;
-    /* Línea superior del riel */
-    border-bottom: 4px solid #333;
-    /* Línea inferior del riel */
-}
-
-/* Las traviesas */
-.ties {
-    display: flex;
-    z-index: 20;
-    position: absolute;
-    top: 5px;
-    width: 100%;
-    height: 10px;
-    background-image: repeating-linear-gradient(90deg,
-            tan 0,
-            /* significa que el color tan comienza en el inicio del fondo*/
-            tan 20px,
-            /*indica que el color tan termina a los 20px*/
-            transparent 20px,
-            /*espacio entre las traviesas, de 20px a 40px*/
-            transparent 40px);
-}
-
 
 .clouds div:nth-child(1) {
     top: 30px;
@@ -110,21 +61,110 @@
     height: auto;
 }
 
-.train {
-    transform: translateX(-170%);
+.mountains-wrapper {
+    position: relative;
+    /* overflow-x: hidden; */
+    width: 100%;
+    height: 100vh;
+}
+
+.mountains-wrapper .mointains-layer-1 {
     position: absolute;
+    bottom: -100px;
+    left: 0;
+    height: 200%;
+    width: 200%;
+    background-image: url('../static/parallax/loaderTrain/back_1.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    animation: infiniteScroll 5s linear infinite;
+}
+
+.mountains-wrapper .mointains-layer-2 {
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    height: 200%;
+    width: 200%;
+    background-image: url('../static/parallax/loaderTrain/back_2.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    animation: infiniteScroll 15s linear infinite;
+    /* animation-delay: 200ms; */
+}
+
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.mountains {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+}
+
+.ground {
+    width: 100%;
+    height: 9vw;
+    background-color: #c08446;
+    position: absolute;
+    left: 0;
+    z-index: 10;
+}
+
+.railway {
+    left: 0;
+    width: 200%;
+    position: relative;
     bottom: 9vw;
+    z-index: 20;
+    animation: infiniteScroll 3s linear infinite;
+}
+
+.rail {
+    position: absolute;
+    width: 200%;
+    height: 10px;
+    background-color: gray;
+    border-top: 4px solid #333;
+    border-bottom: 4px solid #333;
+}
+
+.tiles {
+    display: flex;
+    position: absolute;
+    top: -5px;
+    width: 200%;
+    height: 10px;
+    background-image: repeating-linear-gradient(90deg,
+            tan 0,
+            tan 20px,
+            transparent 20px,
+            transparent 40px);
 }
 
 .train-animate {
-    animation: move-train-santi 10s ease forwards;
+    /* animation: move-train-santi 10s ease forwards; */
 }
 
 .train {
+    z-index: 60;
+    /* transform: translateX(-170%); */
+    position: absolute;
+    bottom: 9vw;
     display: flex;
     flex-direction: row;
     align-items: end;
-    z-index: 20;
 }
 
 .train .wagon {
@@ -168,7 +208,7 @@
 .train .wagon:nth-child(4) .wagon-img {
     animation-delay: 0.6s;
 }
-/* 
+
 @keyframes wagon-live {
     0% {
         transform: translateY(0);
@@ -182,7 +222,7 @@
         transform: translateY(0);
     }
 
-} */
+}
 
 @keyframes wheel-spin {
     0% {
@@ -213,6 +253,7 @@
     50% {
         transform: translateX(0);
     }
+
     80% {
         transform: translateX(-20%);
     }
@@ -236,40 +277,43 @@
 }
 
 
-.steam2{
+.steam {
     position: absolute;
-    opacity: 10%;
-    height: 30px;
-    width: 40px;
-    left: 110px;
-    animation: effect-steam-img 2s infinite ease-in;
+    opacity: 0;
+    height: 50%;
+    width: 50%;
+    left: 25%;
+    top: -30%;
+    animation: effect-steam-img 2s infinite ease-in-out;
 }
 
-.steam2:nth-child(1) {
+.steam:nth-child(1) {
     animation-delay: 0s;
 }
 
-.steam2:nth-child(2) {
+.steam:nth-child(2) {
     animation-delay: 0.6s;
 }
 
-.steam2:nth-child(3) {
+.steam:nth-child(3) {
     animation-delay: 1s;
 }
 
 @keyframes effect-steam-img {
     0% {
-        transform: translateX(0) translateY(0); 
-        opacity: 0.1;
-        scale: 0.5;
+        transform: translateX(0) translateY(0);
+        opacity: 0;
+        scale: 0;
     }
+
     50% {
         transform: translateX(-50px) translateY(-30px);
-        opacity: 0.5; 
+        opacity: 0.75;
         scale: 1;
     }
+
     100% {
-        transform: translateX(-100px) translateY(-40px); 
-        opacity: 0;  
+        transform: translateX(-100px) translateY(-40px);
+        opacity: 0;
     }
 }

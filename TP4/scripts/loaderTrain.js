@@ -25,9 +25,11 @@ function animateClouds() {
     requestAnimationFrame(animateClouds);
 }
 
-setTimeout(() => {
-    animateClouds();
-}, 2000);
+animateClouds();
+
+// setTimeout(() => {
+//     animateClouds();
+// }, 2000);
 
 // setTimeout(() => {
 //     hideLoader();

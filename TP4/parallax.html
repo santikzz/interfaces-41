@@ -13,11 +13,11 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
 </head>
 
-<body class="body-no-overflow">
+<body class="">
 
     <!-- ========================================== -->
     <!--                  NAVBAR                    -->
@@ -199,42 +199,48 @@
                 <img src="./static/parallax/loaderTrain/clouds 3.png" alt="">
             </div>
         </div>
-        <!-- <img src="./static/parallax/loaderTrain/train.png" class="train-img" alt=""> -->
-        <div class="grass">
-            <div class="train train-animate">
-                <div class="wagon">
-                    <img src="./static/parallax/loaderTrain/wagon_3.png" class="wagon-img">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
-                </div>
-                <div class="wagon">
-                    <img src="./static/parallax/loaderTrain/wagon_2.png" class="wagon-img">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
-                </div>
-                <div class="wagon">
-                    <img src="./static/parallax/loaderTrain/wagon_1.png" class="wagon-img">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
-                </div>
-                <div class="wagon locomotive">
-                    <img class="steam2" src="./static/parallax/loaderTrain/cloud steam.png" alt="">
-                    <img class="steam2" src="./static/parallax/loaderTrain/cloud steam.png" alt="">
-                    <img class="steam2" src="./static/parallax/loaderTrain/cloud steam.png" alt="">
 
-                    <img src="./static/parallax/loaderTrain/locomotive.png" class="wagon-img locomotive">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel center">
-                    <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
-                </div>
+        <div class="mountains-wrapper">
+            <div class="mointains-layer-2"></div>
+            <div class="mointains-layer-1"></div>
+        </div>
+        <div class="ground"></div>
+        <div class="railway">
+            <div class="rail"></div>
+            <div class="tiles"></div>
+        </div>
 
+        <div class="train train-animate">
+            <div class="wagon">
+                <img src="./static/parallax/loaderTrain/wagon_3.png" class="wagon-img">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
             </div>
-            <div class="railway">
-                <div class="rail"></div>
-                <div class="ties"></div>
+            <div class="wagon">
+                <img src="./static/parallax/loaderTrain/wagon_2.png" class="wagon-img">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
+            </div>
+            <div class="wagon">
+                <img src="./static/parallax/loaderTrain/wagon_1.png" class="wagon-img">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
+            </div>
+            <div class="wagon locomotive">
+                <img class="steam" src="./static/parallax/loaderTrain/cloud steam.png">
+                <img class="steam" src="./static/parallax/loaderTrain/cloud steam.png">
+                <img class="steam" src="./static/parallax/loaderTrain/cloud steam.png">
+
+                <img src="./static/parallax/loaderTrain/locomotive.png" class="wagon-img locomotive">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel back">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel center">
+                <img src="./static/parallax/loaderTrain/wheel.png" class="wheel front">
             </div>
 
         </div>
+
+
+
     </div>
 
     <!-- ========================================== -->
@@ -422,10 +428,10 @@
             <h2 id="title">Mira el video y descubre el sorprendente mundo de los NumberBlocks!</h2>
             <div id="video-container">
                 <iframe id="iframe-demo"
-                    src="https://www.youtube.com/embed/0YKa9DQYdRg?si=6LRcFilQ8qrs2hE5&autoplay=1&mute=1"
-                    title="NumberBlocks Demo" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        src="https://www.youtube.com/embed/0YKa9DQYdRg?si=6LRcFilQ8qrs2hE5&autoplay=1&mute=1"
+                        title="NumberBlocks Demo" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -436,7 +442,7 @@
 
     <section id="section-6">
         <model-viewer id="character-3d-placeholder" src="models/one.glb" alt="A 3D model" camera-controls auto-rotate
-            poster="static/parallax/section-6-3d-placeholder.png" shadow-intensity="1"></model-viewer>
+                      poster="static/parallax/section-6-3d-placeholder.png" shadow-intensity="1"></model-viewer>
         <div class="container">
             <h2 id="title">¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!</h2>
             <p id="description">En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la
