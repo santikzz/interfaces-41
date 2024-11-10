@@ -1,14 +1,4 @@
-const train = document.querySelector(".train-img");
 const clouds = document.querySelectorAll('.cloud');
-const loaderTrain = document.querySelector("loader-train");
-
-function startTrain() {
-    train.classList.add("move")
-    // setTimeout(() => {
-    //     animateClouds();
-    // }, 4000);
-    animateClouds()
-}
 
 function animateClouds() {
     clouds.forEach(cloud => {
@@ -27,6 +17,6 @@ function animateClouds() {
     requestAnimationFrame(animateClouds);
 }
 
-startTrain();
-
-
+setTimeout(() => {
+    animateClouds();
+}, 2000);

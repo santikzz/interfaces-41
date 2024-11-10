@@ -5,8 +5,7 @@
 
 .loader-train {
     position: relative;
-    /* background-image: url("../static/parallax/loaderTrain/clielo.png"); */
-    background-color: #8acdf8;
+    background-color: skyblue; 
     overflow: hidden;
     height: 100vh;
     display: flex;
@@ -21,40 +20,55 @@
 
 .grass {
     width: 100%;
-    height: 20vw;
+    height: 30vw;
     background-color: greenyellow;
     position: static;
     display: flex;
-    align-items: flex-end;
+    display: flex;
+    align-items: flex-start; 
     position: relative;
 }
 
+/* Contenedor de la vía */
 .railway {
-    position: absolute;
-    bottom: 20px; /* Position it slightly above the bottom of the grass */
-    height: 20px; /* Height of the railway track */
+    position: relative;
     width: 100%;
-    background-color: gray; /* Base color for the metal rails */
+    height: 40px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
 
-.railway::before {
-    content: '';
-    height: 100%; 
-    width: 100%;
-    background: repeating-linear-gradient(
-        to right,
-        brown 0,
-        brown 20px,
-        transparent 20px,
-        transparent 40px
-    );
+/* Los rieles */
+.rail {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.7;
+    width: 100%;
+    height: 10px;
+    background-color: gray;
+    border-top: 4px solid #333;
+    /* Línea superior del riel */
+    border-bottom: 4px solid #333;
+    /* Línea inferior del riel */
 }
+
+/* Las traviesas */
+.ties {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    height: 10px;
+    background-image: repeating-linear-gradient(90deg,
+            tan 0,
+            /* significa que el color tan comienza en el inicio del fondo*/
+            tan 20px,
+            /*indica que el color tan termina a los 20px*/
+            transparent 20px,
+            /*espacio entre las traviesas, de 20px a 40px*/
+            transparent 40px);
+}
+
 
 .clouds div:nth-child(1) {
     top: 30px;
@@ -154,7 +168,7 @@
 .train .wagon:nth-child(4) .wagon-img {
     animation-delay: 0.6s;
 }
-
+/* 
 @keyframes wagon-live {
     0% {
         transform: translateY(0);
@@ -168,7 +182,7 @@
         transform: translateY(0);
     }
 
-}
+} */
 
 @keyframes wheel-spin {
     0% {
@@ -199,44 +213,21 @@
     50% {
         transform: translateX(0);
     }
-
+    100%{
+        transform: translateX(10px)
+    }
+    /* }
     80% {
         transform: translateX(-20%);
     }
 
     100% {
         transform: translateX(200%);
-    }
-}
-
-@keyframes move-train {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    40% {
-        transform: translateX(2%);
-    }
-
-    50% {
-        transform: translateX(2%);
-    }
-
-    60% {
-        transform: translateX(2%);
-    }
-
-    70% {
-        transform: translateX(2%);
-    }
-
-    100% {
-        transform: translateX(200%);
-    }
+    } */
 }
 
 .clouds {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
@@ -246,5 +237,43 @@
 .clouds div {
     position: absolute;
     top: 100px;
-    /* O cualquier valor para la posición vertical */
+}
+
+
+.steam2{
+    position: absolute;
+    opacity: 10%;
+    height: 30px;
+    width: 40px;
+    left: 110px;
+    animation: effect-steam-img 2s infinite ease-in;
+}
+
+.steam2:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.steam2:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.steam2:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes effect-steam-img {
+    0% {
+        transform: translateX(0) translateY(0); 
+        opacity: 0.1;
+        scale: 0.5;
+    }
+    50% {
+        transform: translateX(-50px) translateY(-30px);
+        opacity: 0.5; 
+        scale: 1;
+    }
+    100% {
+        transform: translateX(-100px) translateY(-40px); 
+        opacity: 0;  
+    }
 }
