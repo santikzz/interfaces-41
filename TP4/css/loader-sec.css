@@ -18,7 +18,7 @@
 
 .grass {
     width: 1280px;
-    height: 80vw;
+    height: 60vw;
     /* background-color: greenyellow; */
     background-image: url('../static/parallax/loaderTrain/suelo.png');
     position: absolute;
@@ -105,11 +105,15 @@
     position: relative;
 }
 
+.clouds .cloud img {
+    width: 120px;
+    height: auto;
+}
+
 .train {
     transform: translateX(-170%);
-    /* height: 150px; */
     position: absolute;
-    bottom: 16vw;
+    bottom: 9vw;
 }
 
 .train-animate {
