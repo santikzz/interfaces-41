@@ -1,5 +1,13 @@
 const clouds = document.querySelectorAll('.cloud');
 
+const body = document.querySelector('body');
+const loader = document.querySelector('.loader-train');
+
+const hideLoader = () => {
+    loader.style.display = 'none';
+    body.classList.remove('body-no-overflow');
+}
+
 function animateClouds() {
     clouds.forEach(cloud => {
         let cloudPosition = cloud.getBoundingClientRect();
@@ -20,3 +28,7 @@ function animateClouds() {
 setTimeout(() => {
     animateClouds();
 }, 2000);
+
+// setTimeout(() => {
+//     hideLoader();
+// }, 10000);
