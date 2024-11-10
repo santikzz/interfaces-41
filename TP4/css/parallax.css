@@ -17,23 +17,83 @@ body {
 /*                                HEADER
 /* ====================================================================== */
 
-header {
-    position: absolute;
+#header {
+    position: fixed;
     top: 0;
     width: 100%;
-    height: 103px;
-    z-index: 100;
+    padding: 20px 92px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
 }
 
-header .container {
-    position: relative;
+#header.shrink {
+    background: linear-gradient(180deg, rgba(0, 209, 213, 1) 0%, rgba(0, 209, 213, 0.88) 12%, rgba(0, 209, 213, 0) 100%);
 }
 
-header .container #logo {
-    position: absolute;
+#header .container {
+    flex: 1;
+}
+
+#header .container.left {
+    display: flex;
+    justify-content: start;
+}
+
+#header .container.center {
+    display: flex;
+    justify-content: center;
+}
+
+#header .container.right {
+    display: flex;
+    justify-content: end;
+}
+
+#header .container .logo {
+    transition: all 0.5s ease-in-out;
     height: 320px;
-    left: 360px;
-    top: 55px;
+}
+
+#header.shrink .logo {
+    height: 86px;
+}
+
+#header button {
+    background-color: #83C252;
+    height: 66px;
+    width: 200px;
+    border: 8px solid #FFFFFF;
+    border-radius: 111px;
+    box-shadow: 4px 5px #02187E;
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 94.5%;
+    letter-spacing: 11%;
+    color: #FFFFFF;
+}
+
+#header .hamburgesa {
+    width: 40px;
+    height: 40px;
+    background-color: #9D2121;
+}
+
+#header .button {
+    width: 200px;
+    height: 40px;
+    background-color: #9D2121;
+}
+
+main {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* ====================================================================== */
@@ -301,9 +361,10 @@ header .container #logo {
     font-style: normal;
     font-size: 20px;
 }
+
 .floater {
     opacity: 0;
-    transform: translateY(50px); 
+    transform: translateY(50px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
@@ -526,9 +587,9 @@ header .container #logo {
 
 #section-6 #character-3d-placeholder {
     position: absolute;
-    width: 667px; 
+    width: 667px;
     height: 973px;
-    left: 599px; 
+    left: 599px;
 }
 
 /* ====================================================================== */

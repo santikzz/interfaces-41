@@ -1,3 +1,20 @@
+/* ====================================================================== */
+/*                                HEADER
+/* ====================================================================== */
+
+const header = document.querySelector('#header');
+
+window.addEventListener('scroll', function () {
+    
+    const logo = document.getElementById('logo');
+
+    if (window.scrollY > 100) {
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
+});
+
 
 /* ====================================================================== */
 /*                                SECTION 2
@@ -12,13 +29,13 @@ const carousel_interval = setInterval(() => {
 }, 3000);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const floaters = document.querySelectorAll('.floater'); 
+    const floaters = document.querySelectorAll('.floater');
     const observerOptions = { // opciones del IntersectionObserver; el evento se activa cuando el 10% del elemento sea visible
-        threshold: 0.1 
+        threshold: 0.1
     };
 
-    const onIntersection = (entries, observer) => { 
-        entries.forEach((entry, index) => { 
+    const onIntersection = (entries, observer) => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) { // si el elemento es al menos un 10% visible
                 setTimeout(() => {
                     entry.target.classList.add('visible'); // le agrego la clase 'visible' al elemento con un retraso
@@ -28,6 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const observer = new IntersectionObserver(onIntersection, observerOptions); 
-    floaters.forEach(floater => observer.observe(floater)); 
+    const observer = new IntersectionObserver(onIntersection, observerOptions);
+    floaters.forEach(floater => observer.observe(floater));
 });
