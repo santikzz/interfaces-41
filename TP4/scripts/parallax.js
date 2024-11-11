@@ -1,25 +1,31 @@
-/* ====================================================================== */
-/*                                HEADER
-/* ====================================================================== */
-
-const header = document.querySelector('#header');
-
 window.addEventListener('scroll', function () {
-    
-    const logo = document.getElementById('logo');
 
+    handleHeaderScroll();
+    handleHeroScroll();
+
+});
+
+/* ======================== HEADER ======================== */
+const handleHeaderScroll = () => {
+    const header = document.getElementById('header');
     if (window.scrollY > 100) {
         header.classList.add('shrink');
     } else {
         header.classList.remove('shrink');
     }
-});
+}
 
+/* ======================== SECTION 1 HERO ================= */
+const handleHeroScroll = () => {
+    const section = document.getElementById('section-hero');
+    const layers = section.querySelectorAll('.layer').forEach(layer => {
+        const speed = layer.getAttribute('data-speed');
+        const y_pos = window.scrollY * speed;
+        layer.style.transform = `translateY(${-y_pos}px)`;
+    })
+}
 
-/* ====================================================================== */
-/*                                SECTION 2
-/* ====================================================================== */
-
+/* ======================== SECTION 2 ======================= */
 let section_2_carousel_index = 0;
 const section_2_carousel = document.querySelector('.scroller');
 
