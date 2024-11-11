@@ -216,7 +216,7 @@ main {
     position: absolute;
     top: 512.62px;
     left: 428.06px;
-    transform: rotate(-6.51deg);
+    /* transform: rotate(-6.51deg); */
     z-index: 60;
 }
 
@@ -225,7 +225,7 @@ main {
     position: absolute;
     top: 413.59px;
     left: 551.11px;
-    transform: rotate(-6.72deg);
+    /* transform: rotate(-6.72deg); */
     z-index: 50;
 }
 
@@ -234,7 +234,7 @@ main {
     position: absolute;
     top: 348.98px;
     left: 722.12px;
-    transform: rotate(8.73deg);
+    /* transform: rotate(8.73deg); */
     z-index: 40;
 }
 

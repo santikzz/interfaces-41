@@ -2,6 +2,7 @@ window.addEventListener('scroll', function () {
 
     handleHeaderScroll();
     handleHeroScroll();
+    handleSection2Scroll();
 
 });
 
@@ -13,6 +14,12 @@ const handleHeaderScroll = () => {
     } else {
         header.classList.remove('shrink');
     }
+}
+
+const getLayerScrollOffsetY = (layer) => {
+    const speed = layer.getAttribute('data-speed');
+    const y_pos = window.scrollY * speed;
+    return y_pos;
 }
 
 /* ======================== SECTION 1 HERO ================= */
@@ -33,6 +40,20 @@ const carousel_interval = setInterval(() => {
     section_2_carousel_index = section_2_carousel_index + 1;
     section_2_carousel.style.transform = `translateX(${-517.5 * (section_2_carousel_index % 3)}px)`;
 }, 3000);
+
+const handleSection2Scroll = () => {
+    const section = document.getElementById('section-2');
+    const layer_left = section.querySelector('#character-4');
+    const layer_right = section.querySelector('#character-5');
+
+    const speed_left = layer_left.getAttribute('data-speed');
+    const speed_right = layer_right.getAttribute('data-speed');
+    const y_pos_left = window.scrollY * speed_left;
+    const y_pos_right = window.scrollY * speed_right;
+
+    layer_left.style.transform = `translateY(${-y_pos_left}px)`;
+    layer_right.style.transform = `translateY(${-y_pos_right}px)`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const floaters = document.querySelectorAll('.floater');
