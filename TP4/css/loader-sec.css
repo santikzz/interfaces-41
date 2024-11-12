@@ -3,8 +3,16 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Halo Dek';
+    src: url('../fonts/Halo Dek.ttf') format('truetype');
+    font-weight: 100;
+    font-display: swap;
+    font-style: normal;
+}
+
 .loader-train {
-   
+
     position: static;
     background-color: skyblue;
     overflow: hidden;
@@ -16,8 +24,76 @@
     justify-content: flex-end;
     /* animation: camera-zoom 5s ease forwards; */
 
-    display: none;
+    z-index: 2000;
+}
 
+.loader-train.hidden {
+    display: none;
+}
+
+.loading-container {
+    position: absolute;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.loading-container .text {
+    animation: pulse 1s infinite ease-in-out;
+}
+
+.loading-container button {
+    background-color: #83C252;
+    height: 55px;
+    width: 200px;
+    border: 8px solid #FFFFFF;
+    border-radius: 111px;
+    box-shadow: 4px 5px #02187E;
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 94.5%;
+    letter-spacing: 11%;
+    color: #FFFFFF;
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.loading-container button:hover{
+    filter: brightness(.9);
+}
+
+.loading-container button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.loading-container #loading-text {
+    color: white;
+    font-size: 100px;
+    font-family: 'Halo Dek';
+    text-shadow: 4px 5px #02187E;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .clouds div:nth-child(1) {
@@ -158,7 +234,7 @@
 }
 
 .train-animate {
-    /* animation: move-train-santi 10s ease forwards; */
+    animation: move-train-santi 10s ease forwards;
 }
 
 .train {
