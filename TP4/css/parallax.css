@@ -457,24 +457,34 @@ main {
     height: 5415px;
 }
 
-#section-4 .sticky {
-    position: absolute;
+.sticky {
+    position: sticky;
     top: 174px;
     left: 100px;
 }
 
-#section-4 .sticky #more-fun {
+#more-fun {
     font-family: "Lato", sans-serif;
     font-weight: 600;
     font-style: normal;
     line-height: 94.5%;
     font-size: 60px;
+    text-align: start;
+    margin-left: 100px;
+    margin-top: 100px; /*revisar estos pixeles*/
 }
 
-#section-4 .sticky .block-number {
-    position: relative;
-    top: 123px;
-    left: 143px;
+.block {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out; 
+}
+
+.block.visible {
+    opacity: 1; 
+}
+
+.block.hidden {
+    opacity: 0;
 }
 
 #section-4 .text-scroll {
@@ -486,7 +496,6 @@ main {
     flex-direction: column;
     gap: 267px;
 }
-
 
 #section-4 .text-scroll .block {
     display: flex;
