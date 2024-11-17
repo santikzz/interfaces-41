@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>NumberBlocks!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/parallax.css">
     <link rel="stylesheet" href="css/loader-sec.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +12,11 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
 </head>
 
-<body class="">
+<body class="body-no-overflow">
 
     <!-- !!! RESOLUCION HORIZONTAL 1280px !!! -->
 
@@ -114,7 +113,7 @@
             <img src="static/parallax/number-blocks-logo.png" class="logo" />
         </div>
         <div class="container right">
-            <button>COMPRAR</button>
+            <button id="buynow">COMPRAR</button>
         </div>
     </header>
 
@@ -124,23 +123,23 @@
         <!-- ========================================== -->
 
         <section id="section-hero">
-            <img src="static/parallax/tree-1.png" class="layer" data-speed="0.05" id="arbol-1" />
-            <img src="static/parallax/tree-2.png" class="layer" data-speed="0.05" id="arbol-2" />
-            <img src="static/parallax/tree-3.png" class="layer" data-speed="0.15" id="arbol-3" />
-            <img src="static/parallax/bush-1.png" class="layer" data-speed="0.05" id="bush-1" />
-            <img src="static/parallax/bush-2.png" class="layer" data-speed="0.05" id="bush-2" />
-            <img src="static/parallax/bush-3.png" class="layer" data-speed="0.15" id="bush-3" />
-            <img src="static/parallax/bush-4.png" class="layer" data-speed="0.15" id="bush-4" />
-            <img src="static/parallax/rock-1.png" class="layer" data-speed="0.05" id="rock-1" />
-            <img src="static/parallax/rock-2.png" class="layer" data-speed="0.05" id="rock-2" />
-            <img src="static/parallax/rock-3.png" class="layer" data-speed="0.05" id="rock-3" />
-            <img src="static/parallax/rock-4.png" class="layer" data-speed="0.05" id="rock-4" />
-            <img src="static/parallax/hero-1.png" class="layer" data-speed="0.15" id="character-1" />
-            <img src="static/parallax/hero-2.png" class="layer" data-speed="0.05" id="character-2" />
-            <img src="static/parallax/hero-3.png" class="layer" data-speed="0.20" id="character-3" />
-            <img src="static/parallax/shadow-1.png" class="layer" data-speed="0.15" id="shadow-character-1" />
-            <img src="static/parallax/shadow-1.png" class="layer" data-speed="0.05" id="shadow-character-2" />
-            <img src="static/parallax/shadow-1.png" class="layer" data-speed="0.20" id="shadow-character-3" />
+            <img src="static/parallax/tree-1.png" class="parallax" data-speed="0.05" id="arbol-1" />
+            <img src="static/parallax/tree-2.png" class="parallax" data-speed="0.05" id="arbol-2" />
+            <img src="static/parallax/tree-3.png" class="parallax" data-speed="0.15" id="arbol-3" />
+            <img src="static/parallax/bush-1.png" class="parallax" data-speed="0.05" id="bush-1" />
+            <img src="static/parallax/bush-2.png" class="parallax" data-speed="0.05" id="bush-2" />
+            <img src="static/parallax/bush-3.png" class="parallax" data-speed="0.15" id="bush-3" />
+            <img src="static/parallax/bush-4.png" class="parallax" data-speed="0.15" id="bush-4" />
+            <img src="static/parallax/rock-1.png" class="parallax" data-speed="0.05" id="rock-1" />
+            <img src="static/parallax/rock-2.png" class="parallax" data-speed="0.05" id="rock-2" />
+            <img src="static/parallax/rock-3.png" class="parallax" data-speed="0.05" id="rock-3" />
+            <img src="static/parallax/rock-4.png" class="parallax" data-speed="0.05" id="rock-4" />
+            <img src="static/parallax/hero-1.png" class="parallax" data-speed="0.15" id="character-1" />
+            <img src="static/parallax/hero-2.png" class="parallax" data-speed="0.05" id="character-2" />
+            <img src="static/parallax/hero-3.png" class="parallax" data-speed="0.20" id="character-3" />
+            <img src="static/parallax/shadow-1.png" class="parallax" data-speed="0.15" id="shadow-character-1" />
+            <img src="static/parallax/shadow-1.png" class="parallax" data-speed="0.05" id="shadow-character-2" />
+            <img src="static/parallax/shadow-1.png" class="parallax" data-speed="0.20" id="shadow-character-3" />
         </section>
 
         <!-- ========================================== -->
@@ -150,20 +149,20 @@
         <section id="section-2">
             <img src="static/parallax/section-2-wavy-gradient.svg" />
             <div class="container">
-                <h1>La app más divertida y educativa y para niños de 3 años</h1>
-                <h2>Numberblocks World es una divertida aplicación de vídeo a la carta y juegos por suscripción dirigida
+                <h1 class="parallax" data-speed="-0.025">La app más divertida y educativa y para niños de 3 años</h1>
+                <h2 class="parallax" data-speed="-0.025">Numberblocks World es una divertida aplicación de vídeo a la carta y juegos por suscripción dirigida
                     a
                     niños a partir de 3 años, con un grupo de edad principal de 4 a 6 años, creada por el equipo de
                     Alphablocks Ltd. y Blue Zoo Animations Studio, ganador de un premio BAFTA.</h2>
-                <div class="carousel">
+                <div class="carousel" class="parallax" data-speed="-0.025">
                     <div class="scroller">
                         <img src="static/parallax/section-2-carousel-1.png" id="carousel-item-1" />
                         <img src="static/parallax/section-2-carousel-2.png" id="carousel-item-2" />
                         <img src="static/parallax/section-2-carousel-3.png" id="carousel-item-3" />
                     </div>
                 </div>
-                <img src="static/parallax/section-2-5.png" id="character-5" data-speed="0.20" />
-                <img src="static/parallax/section-2-4.png" id="character-4" data-speed="0.10" />
+                <img src="static/parallax/section-2-5.png" id="character-5" class="parallax" data-speed="0.15" />
+                <img src="static/parallax/section-2-4.png" id="character-4" class="parallax" data-speed="0.0h5" />
                 <div class="floaters">
                     <div class="floater" id="floater-1">
                         <div class="box">
@@ -205,7 +204,7 @@
         <section id="section-3">
             <img src="static/parallax/section-3-background.svg" />
             <div class="container">
-                <img src="static/parallax/section-3-characters.png" id="characters" />
+                <img src="static/parallax/section-3-characters.png" id="characters" data-scale="10" />
                 <div class="center">
                     <h1 id="discover">Descubre el juego que convierte</br> las <span>Matemáticas</span> en diversión
                     </h1>
@@ -318,10 +317,10 @@
                 <h2 id="title">Mira el video y descubre el sorprendente mundo de los NumberBlocks!</h2>
                 <div id="video-container">
                     <iframe id="iframe-demo"
-                        src="https://www.youtube.com/embed/0YKa9DQYdRg?si=6LRcFilQ8qrs2hE5&autoplay=1&mute=1"
-                        title="NumberBlocks Demo" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            src="https://www.youtube.com/embed/0YKa9DQYdRg?si=6LRcFilQ8qrs2hE5&autoplay=1&mute=1"
+                            title="NumberBlocks Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -332,7 +331,7 @@
 
         <section id="section-6">
             <model-viewer id="character-3d-placeholder" src="models/one.glb" alt="A 3D model" camera-controls
-                auto-rotate poster="static/parallax/section-6-3d-placeholder.png" shadow-intensity="1"></model-viewer>
+                          auto-rotate poster="static/parallax/section-6-3d-placeholder.png" shadow-intensity="1"></model-viewer>
             <div class="container">
                 <h2 id="title">¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!
                 </h2>
@@ -355,18 +354,38 @@
         <section id="section-7">
             <div class="container">
                 <div class="flex">
-                    <img class="card" src="static/parallax/section-7-1.png" />
-                    <img class="card" src="static/parallax/section-7-2.png" />
-                    <img class="card" src="static/parallax/section-7-3.png" />
-                    <img class="card" src="static/parallax/section-7-4.png" />
-                    <img class="card" src="static/parallax/section-7-5.png" />
+                    <div class="card" id="one">
+                        <img src="static/parallax/section-7-1.png" />
+                    </div>
+                    <div class="card" id="two">
+                        <img src="static/parallax/section-7-2.png" />
+                    </div>
+                    <div class="card" id="three">
+                        <img src="static/parallax/section-7-3.png" />
+                    </div>
+                    <div class="card" id="four">
+                        <img src="static/parallax/section-7-4.png" />
+                    </div>
+                    <div class="card" id="five">
+                        <img src="static/parallax/section-7-5.png" />
+                    </div>
                 </div>
                 <div class="flex">
-                    <img class="card" src="static/parallax/section-7-6.png" />
-                    <img class="card" src="static/parallax/section-7-7.png" />
-                    <img class="card" src="static/parallax/section-7-8.png" />
-                    <img class="card" src="static/parallax/section-7-9.png" />
-                    <img class="card" src="static/parallax/section-7-10.png" />
+                    <div class="card" id="six">
+                        <img src="static/parallax/section-7-6.png" />
+                    </div>
+                    <div class="card" id="seven">
+                        <img src="static/parallax/section-7-7.png" />
+                    </div>
+                    <div class="card" id="eight">
+                        <img src="static/parallax/section-7-8.png" />
+                    </div>
+                    <div class="card" id="nine">
+                        <img src="static/parallax/section-7-9.png" />
+                    </div>
+                    <div class="card" id="ten">
+                        <img src="static/parallax/section-7-10.png" />
+                    </div>
                 </div>
             </div>
         </section>
@@ -431,7 +450,13 @@
                 </p>
                 <img src="static/parallax/footer-social.png" id="social" />
             </div>
+
         </footer>
+
+        <section class="spreadsheets">
+            <div class="lair"></div>
+            <div class="sprite-1"></div>
+        </section>
 
     </main>
     <script src="scripts/ScrollParalax.js"></script>

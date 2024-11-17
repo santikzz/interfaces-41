@@ -13,6 +13,10 @@ body {
     overflow-x: hidden;
 }
 
+.body-no-overflow {
+    overflow: hidden;
+}
+
 /* ====================================================================== */
 /*                                HEADER
 /* ====================================================================== */
@@ -61,7 +65,7 @@ body {
     height: 86px;
 }
 
-#header button {
+#header #buynow {
     background-color: #83C252;
     height: 66px;
     width: 200px;
@@ -75,7 +79,51 @@ body {
     line-height: 94.5%;
     letter-spacing: 11%;
     color: #FFFFFF;
+    cursor: pointer;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    overflow: hidden;
 }
+
+#header #buynow:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 14px 15px #02187E;
+}
+
+#header #buynow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    z-index: 1;
+    transition: none;
+    /* Initially hide the pseudo-element */
+    opacity: 0;
+}
+
+@keyframes slide {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+#header #buynow:hover::before {
+    opacity: 1;
+    animation: slide 2s infinite;
+}
+
+/* #header #buynow:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 #000;
+    background-color: #000;
+    color: #fff;
+} */
 
 #header .hamburgesa {
     cursor: pointer;
@@ -394,6 +442,7 @@ main {
 #section-3 {
     position: relative;
     height: 1157px;
+    overflow: hidden;
 }
 
 #section-3 .container {
@@ -471,16 +520,17 @@ main {
     font-size: 60px;
     text-align: start;
     margin-left: 100px;
-    margin-top: 100px; /*revisar estos pixeles*/
+    margin-top: 100px;
+    /*revisar estos pixeles*/
 }
 
 .block {
     opacity: 0;
-    transition: opacity 0.4s ease-in-out; 
+    transition: opacity 0.4s ease-in-out;
 }
 
 .block.visible {
-    opacity: 1; 
+    opacity: 1;
 }
 
 .block.hidden {
@@ -637,10 +687,64 @@ main {
     justify-content: space-between;
 }
 
-#section-7 .container .flex .card {
+#section-7 .card {
     width: 252px;
     height: 373px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 200ms ease;
 }
+
+#section-7 .card img {
+    width: 100%;
+    height: 100%;
+    transition: transform 200ms ease;
+}
+
+#section-7 .card:hover img {
+    transform: scale(1.1);
+}
+
+#section-7 .card:hover#one {
+    box-shadow: 0 0 50px #e3111a;
+}
+
+#section-7 .card:hover#two {
+    box-shadow: 0 0 50px #d98934;
+}
+
+#section-7 .card:hover#three {
+    box-shadow: 0 0 50px #e1c71c;
+}
+
+#section-7 .card:hover#four {
+    box-shadow: 0 0 50px #58eb00;
+}
+
+#section-7 .card:hover#five {
+    box-shadow: 0 0 50px #45f2ff;
+}
+
+#section-7 .card:hover#six {
+    box-shadow: 0 0 50px #552bb1;
+}
+
+#section-7 .card:hover#seven {
+    box-shadow: 0 0 50px #be71d9;
+}
+
+#section-7 .card:hover#eigth {
+    box-shadow: 0 0 50px #dd2d90;
+}
+
+#section-7 .card:hover#nine {
+    box-shadow: 0 0 50px #aaaaa8;
+}
+
+#section-7 .card:hover#ten {
+    box-shadow: 0 0 50px #e12421;
+}
+
 
 /* ====================================================================== */
 /*                                SECTION 8                                   
@@ -831,4 +935,57 @@ footer .container #copyright a {
 
 footer .container #social {
     margin-top: 30px;
+}
+
+.spreadsheets {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.spreadsheets .sprite-1 {
+    position: absolute;
+    width: 52px;
+    height: 110px;
+    bottom: 50px;
+    left: 100px;
+    transform: scale(1.8);
+    background: url('../static/parallax/raiden.png');
+    background-size: auto 100%;
+    animation: play-sprite 0.75s steps(7) infinite;
+}
+
+@keyframes play-sprite {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+
+.spreadsheets .lair {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background-color: red;
+    background-image: url('../static/parallax/lair.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    animation: infiniteScroll 10s linear infinite;
+}
+
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }

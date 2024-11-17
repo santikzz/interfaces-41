@@ -13,8 +13,9 @@
 
 .loader-train {
 
-    position: static;
-    background-color: skyblue;
+    z-index: 2000;
+    position: relative;
+    background-color: rgb(96, 206, 250);
     overflow: hidden;
     height: 100vh;
     display: flex;
@@ -22,9 +23,10 @@
     align-content: center;
     align-items: center;
     justify-content: flex-end;
-    /* animation: camera-zoom 5s ease forwards; */
 
-    z-index: 2000;
+    /* descomentar para ocultar el loader */
+    /* vvvvvvvvvvvvvvv */
+    /* display: none; */
 }
 
 .loader-train.hidden {
@@ -150,7 +152,7 @@
 
 .mountains-wrapper .mointains-layer-1 {
     position: absolute;
-    bottom: -100px;
+    bottom: -130px;
     left: 0;
     height: 200%;
     width: 200%;
@@ -162,7 +164,7 @@
 
 .mountains-wrapper .mointains-layer-2 {
     position: absolute;
-    bottom: -70px;
+    bottom: -50px;
     left: 0;
     height: 200%;
     width: 200%;
