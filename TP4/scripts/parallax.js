@@ -16,6 +16,9 @@ const handleHeaderScroll = () => {
         header.classList.remove('shrink');
     }
 }
+document.querySelector('.hamburgesa').addEventListener('click', function() {
+    this.classList.toggle('active');
+});
 
 /* ======================== SECTION 2 ======================= */
 const handleSection2Carousel = () => {

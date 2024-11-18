@@ -128,11 +128,17 @@ body {
 #header .hamburgesa {
     cursor: pointer;
     height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #header .hamburgesa .bars {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    position: relative;
 }
 
 #header .hamburgesa .bars span {
@@ -142,9 +148,35 @@ body {
     border: 4px solid #FFFFFF;
     border-radius: 111px;
     box-shadow: 4px 5px #02187E;
-    transition: all 200ms ease;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
 }
 
+#header .hamburgesa .bars span:nth-child(1) {
+    top: 0;
+}
+
+#header .hamburgesa .bars span:nth-child(2) {
+    top: 10px;
+}
+
+#header .hamburgesa .bars span:nth-child(3) {
+    top: 20px;
+}
+
+#header .hamburgesa.active .bars span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px); /* se rota a 45 y se le saca la sombra */
+    box-shadow: none;
+}
+
+#header .hamburgesa.active .bars span:nth-child(2) { /*linea del medio, desaparece*/
+    opacity: 0;
+}
+
+#header .hamburgesa.active .bars span:nth-child(3) {/* se rota a -45 y se le saca la sombra*/ 
+    transform: rotate(-45deg) translate(6px, -6px);
+    box-shadow: none;
+}
 #header .button {
     width: 200px;
     height: 40px;
