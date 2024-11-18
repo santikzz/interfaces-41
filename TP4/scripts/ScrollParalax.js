@@ -1,7 +1,6 @@
 // Variables globales
 const section = document.getElementById("section-4");
 const imgScroll = document.getElementById("character-0");
-const blocks = document.getElementsByClassName("block");
 
 const images = [];
 for (let i = 0; i <= 10; i++) {
@@ -15,46 +14,38 @@ function calculateIndex(sectionScroll) {
     let index = Math.floor(sectionScroll / cambiarCadaXPixeles);
 
     // Aseguramos que el índice esté dentro del rango válido
-    if (index >= images.length) {
-        index = images.length - 1;
-    } else if (index < 0) {
-        index = 0;
-    }
-
-    return index;
+    return Math.max(0, Math.min(index, images.length - 1));
 }
 
 function updateImage(index) {
-    if (imgScroll.src !== images[index]) {
-        imgScroll.src = images[index];
+    // Verificar si ya se está mostrando la imagen correcta
+    if (imgScroll.dataset.currentIndex !== index.toString()) {
+        imgScroll.dataset.currentIndex = index; // Actualizar índice actual
+
+        // Cambiar imagen después de la transición
+        imgScroll.classList.remove("visible-img"); // Remover estilos visibles
+        imgScroll.classList.add("hidden-img"); // Aplicar estilos de ocultar
+
+        setTimeout(() => {
+            imgScroll.src = images[index]; // Cambiar la fuente de la imagen
+            imgScroll.classList.remove("hidden-img"); // Remover clase de ocultar
+            imgScroll.classList.add("visible-img"); // Aplicar clase de visible
+        }, 500); // Ajustar al tiempo de transición en CSS
     }
 }
 
-// Muestra el bloque correspondiente y oculta los demás
-function updateBlocks(index) {
-    for (let i = 0; i < blocks.length; i++) {
-        if (i === index) {
-            blocks[i].classList.add("visible"); // Mostrar bloque de texti actual
-            blocks[i].classList.remove("hidden");
-        } else {
-            blocks[i].classList.add("hidden"); // Ocultar otros bloques
-            blocks[i].classList.remove("visible");
-        }
-    }
-}
-
-// Maneja el evento de scroll
 function handleScroll() {
-    const sectionPosition = section.getBoundingClientRect();
-    const scrollPosition = window.scrollY; 
-    const sectionTop = scrollPosition + sectionPosition.top; 
-    const sectionScroll = scrollPosition - sectionTop; 
+    const sectionTop = section.offsetTop; // Obtener posición de la sección
+    const sectionHeight = section.offsetHeight;
+    const scrollPosition = window.scrollY; // Obtener posición actual del scroll
+
+    // Calculamos la posición relativa del scroll dentro de la sección
+    const sectionScroll = scrollPosition - sectionTop;
 
     // Verificamos si el scroll está dentro de la sección
-    if (sectionScroll >= 0 && sectionScroll <= section.offsetHeight) {
+    if (sectionScroll >= 0 && sectionScroll <= sectionHeight) {
         const currentIndex = calculateIndex(sectionScroll); // Calculamos el índice
-        updateImage(currentIndex); // Cambiamos la imagen
-        updateBlocks(currentIndex); // Actualizamos los bloques
+        updateImage(currentIndex); // Actualizamos la imagen
     }
 }
 
@@ -62,4 +53,5 @@ function addScrollListener() {
     window.addEventListener("scroll", handleScroll);
 }
 
+// Inicializar
 addScrollListener();
