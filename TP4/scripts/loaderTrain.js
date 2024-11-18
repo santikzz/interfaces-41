@@ -21,12 +21,13 @@ const interval = setInterval(updateProgress, 75);
 
 loaderButton.addEventListener('click', () => {
     loader.classList.add('hidden');
+    body.classList.remove('body-no-overflow');
 });
 
-const hideLoader = () => {
-    loader.style.display = 'none';
-    body.classList.remove('body-no-overflow');
-}
+// const hideLoader = () => {
+//     loader.style.display = 'none';
+//     body.classList.remove('body-no-overflow');
+// }
 
 function animateClouds() {
     clouds.forEach(cloud => {

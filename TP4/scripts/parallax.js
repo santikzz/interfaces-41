@@ -1,10 +1,11 @@
-window.addEventListener('scroll', function () {
-
-    handleHeaderScroll();
-    handleHeroScroll();
-    handleSection2Scroll();
-
-});
+const handleParallaxClass = () => {
+    const elements = document.querySelectorAll('.parallax');
+    elements.forEach(element => {
+        const speed = element.getAttribute('data-speed');
+        const y_pos = -(window.scrollY * speed);
+        element.style.transform = `translateY(${y_pos}px)`;
+    });
+}
 
 /* ======================== HEADER ======================== */
 const handleHeaderScroll = () => {
@@ -16,51 +17,22 @@ const handleHeaderScroll = () => {
     }
 }
 
-const getLayerScrollOffsetY = (layer) => {
-    const speed = layer.getAttribute('data-speed');
-    const y_pos = window.scrollY * speed;
-    return y_pos;
-}
-
-/* ======================== SECTION 1 HERO ================= */
-const handleHeroScroll = () => {
-    const section = document.getElementById('section-hero');
-    const layers = section.querySelectorAll('.layer').forEach(layer => {
-        const speed = layer.getAttribute('data-speed');
-        const y_pos = window.scrollY * speed;
-        layer.style.transform = `translateY(${-y_pos}px)`;
-    })
-}
-
 /* ======================== SECTION 2 ======================= */
-let section_2_carousel_index = 0;
-const section_2_carousel = document.querySelector('.scroller');
-
-const carousel_interval = setInterval(() => {
-    section_2_carousel_index = section_2_carousel_index + 1;
-    section_2_carousel.style.transform = `translateX(${-517.5 * (section_2_carousel_index % 3)}px)`;
-}, 3000);
-
-const handleSection2Scroll = () => {
-    const section = document.getElementById('section-2');
-    const layer_left = section.querySelector('#character-4');
-    const layer_right = section.querySelector('#character-5');
-
-    const speed_left = layer_left.getAttribute('data-speed');
-    const speed_right = layer_right.getAttribute('data-speed');
-    const y_pos_left = window.scrollY * speed_left;
-    const y_pos_right = window.scrollY * speed_right;
-
-    layer_left.style.transform = `translateY(${-y_pos_left}px)`;
-    layer_right.style.transform = `translateY(${-y_pos_right}px)`;
+const handleSection2Carousel = () => {
+    let index = 0;
+    const carousel = document.querySelector('.scroller');
+    setInterval(() => {
+        index = index + 1;
+        carousel.style.transform = `translateX(${-517.5 * (index % 3)}px)`;
+    }, 3000);
 }
 
+// floaters que aparecen de a uno
 document.addEventListener('DOMContentLoaded', () => {
     const floaters = document.querySelectorAll('.floater');
     const observerOptions = { // opciones del IntersectionObserver; el evento se activa cuando el 10% del elemento sea visible
         threshold: 0.1
     };
-
     const onIntersection = (entries, observer) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) { // si el elemento es al menos un 10% visible
@@ -71,7 +43,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
     const observer = new IntersectionObserver(onIntersection, observerOptions);
     floaters.forEach(floater => observer.observe(floater));
 });
+
+/* ======================== SECTION 3 ======================= */
+
+const handleSection3Magnet = (event) => {
+    const section = document.querySelector('#section-3');
+    const characters = section.querySelector('#characters');
+
+    const rect = section.getBoundingClientRect();
+
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+
+    const offsetX = (mouseX / rect.width - 0.5) * 2;
+    const offsetY = (mouseY / rect.height - 0.5) * 2;
+
+    const scale = -(characters.getAttribute('data-scale'));
+
+    characters.style.transform = `translate(${offsetX * scale}px, ${offsetY * scale}px)`;
+}
+
+/* ============== CREATE EVENT LISTENERS & INIT ============== */
+
+document.addEventListener('mousemove', (event) => {
+    handleSection3Magnet(event);
+});
+
+window.addEventListener('scroll', function () {
+    handleHeaderScroll();
+    handleParallaxClass();
+});
+
+handleSection2Carousel();
