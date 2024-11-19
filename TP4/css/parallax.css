@@ -194,6 +194,71 @@ main {
 /*                             SECTION 1 HERO                                  
 /* ====================================================================== */
 
+/* ANIMACIONES DE ENTRADA */
+#arbol-1, #arbol-2, #arbol-3, #character-2{
+    opacity: 0;
+    animation: fadeInMoveTop 0.5s ease-in forwards; 
+}
+
+#bush-1, #character-1, #character-3{
+    opacity: 0;
+    animation: fadeInMoveBottom 0.5s ease-in forwards; 
+}
+
+#rock-1, #rock-2, #rock-3, #rock-4{
+    opacity: 0;
+    animation: fadeInMoveLeft 0.5s ease-in forwards; 
+}
+
+#bush-2, #bush-3, #bush-4{
+    opacity: 0;
+    animation: fadeInMoveRight 0.5s ease-in forwards; 
+}
+
+@keyframes fadeInMoveTop {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInMoveBottom {
+    from {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInMoveLeft {
+    from {
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInMoveRight {
+    from {
+        transform: translateX(-150px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 #section-hero {
     height: 959px;
     width: 100%;
@@ -208,7 +273,7 @@ main {
     position: absolute;
     top: 0;
     left: -153px;
-    z-index: 30;
+    z-index: 30;  
 }
 
 #section-hero #arbol-2 {

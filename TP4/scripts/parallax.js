@@ -20,6 +20,7 @@ document.querySelector('.hamburgesa').addEventListener('click', function() {
     this.classList.toggle('active');
 });
 
+
 /* ======================== SECTION 2 ======================= */
 const handleSection2Carousel = () => {
     let index = 0;
