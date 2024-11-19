@@ -2,8 +2,9 @@ const handleParallaxClass = () => {
     const elements = document.querySelectorAll('.parallax');
     elements.forEach(element => {
         const speed = element.getAttribute('data-speed');
+        const dir = element.getAttribute('data-dir').toUpperCase();
         const y_pos = -(window.scrollY * speed);
-        element.style.transform = `translateY(${y_pos}px)`;
+        element.style.transform = `translate${dir}(${y_pos}px)`;
     });
 }
 
@@ -16,10 +17,15 @@ const handleHeaderScroll = () => {
         header.classList.remove('shrink');
     }
 }
-document.querySelector('.hamburgesa').addEventListener('click', function() {
-    this.classList.toggle('active');
-});
 
+const handleHamburgerMenu = () => {
+    const header = document.querySelector('#header');
+    const dropdown = header.querySelector('.dropdown');
+    header.querySelector('.hamburguesa').addEventListener('click', function () {
+        this.classList.toggle('active');
+        dropdown.classList.toggle('visible');
+    });
+}
 
 /* ======================== SECTION 2 ======================= */
 const handleSection2Carousel = () => {
@@ -31,25 +37,25 @@ const handleSection2Carousel = () => {
     }, 3000);
 }
 
-// floaters que aparecen de a uno
-document.addEventListener('DOMContentLoaded', () => {
-    const floaters = document.querySelectorAll('.floater');
-    const observerOptions = { // opciones del IntersectionObserver; el evento se activa cuando el 10% del elemento sea visible
-        threshold: 0.1
+const handleSection2Floaters = () => {
+    const section = document.querySelector('#section-2');
+    const floaters = section.querySelectorAll('.floater');
+    const observerOptions = {
+        threshold: 0.5,
     };
-    const onIntersection = (entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
-            if (entry.isIntersecting) { // si el elemento es al menos un 10% visible
+            if (entry.isIntersecting) {
                 setTimeout(() => {
-                    entry.target.classList.add('visible'); // le agrego la clase 'visible' al elemento con un retraso
-                }, index * 300); // el retraso es de 0.3 segundos multiplicado por el índice, asi aparece uno desp del otro
-                observer.unobserve(entry.target); // dejo de observar
+                    entry.target.classList.add('visible');
+                }, index * 300);
+            } else {
+                entry.target.classList.remove('visible');
             }
         });
-    };
-    const observer = new IntersectionObserver(onIntersection, observerOptions);
-    floaters.forEach(floater => observer.observe(floater));
-});
+    }, observerOptions);
+    floaters.forEach((floater) => observer.observe(floater));
+}
 
 /* ======================== SECTION 3 ======================= */
 
@@ -70,6 +76,39 @@ const handleSection3Magnet = (event) => {
     characters.style.transform = `translate(${offsetX * scale}px, ${offsetY * scale}px)`;
 }
 
+/* ======================== SECTION 4 ======================= */
+function handleSection4Scroll() {
+
+    const section = document.querySelector("#section-4");
+    const blocks = section.querySelectorAll('.block');
+    const images = section.querySelectorAll('.hidden');
+
+    const observerOptions = {
+        root: null,
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const index = Array.from(blocks).indexOf(entry.target);
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add('visible');
+
+                images.forEach((img) => img.classList.remove('visible'));
+                // blocks.forEach((block) => block.classList.remove('visible'));
+
+                if (images[index]) {
+                    images[index].classList.add('visible');
+                }
+            }
+        });
+    }, observerOptions);
+
+    blocks.forEach((block) => observer.observe(block));
+}
+
 /* ============== CREATE EVENT LISTENERS & INIT ============== */
 
 document.addEventListener('mousemove', (event) => {
@@ -79,6 +118,13 @@ document.addEventListener('mousemove', (event) => {
 window.addEventListener('scroll', function () {
     handleHeaderScroll();
     handleParallaxClass();
+    handleSection4();
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+    handleSection4Scroll();
+    handleSection2Floaters();
+});
+
+handleHamburgerMenu();
 handleSection2Carousel();
