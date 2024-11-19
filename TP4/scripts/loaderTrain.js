@@ -55,3 +55,8 @@ animateClouds();
 // setTimeout(() => {
 //     hideLoader();
 // }, 10000);
+
+//al apretar continuar activar las animaciones de entrada
+loaderButton.addEventListener("click", () => {
+    
+})

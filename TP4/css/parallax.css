@@ -1143,11 +1143,11 @@ footer footer .spritesheets {
 footer .spritesheets .sprite-9 {
     background-image: url('../static/parallax/sprite-9.png');
     animation: play-sprite 2s steps(39) infinite;
-    height: 100px;
+    height: 105px;
     width: 200px;
     position: absolute;
     left: 800px;
-    bottom: 50px;
+    bottom: 45px;
     transform: scale(1.5);
 }
 
