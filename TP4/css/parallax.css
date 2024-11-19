@@ -1086,3 +1086,34 @@ footer .container #social {
         transform: translateX(-50%);
     }
 }
+
+.spread-oli{
+    height: 200px;
+    width: 100%;
+    background-color: pink;
+    text-align: center;
+}
+
+.spreadsheet1{
+    background-image: url('../static/parallax/spritesheet1.png');
+    animation: sprite1 2s steps(15) infinite;
+    height: 100px;
+    width: 200px;
+    display: inline-block;
+    background-position: -3000px;
+}
+
+@keyframes sprite1 {
+    0% {
+        background-position: 3000px;
+    }
+    33% {
+        background-position: 0px; 
+    }
+    69%{
+        background-position: -3000px; 
+    }
+    100%{
+        background-position: 0px; 
+    }
+}
